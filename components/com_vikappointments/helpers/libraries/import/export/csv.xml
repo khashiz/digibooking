@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fieldset name="basic">
+
+		<field 
+			name="import_args[delimiter]" 
+			type="list"
+			label="VAPDELIMITER"
+			description="VAPDELIMITER_DESC"
+		>
+			<option value="">JOPTION_USE_DEFAULT</option>
+			<option value=",">VAPCOMMA</option>
+			<option value=";">VAPSEMICOLON</option>
+		</field>
+
+		<field 
+			name="import_args[enclosure]" 
+			type="list"
+			label="VAPENCLOSURE"
+			description="VAPENCLOSURE_DESC"
+		>
+			<option value="">JOPTION_USE_DEFAULT</option>
+			<option value="&quot;">VAPDOUBLEQ</option>
+			<option value="'">VAPSINGQ</option>
+		</field>
+
+	</fieldset>
+</form>

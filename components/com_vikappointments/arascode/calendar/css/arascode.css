@@ -1,0 +1,20 @@
+.aras_calendar_input{
+    background: url("../images/arasjoomla_calendar.png") no-repeat;
+    cursor: pointer;
+    width: 135px;
+}
+input[readonly]{cursor: pointer !important;}
+.ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button,.ui-widget{
+    font-family: tahoma !important;
+}
+
+#created_h_chzn span,#publish_up_h_chzn span,#publish_down_h_chzn span,.aras_h{
+     background: url("../images/aras_h.png") no-repeat;
+     margin-top: 1px;
+}
+#created_m_chzn span,#publish_up_m_chzn span,#publish_down_m_chzn span,.aras_m{
+     background: url("../images/aras_m.png") no-repeat;
+     margin-top: 3px;
+}
+.ui-state-active{background: #2F6F2F !important;color: #f9f9f9 !important;}
+.aras_h,.aras_m{background-position: 20px 1px;height: 30px;}

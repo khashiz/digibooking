@@ -1,0 +1,2216 @@
+i.fa.big {
+	font-size: 18px;
+	vertical-align: middle;
+}
+i.fa.medium-big {
+	font-size: 16px;
+	vertical-align: middle;
+}
+
+i.fa.input-align {
+	font-size: 18px;
+	vertical-align: top;
+	line-height: 28px;
+	margin-left: 20px;
+}
+
+/* popover */
+
+table.table-striped i.vap-quest-popover {
+	/* ignore margin when popover is inside a list table */
+	margin-left: 0;
+	transform: none !important;
+}
+i.vap-quest-popover {
+	font-size: 14px;
+	vertical-align: top;
+	transform: translateY(50%);
+	margin-left: 10px;
+	color: #999;
+	cursor: pointer;
+}
+i.vap-quest-popover:hover {
+	color: #444;
+}
+
+/* confirmation dialog */
+
+.vik-confirm-overlay {
+	display: none;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: rgba(0, 0, 0, 0.40);
+	z-index: 10001;
+}
+
+.vik-confirm-dialog {
+	position: absolute;
+	top: 40%;
+	left: 50%;
+	transform: translateX(-50%);
+	padding: 10px 0;
+	background: #fff;
+	width: 440px;
+	border-radius: 6px;
+	box-shadow: 4px 4px 5px 0 #848484;
+	font-size: 14px;
+}
+
+.vik-confirm-message {
+	padding: 10px 25px 20px 25px;
+	border-bottom: 1px solid #e6e6e6;
+}
+
+.vik-confirm-buttons {
+	padding: 10px 25px;
+}
+
+.vik-confirm-buttons a:first-child {
+	font-weight: bold;
+	margin-right: 0;
+}
+
+.vik-confirm-buttons > a {
+	float: right;
+	margin: 0 8px;
+	cursor: pointer;
+	color: #2c74fa;
+}
+
+.vik-confirm-buttons > a:hover {
+	text-decoration: none;
+	color: #2c74fa;
+}
+
+/* update page */
+
+.vap-box-error {
+	padding: 15px 10px;
+	border: 2px dashed #900;
+	color: #900;
+	font-weight: bolder;
+}
+
+.vap-update-changelog {
+	padding: 0 10px;
+	border: 2px dashed #999;
+}
+.vap-update-changelog h2 {
+	margin-bottom: 25px;
+}
+.vap-update-changelog ul li strong {
+	display: inline-block;
+	width: 220px;
+}
+.vap-update-changelog div.box-separator {
+	border-top: 1px solid #bbb;
+	margin: 20px 0;
+}
+
+/* loading overlay */
+
+.vap-loading-overlay.lock {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(63, 63, 63, 0.80);
+	z-index: 10000;
+}
+.vap-loading-box {
+	background: url('./images/loading.gif');
+	width: 120px;
+	height: 120px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+.vap-loading-box-message {
+	position: absolute;
+	top: 30%;
+	left: 50%;
+	color: #fff;
+	transform: translate(-50%, -50%);
+	text-align: center;
+	font-weight: bolder;
+	border: 1px solid #fff;
+	padding: 10px 20px;
+}
+
+/* smart overlay (used in findreservation view) */
+
+.smart-overlay {
+	position: absolute;
+	width: 300px;
+	max-height: 200px;
+	background: #232323;
+	color: #fff;
+	opacity: 0.8;
+	overflow-y: scroll;
+}
+.smart-overlay-loading {
+	padding: 10px;
+	text-align: center;
+}
+.smart-overlay .overlay-record {
+	padding: 10px;
+	border-bottom: 1px solid #fff;
+}
+.smart-overlay .overlay-record:last-child {
+	border-bottom: 0;
+}
+.smart-overlay .overlay-record .record-column {
+	display: inline-block;
+	vertical-align: top;
+}
+.smart-overlay .overlay-record .record-column.col-id {
+	width: 20%;
+}
+.smart-overlay .overlay-record .record-column.col-name {
+	width: 47%;
+}
+.smart-overlay .overlay-record .record-column.col-count {
+	width: 30%;
+}
+
+.vaptimeline-hover-tip {
+	display: block;
+	margin: 20px 0;
+	font-size: smaller;
+	font-style: italic;
+}
+
+/* custom fields */
+
+.vap-customf-choose {
+	margin-bottom: 10px;
+}
+.vap-customf-choose input {
+	margin: 0 5px;
+}
+
+/* sortable */
+
+.vap-sortable {
+	background: url(images/sort-dots.png) center center no-repeat;
+	width: 3px;
+	height: 13px;
+	display: inline-block;
+	float: left;
+	margin: 8px 7px 0;
+	cursor: all-scroll;
+}
+.vap-sortable:hover {
+	opacity: 0.70;
+}
+
+/* native */
+
+.icon-48-vikappointments {
+	background: url('./images/icon-48-vikappointments.png') no-repeat;
+}
+
+.icon-vikappointments:before {
+	content: "\43";
+}
+
+.select2-search .select2-input {
+	width: 100% !important;
+}
+
+.vapwdclosed {
+	background-image: url('./images/disabled.png');
+	background-position: left center;
+	background-repeat: no-repeat;
+	padding: 5px 0 5px 18px;
+}
+
+.scrollable-hor {
+	overflow-x: auto;
+	/* reserve some space on the bottom for the horizontal scrollbar */
+	padding-bottom: 20px;
+}
+
+#vapfooter {
+	font-size: x-small;
+	text-align: center;
+	clear: both;
+	margin: 5px 0 50px 0 !important;  
+	padding-top: 10px;
+}
+
+.vapmediatext {
+	vertical-align: middle;	
+}
+
+.vapmediasavelink {
+	width: 16px;
+	height: 16px;
+	background: url(images/ok.png) no-repeat;
+	display: inline-block;
+	/*vertical-align: middle;*/
+}
+
+.vaprequired {
+	border: 1px solid #FF0000 !important;
+}
+
+.vapheadcolactive1 {
+	background: url('./images/sortasc.png') right center no-repeat;
+	padding: 0 14px 0 0;
+}
+
+.vapheadcolactive2 {
+	background: url('./images/sortdesc.png') right center no-repeat;
+	padding: 0 14px 0 0;
+}
+
+.vaptdday, .vaptdnoday {
+	width: 26px;
+	height: 26px;
+}
+
+.vapdivday {
+	text-align: center;
+	vertical-align:middle;
+	font-weight: bold;
+}
+
+.vaptdgreen {
+	background-color: #02AE36;
+}
+
+.vaptdyellow {
+	background-color: #FFAA00;
+}
+
+.vaptdred {
+	background-color: #F01B17;
+}
+
+.vaptdgrey {
+	background-color: #fff;
+	color: #666;
+}
+.vaptdgrey a {
+	color: #666 !important;
+}
+.vaptbodycal td.vaptdred a, .vaptbodycal td.vaptdyellow a, .vaptbodycal td.vaptdgreen a {
+	color: #FFFFFF !important;
+}
+.vapcalendardiv {
+	display: inline-block;
+	vertical-align: top;
+}
+.vaptimelinewt a {
+	color: #fff !important;
+	background: transparent !important;
+}
+.vaptimelinewt div {
+	/*color: #FFFFFF;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 7px 7px 5px;*/
+}
+.vap-timeline-block {
+	padding: 7px 10px 7px;
+	font-size: 12px;
+	font-weight: bold;
+	color: #fff;
+	margin: 2px 0;
+	width: auto;
+	height: auto;
+	text-align: center;
+	display: inline-block;
+	border: 0;
+	border-radius: 5px;
+}
+
+.vaptlblock0 {
+	background-color: #F01B17;
+}
+	
+.vaptlblock1 {
+	background-color: #02AE36;
+}
+
+.vaptlblock2 {
+	background-color: #FFAA00;
+}
+.vapreservationslistdiv {
+	margin: 10px 0 0 0;
+	font-size: 15px;
+}
+.vaptimelinewt {
+	display: inline-block;
+	margin-right: 15px;
+	/*margin-top: 20px;*/
+	margin-top: 10px;
+}
+
+/* new 1.6 timeline layout */
+
+.vaptimeline .ratesgrid {
+	padding: 0;
+}
+.vaptimeline .vaptlblock1:hover {
+	background: #2c8647;
+}
+/*.vaptimeline .vaptlblock1.vaptimeselected:hover {
+	background: #069;
+}*/
+.vaptimeline .ratesgrid.vaptlblock0, .vaptimeline .ratesgrid.vaptlblock1, .vaptimeline .ratesgrid.vaptlblock2 {
+	background: transparent;
+}
+.vaptimeline .ratesgrid.vaptlblock0 .vap-timeline-itemdate {
+	background-color: #F01B17;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+.vaptimeline .ratesgrid.vaptlblock1 .vap-timeline-itemdate {
+	background-color: #02AE36;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+.vaptimeline .ratesgrid.vaptlblock2 .vap-timeline-itemdate {
+	background-color: #FFAA00;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+.vaptimeline .ratesgrid.vaptlblock1:hover .vap-timeline-itemdate {
+	background: #2c8647;
+}
+.vaptimeline .ratesgrid.vaptlblock1.vaptimeselected .vap-timeline-itemdate {
+	background-color: #069;
+}
+.vaptimeline .ratesgrid span {
+	display: block;
+}
+.vaptimeline .ratesgrid .vap-timeline-itemdate {
+	padding: 7px 10px;
+}
+.vaptimeline .ratesgrid .vap-timeline-itemdate i,
+.vaptimeline .ratesgrid .vap-timeline-itemseats i {
+	font-size: 14px;
+	margin-right: 2px;
+}
+.vaptimeline .ratesgrid .vap-timeline-itemprice,
+.vaptimeline .ratesgrid .vap-timeline-itemseats {
+	padding: 7px 10px;
+	background: #ccc;
+	color: #333;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+/***************************/
+
+.vaptdselected {
+	background-color: #006699;
+}
+
+.vapreservationstatusconfirmed,
+.vapreservationstatuspending,
+.vapreservationstatusremoved,
+.vapreservationstatuscanceled,
+.vapreservationstatusclosure {
+	text-transform: uppercase;
+	font-weight: bold;
+	text-decoration: none !important;
+}
+
+.vapreservationstatusconfirmed {
+	color: #008000 !important;
+}
+.vapreservationstatusremoved {
+	color: #990000 !important;
+}
+.vapreservationstatuspending {
+	color: #FF7000 !important;
+}
+.vapreservationstatuscanceled {
+	color: #F01B17 !important;
+}
+.vapreservationstatusclosure {
+	color: #C12F20 !important;
+}
+
+.vapreservationstatusconfirmed a, .vapreservationstatuspending a, .vapreservationstatusremoved a, .vapreservationstatuscanceled a {
+	text-transform: uppercase;
+	font-weight: bold;
+	text-decoration: none !important;
+}
+.vapreservationstatusconfirmed a:hover, .vapreservationstatuspending a:hover, .vapreservationstatusremoved a:hover, .vapreservationstatuscanceled a:hover {
+	text-transform: uppercase;
+	font-weight: bold;
+	text-decoration: none !important;
+}
+.vapreservationstatusconfirmed a {
+	color:#008000 !important;
+}
+.vapreservationstatusremoved a {
+	color:#990000 !important;
+}
+.vapreservationstatuspending a {
+	color:#FF7000 !important;
+}
+.vapreservationstatuscanceled a {
+	color:#F01B17 !important;
+}
+
+.vapreservationfilterdiv {
+	float: right;
+}
+.vapallcalhead .vapstatisticelem {
+	font-size: 17px;
+	color: #555;
+}
+
+.vapallcalhead {
+	font-size: 18px;
+	text-align: center;
+	background: none repeat scroll 0 0 #eee;
+	border: 1px solid #ddd;
+	font-size: 13px;
+	font-weight: bold;
+	padding: 5px 10px;
+	margin: 10px 0;
+	border-radius: 5px;
+	line-height: 21px;
+}
+.vapallcalhead .vaptitleyearsp {
+	color: #666;
+}
+.vapallcalhead a {
+	width: 20px;
+	height: 20px;
+	display: inline-block;
+	margin: 2px 0 0 0;
+}
+.vapallcalhead span {
+	float: none !important;
+	display: inline-block;
+	width: auto !important;
+	min-height: 25px !important;
+	margin: 0 !important;
+}
+.vapallcalhead .vapprevyearsp {
+	float: left !important;
+}
+.vapallcalhead .vapnextyearsp {
+	float: right !important;
+}
+.vapstattable {
+	width: 100%;
+}
+
+.vapnextyearsp {
+	float: right;
+}
+/* main menu */
+.vapmenubox {
+	display: inline-block !important;
+	border-radius: 15px;
+	padding: 15px;
+	/*width: 246px;*/
+	width: 200px;
+	color: #fff;
+	text-transform: uppercase;
+	background-position: 95% center !important;
+}
+#vapmenumanagementdiv {
+	margin: 0 0 0 20px;
+}
+.vapmenubox #vapmenumanagementdivtitle,
+.vapmenubox #vapmenuappointmentsdivtitle,
+.vapmenubox #vapmenuportaldivtitle,
+.vapmenubox #vapmenuglobaldivtitle {
+	font-size: 22px;
+	font-style: italic;
+	margin: 0 0 5px 0;
+}
+.vapmenubox a {
+	display: block;
+	width: 70%;
+	color: #fff !important;
+	font-size: 14px;
+}
+.vapmenubox .vapmenulinkactive {
+	font-weight: bold;
+}
+.vapmenubox a:hover {
+	text-decoration: none !important;
+	font-weight: bold;
+}
+#vapmenumanagementdiv {
+	background: #993300;
+}
+#vapmenuappointmentsdiv {
+	background: #996600;
+}
+#vapmenuportaldiv {
+	background: #BB9900;
+}
+#vapmenuglobaldiv {
+	background: #758383;
+}
+/* end menu */
+
+.vapcaltable {
+	font-size: 11px;
+}
+.vapcaltable .vaptheadcal tr:first-child td {
+	background: #ddd;
+	padding: 5px 0;
+	font-weight: bold;
+	font-size: 13px;
+	border:1px solid #ccc;
+}
+.vaptheadcal .vapthtabcal {
+	padding: 4px 0;
+}
+.vapcalendardiv {
+	border: 1px solid #DDDDDD;
+	border-radius: 5px;
+	display: inline-block;
+	padding: 3px;
+	vertical-align: top;
+	margin: 0 3px 8px 0;
+	background: #fff;
+}
+.vapcalendardiv:last-child {
+	margin-right: 0;
+}
+.vapstatisticelem {
+	margin: 5px;
+}
+.vapstatisticelem .vaptheadstat th {
+	text-align: left;
+	padding: 0 7px 0 0;
+}
+.vaptbodystat td {
+	border-bottom:1px dotted #ccc;
+}
+.vaptbodystat tr:last-child td {
+	border: 0;
+}
+.vaptbodystat td {
+	padding: 0 7px 3px 0;
+	width: 43px;
+}
+.vapcaltable {
+	border-collapse: collapse;
+}
+.vapcaltable .vaptbodycal {
+	padding: 2px;
+}
+.vaptbodycal td {
+	border: 1px solid #ddd;
+}
+.vapfiltersdiv {
+	display: inline-block;
+	width: 98.8%;
+	border:1px solid #ccc;
+	border-radius: 4px;
+	padding:10px;
+	margin: 10px 0 15px 0;
+}
+.vapfiltersdiv .vapempfilterdiv, .vapfiltersdiv .vepserfilterdiv {
+	float: left;
+}
+.vapstatfilterdiv {
+	float: right;
+}
+.vapempfilterdiv {
+	margin: 0 10px 0 0;
+}
+#vapcalstatbutton {
+	background: #999;
+	border-radius: 4px;
+	color: #fff;
+	border:1px solid #ccc;
+	padding:5px;
+	font-size: 12px;
+	cursor: pointer;
+	font-weight: bold;
+}
+
+.vapreservationfilterdiv {
+	float: right;
+}
+#navigation {
+	display: inline-block;
+	width: 100%;
+}
+#navigation ul {
+	margin: 10px 0 0 13px;
+	padding: 0;
+}
+#navigation ul li {
+	list-style-type: none;
+	float: left;
+	display: inline-block;
+	margin: 0 0 0 -13px;
+	position: relative;
+}
+#navigation ul li a {
+	background: #006699;
+	border:1px solid #003366;
+	border-bottom:1px solid #006699;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	text-align: center;
+	padding: 8px;
+	min-width: 155px;
+	color: #fff;
+	font-weight: bold;
+	display: inline-block;
+	font-style: italic;
+	font-size: 14px;
+}
+#navigation ul li a:hover {
+	text-decoration: none;
+	background: #0099CC;
+}
+#navigation ul li.vapconfigtabactive a {
+	background: #0099CC;
+}
+.veppeoplefilterdiv {
+	margin: 0 0 0 10px;
+	display: inline-block;
+	float: left;
+}
+
+.vaporderingsavelink {
+	display: block;
+	overflow: hidden;
+	float: right;
+	margin-right: 8px;
+}
+
+.vapchainsp {
+	width: 16px !important;
+	margin-top: 3px;
+}
+.vapchainicon {
+	width: 16px !important;
+	height: 16px;
+	display:inline-block !important;
+	overflow: hidden;
+	background: url(./images/chain.png) no-repeat;
+	float: right !important;
+	margin-right: 4px;
+	margin-top: 3px;
+}
+.vapresidlistsp {
+	float: left !important;
+	display:inline-block !important;
+	width: auto !important;
+}
+.vappackagesp {
+	width: 16px !important;
+	height: 16px;
+	display:inline-block !important;
+	overflow: hidden;
+	background: url(./images/package.png) no-repeat;
+	float: right !important;
+	margin-right: 4px;
+	margin-top: 3px;
+}
+
+.vaporderparentbox {
+	cursor: pointer;
+	background: none repeat scroll 0 0 #009922;
+	border: 0 none;
+	border-radius: 5px;
+	color: #FFFFFF;
+	display: inline-block;
+	font-weight: bold;
+	margin: 0 3px 0 0;
+	min-width: 67px;
+	padding: 4px;
+	padding-right: 16px;
+	padding-left: 16px;
+	position: relative;
+	text-transform: uppercase;
+}
+
+.vaptcostcoltext {
+	cursor: pointer;
+}
+
+.vapresfiltertoolbar, .vapcust-keyfilter-block, .vapemp-keyfilter-block, .vapser-keyfilter-block, .vapgroup-keyfilter-block, .vapmedia-keyfilter-block {
+	margin: 10px 0 10px 0;
+	display: inline-block;
+	width: 100%;
+}
+
+.vap-file-toolbar {
+	border: 1px solid #ccc;
+	padding: 5px;
+}
+.profile-image-wrapper {
+	float: right;
+	margin-right: 50px;
+	border-radius: 50%;
+	overflow: hidden;
+	width: 48px;
+	height: 48px;
+	display: inline-block;
+}
+.vap-customer-image {
+	height: 100%;
+	max-width: inherit;
+}
+
+/* search bar */
+.vap-config-searchbar {
+	position: fixed;
+	bottom:0;
+	right: 0;
+	width:100%;
+	height:80px;
+	background:#eee;
+	z-index: 100;
+}
+.vap-config-searchbar-results {
+	display: inline-block;
+	float: left;
+	padding: 15px;
+}
+.vap-config-searchbar-gotop {
+	display: inline-block;
+	float: right;
+	padding: 15px;
+}
+.vap-config-searchbar-gotop a {
+	padding: 7px 15px;
+	opacity: 0.8;
+	text-decoration: none;
+	background: #05b;
+	color: #fff;
+}
+.vap-config-searchbar-gotop a:hover {
+	text-decoration: none;
+	color: #fff;
+}
+.vap-config-searchbar-stat {
+	margin-right: 10px;
+}
+.vap-config-searchbar-control {
+	margin-right: 5px;
+}
+.vap-config-searchbar-control a {
+	width: 20px;
+	height: 20px;
+	display: inline-block;
+	vertical-align: middle;
+}
+.vap-left-arrow {
+	background-image: url('./images/lx-arrow.png');
+}
+.vap-right-arrow {
+	background-image: url('./images/rx-arrow.png');
+}
+.vap-orange-badge {
+	background-color: #ee8844 !important;
+}
+
+/* medias */
+.vap-mediaimg-filespool {
+	text-align: center;
+	margin: 40px auto;
+	position: relative;
+	display: inline-block;
+	width: 100%;
+}
+.vap-mediaimg-block {
+	width: 33%;
+	text-align: center;
+	float: left;
+}
+.vap-mediaimg-wrapper, .vap-mediaimg-wrapper-back {
+	width: 50%;
+	display: inline-block;
+	padding: 12px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	margin-bottom: 20px;
+}
+.vap-mediaimg-thumb, .vap-mediaimg-details {
+	border: 1px solid #eee;
+	height: 160px;
+	position: relative;
+}
+.vhd-mediaimg-thumb img {
+	height: 160px;
+}
+.vap-mediaimg-thumbchild {
+	max-height: 88%;
+	line-height: 160px;
+	overflow: hidden;
+}
+.vap-mediaimg-details {
+	text-align: left;
+	padding-left: 5px;
+}
+.vap-mediaimg-details input {
+	width: calc(100% - 50px) !important;
+}
+.vap-mediaimg-control label {
+	display: inline-block;
+	word-break: break-all;
+}
+.vap-mediaimg-infos {
+	display: none;
+	position: absolute;
+	width: 100%;
+	font-size: 11px;
+	bottom:0;
+}
+.vap-mediaimg-info.pull-left {
+	margin-left: 5px;
+}
+.vap-mediaimg-info.pull-right {
+	margin-right: 5px;
+}
+.vap-media-selected {
+	border-color: #82BBF5;
+}
+.vap-media-footer {
+	width: 100%;
+	text-align: center;
+	margin-bottom: 50px;
+	display: inline-block;
+}
+.vap-mediaimg-stats {
+	padding: 5px;
+	margin-right: 5px;
+	height: 35%;
+}
+.vap-mediaimg-stats.bad {
+	border: 1px solid #cc412b;
+}
+.vap-mediaimg-stats.ok {
+	border: 1px solid #10a833;
+}
+
+/* all employees timeline */
+.vaptimeline-empblock {
+	padding: 5px;
+	border: 1px solid #ccc;
+	margin: 10px 10px 10px 0;
+	border-radius: 5px;
+	display: inline-block;
+}
+
+/* new medias */
+.vap-media-droptarget {
+	padding: 5% 20px;
+	text-align:center;
+	border: 2px dashed  #bbb;
+	border-radius: 4px;
+	color: #999;
+}
+.vap-media-droptarget.drag-enter {
+	border-color: #2B4;
+}
+.vap-media-droptarget .lead {
+	font-size: 16px;
+	font-weight: bold;
+}
+.vap-media-droptarget a:hover {
+	text-decoration: none;
+}
+/* new medias progress bar */
+.vap-progressbar {
+	width: 200px;
+	height: 22px;
+	border: 1px solid #ddd;
+	border-radius: 5px; 
+	overflow: hidden;
+	display:inline-block;
+	margin:0px 10px 5px 5px;
+	vertical-align:top;
+}
+.vap-progressbar div {
+	height: 100%;
+	color: #fff;
+	text-align: center;
+	line-height: 22px;
+	width: 0;
+	background-color: #05b4ef;
+	border-radius: 3px; 
+}
+.vap-progressbar div.completed {
+	background-color: #0fdc84;
+}
+.vap-progressbar div.aborted {
+	background-color: #dc2f42;
+}
+.vap-progressbar-status:first-child {
+	border-top:1px solid #A9CCD1;
+}
+.vap-progressbar-status {
+	border-bottom:1px solid #A9CCD1;
+	min-height:25px;
+	width:700px;
+	padding:10px 10px 0px 10px;
+	vertical-align:top;
+}
+.vap-progressbar-status:nth-child(odd) {
+	background: #EBEFF0;
+}
+.vap-progressbar-status:nth-child(even) {
+	background: #EFFFF8;
+}
+.vap-progressbar-filename {
+	display: inline-block;
+	vertical-align: top;
+	width: 250px;
+	word-wrap: break-word;
+}
+.vap-progressbar-filesize {
+	display:inline-block;
+	vertical-align:top;
+	color:#30693D;
+	width:100px;
+	margin-left:10px;
+	margin-right:5px;
+}
+.vap-progressbar-abort {
+	background-color:#A8352F;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	border-radius:4px;display:inline-block;
+	color:#fff;
+	font-family:arial;font-size:13px;font-weight:normal;
+	padding:4px 15px;
+	cursor:pointer;
+	vertical-align:top;
+}
+.vap-progressbar-info {
+	display:inline-block;
+	vertical-align:top;
+}
+
+/* entire container, keeps perspective */
+.vap-mediaimg-block {
+	-webkit-perspective: 1000;
+	-moz-perspective: 1000;
+	-ms-perspective: 1000;
+	perspective: 1000;
+	-ms-transform: perspective(1000px);
+	-moz-transform: perspective(1000px);
+	-moz-transform-style: preserve-3d;
+	-ms-transform-style: preserve-3d;
+}
+/* flip the pane when hovered */
+.vap-mediaimg-block.hover .vap-mediaimg-wrapper-back {
+	-webkit-transform: rotateY(0deg);
+	-moz-transform: rotateY(0deg);
+	-o-transform: rotateY(0deg);
+	-ms-transform: rotateY(0deg);
+	transform: rotateY(0deg);
+}
+.vap-mediaimg-block.hover .vap-mediaimg-wrapper {
+	-webkit-transform: rotateY(180deg);
+	-moz-transform: rotateY(180deg);
+	-o-transform: rotateY(180deg);
+	transform: rotateY(180deg);
+}
+/* flip speed goes here */
+.vap-mediaimg-innerblock {
+	-webkit-transition: 0.6s;
+	-webkit-transform-style: preserve-3d;
+	-ms-transition: 0.6s;
+	-moz-transition: 0.6s;
+	-moz-transform: perspective(1000px);
+	-moz-transform-style: preserve-3d;
+	-ms-transform-style: preserve-3d;
+	transition: 0.6s;
+	transform-style: preserve-3d;
+	position: relative;
+	display: block;
+	height: 250px;
+	margin: 0 auto;
+	width: 250px;
+}
+/* hide back of pane during swap */
+.vap-mediaimg-wrapper, .vap-mediaimg-wrapper-back {
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	-ms-backface-visibility: hidden;
+	backface-visibility: hidden;
+	-webkit-transition: 0.6s;
+	-webkit-transform-style: preserve-3d;
+	-webkit-transform: rotateY(0deg);
+	-moz-transition: 0.6s;
+	-moz-transform-style: preserve-3d;
+	-moz-transform: rotateY(0deg);
+	-o-transition: 0.6s;
+	-o-transform-style: preserve-3d;
+	-o-transform: rotateY(0deg);
+	-ms-transition: 0.6s;
+	-ms-transform-style: preserve-3d;
+	-ms-transform: rotateY(0deg);
+	transition: 0.6s;
+	transform-style: preserve-3d;
+	transform: rotateY(0deg);
+	position: absolute;
+	top: 0;
+	width: 100%;
+	left: 0;
+}
+/* front pane, placed above back */
+.vap-mediaimg-wrapper {
+	z-index: 2;
+	/* for firefox 31 but may be not needed
+	transform: rotateY(0deg);
+	*/
+	-webkit-transform: rotateY(0deg);
+	-ms-transform: rotateY(0deg);
+}
+/* back, initially hidden pane */
+.vap-mediaimg-wrapper-back {
+	-webkit-transform: rotateY(-180deg);
+	-moz-transform: rotateY(-180deg);
+	-o-transform: rotateY(-180deg);
+	-ms-transform: rotateY(-180deg);
+	transform: rotateY(-180deg);
+}
+.vap-mediaimg-controls {
+	margin: 10px 0 0;
+}
+.vap-mediaimg-controls .pull-left label {
+	margin: 0 0 0 5px;
+	font-size: 11px;
+}
+
+/* invoices archive */
+.vap-archive-fileblock {
+	display: inline-block;
+	width: 15%;
+	padding: 20px;
+	text-align: center;
+	margin: 10px;
+}
+.vap-archive-filename {
+	font-size: 12px;
+	margin: 5px 0 0;
+}
+.vap-archive-fileblock.selected {
+	background-color: rgba(84, 147, 204, 0.23);	
+	border-radius: 5px;
+}
+.vap-archive-year {
+	padding: 10px;
+	width: 95%;
+	border: 1px solid #aaa;
+	border-radius: 5px;
+	background-color: #ddd;
+	text-align: center;
+	font-weight: bold;
+	font-size: 16px;
+	cursor: pointer;
+}
+.vap-archive-month {
+	font-size: 18px;
+	padding: 15px 25px;
+	border-bottom: 1px solid;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	cursor: pointer;
+}
+.vap-archive-month:hover {
+	background-color: rgba(84, 147, 204, 0.23);	
+}
+
+.vap-archive-main {
+	width: 100%;
+	display: inline-block;
+}
+.vap-archive-main > div {
+	float: left;
+	display: inline-block;
+}
+.vap-archive-main .vap-archive-filestree {
+	width: 20%;
+}
+.vap-archive-main .vap-archive-filestree .root {
+	margin: 20px 0 0;
+	padding: 0;
+	list-style-type: none;
+}
+.vap-archive-main .vap-archive-filestree .root > .year {
+	border-bottom: 1px solid #eee;
+	font-size: 14px;
+	font-weight: bold;
+}
+.vap-archive-main .vap-archive-filestree .root > .year .year-node {
+	cursor: pointer;
+}
+.vap-archive-main .vap-archive-filestree .root > .year > div {
+	position: relative;
+	padding: 4px 0 4px 15px;
+}
+.vap-archive-main .vap-archive-filestree .root > .year > div:before {
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 5px 0 5px 8.7px;
+	border-color: transparent transparent transparent #666;
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 6px;
+}
+.vap-archive-main .vap-archive-filestree .root > .year.expanded > div:before {
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 8.7px 5px 0 5px;
+	border-color: #666 transparent transparent transparent;
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 10px;
+}
+.vap-archive-main .vap-archive-filestree .root .monthslist {
+	font-weight: normal;
+	font-size: 12px;
+	color: #666;
+	margin: 2px 0 6px 20px;
+	padding:0;
+	list-style-type: none;
+}
+.vap-archive-main .vap-archive-filestree .root .monthslist .month {
+	padding: 2px 2px 2px 7px;
+}
+.vap-archive-main .vap-archive-filestree .root .monthslist a {
+	display: block;
+	color: #666;
+}
+.vap-archive-main .vap-archive-filestree .root .monthslist .picked {
+	background: #eee;
+}
+.vap-archive-main .vap-archive-filespool {
+	width: 80%;
+}
+
+/* employees reports */
+.vap-empchart-box {
+	width: 100%;
+	margin-bottom: 40px;
+}
+.vap-linechart-container {
+	width: 70%;
+	display: inline-block;
+}
+.vap-piechart-container {
+	width: 28%;
+	display: inline-block;
+	vertical-align: top;
+}
+#vap-linechart-legend {
+	margin: 10px 0 0;
+}
+.vap-linechart-wrapper .line-legend {
+	margin: 10px 0 0;
+	padding: 0;
+	width: 100%;
+	display: inline-block;
+}
+.vap-linechart-wrapper .line-legend li {
+	float: left;
+	display: inline-block;
+	margin: 3px 7px;
+}
+.vap-linechart-wrapper .line-legend li > span {
+	display: inline-block;
+	float: left;
+	height: 15px;
+	margin: 0 5px 0 0;
+	width: 15px;
+}
+.vap-charts-filter-employees {
+	display: inline-block;
+	width: 100%;
+}
+.vap-charts-filter-employees > div {
+	float: left;
+	display: inline-block;
+	margin: 5px 7px;
+}
+.vap-charts-employee-control label {
+	display: inline-block;
+}
+
+/* appointment order info basket */
+.vap-orderbasket-badge {
+	display: inline-block;
+	width: 40%;
+	padding: 15px 10px;
+	background-color: #3a93ff;
+	border-radius: 5px;
+	margin-bottom: 5px;
+	text-align: center;
+	color: #fff;
+	font-weight: bold;
+	font-size: 16px;
+}
+.vap-orderbasket-badge:hover {
+	opacity: 0.70;
+}
+.vap-orderbasket-badge.large {
+	width: 83.6%;	
+}
+.vap-orderbasket-badge.canceled {
+	background-color: #f01b17;
+	text-transform: uppercase;
+}
+.vap-orderbasket-badge.confirmed {
+	background-color: #008000;
+	text-transform: uppercase;
+}
+.vap-orderbasket-badge.removed {
+	background-color: #990000;
+	text-transform: uppercase;
+}
+.vap-orderbasket-badge.pending {
+	background-color: #FF7000;
+	text-transform: uppercase;
+}
+.vap-orderbasket-genericnotes {
+	border: 2px dashed #ccc;
+	padding: 10px;
+	margin-top: 20px;
+	border-radius: 4px;
+}
+.vap-orderbasket-option {
+	margin: 20px 0 0;
+}
+.vap-orderbasket-option::first-child {
+	margin: 0;
+}
+.vap-orderbasket-option-details {
+	width: 100%;
+	display: inline-block;
+}
+.vap-orderbasket-option-details > div {
+	display: inline-block;
+}
+.vap-orderbasket-option-details-left {
+	float: left;
+}
+.vap-orderbasket-option-details-right {
+	float: right;
+}
+.vap-orderbasket-option-details {
+	font-size: 18px;
+}
+.vap-orderbasket-option-details-numapp {
+	margin: 0 50px 0 0;
+}
+.vap-orderbasket-option-details-quantity {
+	margin: 0 10px 0 0; 
+}
+.vap-orderbasket-option-details-price {
+	min-width: 100px;
+	text-align: right;
+	display: inline-block;
+}
+
+/* options variations */
+.vap-option-var {
+	margin-bottom: 10px;
+}
+.vap-sort-box {
+	background: url(images/sort-dots.png) center center no-repeat;
+	width: 3px;
+	height: 13px;
+	display: inline-block;
+	float: left;
+	margin: 8px 7px 0;
+	cursor: all-scroll;
+}
+.vap-sort-box:hover {
+	opacity: 0.70;
+}
+
+/* import modal */
+.vap-importmodal-body {
+	margin: 30px 0;
+}
+.vap-importmodal-body .import-file {
+	background: none repeat scroll 0 0 #eee;
+	border-radius: 5px;
+	padding: 5px;
+	border: 1px solid #ddd;
+	display: inline-block;
+	width: 70%;
+}
+.vap-importmodal-body .import-submit {
+	display: inline-block;
+}
+.vap-importmodal-body .import-file input {
+	line-height: 13px;
+}
+
+/* cron job log modal */
+.vap-cron-loginfo-head {
+	width: 100%;
+	display: inline-block;
+}
+.vap-cron-loginfo-head-left {
+	float: left;
+	padding: 0 20px;
+}
+.vap-cron-loginfo-head-right {
+	float: right;
+	padding: 0 20px;
+}
+.vap-cron-loginfo-middle {
+	height: 95%;
+}
+.vap-cron-loginfo-middle pre {
+	min-height: 90%;
+}
+
+/* 1.5 admin menu */
+#vap-main-menu {
+	display: block;
+	width: 13%;
+	min-width: 180px;
+	vertical-align: top;
+	background-color: #1a3867; /*7897c8*/
+	margin-right: 15px;
+	float: left;
+}
+.vap-task-wrapper {
+	display: block;
+	float: left;
+	width: 85%;
+}
+.vap-task-wrapper.extended {
+	width: 95%;
+}
+.vap-task-wrapper p {
+	padding: 10px;
+}
+#vap-main-menu .parent .title {
+	cursor: pointer;
+	padding: 10px;
+	text-transform: uppercase;
+	font-weight: 500;
+	font-size: 14px;
+	color: #fff;
+	background-color: #1a3867; /*7897c8*/
+}
+#vap-main-menu .parent .title i:first-child {
+	font-size: 16px;
+}
+#vap-main-menu .parent .title.selected {
+	background-color: #2c6996; /*b1c7ea*/
+}
+#vap-main-menu .parent .title:not(.selected):hover {
+	background-color: #275d84; /*91acd7*/
+}
+#vap-main-menu .parent .title span {
+	width: 73%;
+	display: inline-block;
+	word-wrap: break-word;
+}
+#vap-main-menu .parent i {
+	margin-right: 8px;
+	width: 16px;
+	text-align: center;
+}
+#vap-main-menu .parent i.vap-angle-dir {
+	margin: 0 !important;
+	float: right;
+}
+#vap-main-menu .wrapper {
+	padding: 6px 0;
+	background-color: #142c51; /*5d7bab*/
+	display: none;
+}
+#vap-main-menu .wrapper.collapsed {
+	display: block;
+}
+#vap-main-menu .wrapper .item {
+	padding: 5px 0 5px 20px;
+	font-size: 14px;
+}
+#vap-main-menu .wrapper .item a {
+	color: #d6e3f9;
+}
+#vap-main-menu .wrapper .item a:hover {
+	color: #fff;
+}
+#vap-main-menu .wrapper .item.selected a {
+	color: #fff !important;
+	font-weight: 500;
+}
+#vap-main-menu a {
+	color: #fff;
+	width: 100%;
+	display: block;
+}
+#vap-main-menu a:hover {
+	color: #fff;
+	text-decoration: none;
+}
+/* custom admin menu section */
+
+#vap-main-menu .separator-line {
+	border-top: 1px dotted #eee;
+}
+#vap-main-menu .split-box {
+	text-align: right;
+	padding: 6px 10px;
+	font-size: 16px;
+}
+#vap-main-menu .version-box {
+	background-color: #4a9468;
+	padding: 6px 10px;
+	font-size: 16px;
+	display:none !important;
+}
+#vap-main-menu .version-box.upd-avail {
+	background-color: #0d620f;
+}
+#vap-main-menu .version-box i.upd-avail {
+	float: right;
+	margin-top: 2px;
+	color: orange;
+}
+
+/* 1.5 compressed admin menu */
+#vap-main-menu.vap-leftboard-menu.compressed {
+	min-width: 40px;
+	width: 40px;
+}
+#vap-main-menu.vap-leftboard-menu.compressed .parent .title span, #vap-main-menu.vap-leftboard-menu.compressed .parent .title .vap-angle-dir {
+	display: none;
+}
+#vap-main-menu.vap-leftboard-menu.compressed .parent .wrapper {
+	position: absolute;
+	margin-left: 40px;
+	padding-right: 20px;
+	width: 180px;
+	z-index: 1000;
+}
+#vap-main-menu.vap-leftboard-menu.compressed .parent .title.collapsed {
+	position: relative;
+	background-color: #275d84; /*91acd7*/
+	width: 220px;
+	z-index: 1000;
+}
+#vap-main-menu.vap-leftboard-menu.compressed .parent .title.selected.collapsed {
+	background-color: #2c6996; /*b1c7ea*/
+}
+#vap-main-menu.vap-leftboard-menu.compressed .parent .title.collapsed span {
+	display: inline-block;
+	margin-left: 16px;
+}
+#vap-main-menu.vap-leftboard-menu.compressed .split-box {
+	text-align: left;
+}
+#vap-main-menu.vap-leftboard-menu.compressed .version-box span {
+	display: none;
+}
+
+/* 1.6.3 horizontal menu */
+#vap-main-menu.vap-horizontal-menu {
+	width: 100%;
+	margin-bottom: 10px;
+	display: inline-block;
+	float: none;
+}
+#vap-main-menu.vap-horizontal-menu .parent {
+	float: left;
+	width: 200px;
+}
+#vap-main-menu.vap-horizontal-menu .parent .title span {
+	max-width: 200px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	display: inline-block;
+	vertical-align: top;
+}
+#vap-main-menu.vap-horizontal-menu .title {
+	padding: 0;
+}
+#vap-main-menu.vap-horizontal-menu .title > a {
+	padding: 10px;
+	width: calc(100% - 20px);
+}
+#vap-main-menu.vap-horizontal-menu .wrapper.collapsed {
+	position: absolute;
+	width: 200px;
+	z-index: 999;
+	text-transform: none;
+	font-weight: normal;
+}
+#vap-main-menu.vap-horizontal-menu .version-box {
+	float: right;
+	padding: 10px;
+}
+#vap-main-menu.vap-horizontal-menu .parent i.vap-angle-dir {
+	line-height: 16px;
+}
+#vap-main-menu.vap-horizontal-menu .version-box {
+	padding: 10px;
+}
+
+/* dashboard */
+.vap-dashboard-box {	
+	border: 1px solid #ccc;
+	margin: 15px 5px 15px 0;
+	display: inline-block;
+}
+.vap-dashboard-box.full {
+	width: 100%;
+}
+.vap-dashboard-box.big {
+	width: 64%;
+}
+.vap-dashboard-box.medium {
+	width: 49%;
+}
+.vap-dashboard-box.small {
+	width: 34%;
+}
+
+.vapdash-title {
+	padding: 10px;
+	border-bottom: 1px solid #ccc;
+	background: #f6f6f6 none repeat scroll 0 0;
+	text-transform: uppercase;
+	font-size: 16px;
+}
+.vapdash-container {
+	padding: 10px;
+}
+.vapdash-tab-head  {
+	display: inline-block;
+	margin: 10px 0 15px 0;
+	border: 1px solid #ccc;
+}
+.vapdash-tab-button {
+	float: left;
+	display: inline-block;
+	font-size: 13px;
+}
+.vapdash-tab-button a {
+	padding: 10px 20px;
+	background: #fff;
+	color: #333;
+}
+.vapdash-tab-button a:hover {
+	text-decoration: none !important;
+}
+.vapdash-tab-button:first-child a {
+	border-right: 1px solid #ccc;
+	cursor: pointer;
+	display: inline-block;
+	float: left;
+}
+.vapdash-tab-button:last-child a {
+	border-right: 0;
+	cursor: pointer;
+	display: inline-block;
+	float: left;
+}
+.vapdash-tab-button a.active {
+	background: #f6f6f6 none repeat scroll 0 0;
+	box-shadow: 0 0 2px #eee inset;
+	cursor: default;
+}
+
+.vap-incoming-table {
+	width: 100%;
+	border-collapse: collapse;
+}
+.vap-incoming-table th{
+	font-size: 14px;
+	font-weight: normal;
+	color: #039;
+	padding: 12px 15px;
+}
+.vap-incoming-table td{
+	font-size: 13px;
+	color: #669;
+	border-top:1px solid #e8edff;
+	padding: 6px 2px;
+}
+.vap-incoming-table tr:hover td{
+	color: #339;
+	background: #eff2ff;
+}
+.vap-incoming-table th.vapdashtabtitle {
+	font-size: 13px;
+	font-weight: bold;
+	padding: 0 0 5px;
+}
+.vapdashrowhighlight {
+	background: #ffeea1 !important;
+}
+
+.vap-icon-tooltip {
+	margin: 0 5px;
+}
+
+/* manage packages order */
+.vap-packorder-row {
+	width: 100%;
+	padding: 10px 0;
+}
+.vap-packorder-row span {
+	display: inline-block;
+}
+
+/* make recurrence */
+.vap-makerec-box {
+	padding: 15px;
+	border: 1px solid #ccc;
+	margin-bottom: 15px;
+}
+.vap-recurrence-form {
+	display: inline-block;
+	vertical-align: top;
+}
+.vap-recurrence-form > span {
+	float: left;
+	display: inline-block;
+	margin: 0 5px;
+}
+.vap-recurrence-form > .lbl {
+	margin-top: 6px;
+}
+.vap-recurrence-button {
+	display: inline-block;
+	margin-left: 30px;
+}
+
+.vap-recpreview-box {
+	padding: 15px;
+	border: 1px solid #ccc;
+	margin-bottom: 15px;
+}
+.vap-recpreview-box .recurrence-date {
+	padding: 5px 0;
+	font-size: 14px;
+}
+.vap-recpreview-box .recurrence-date .format {
+	width: 200px;
+	display: inline-block;
+}
+.vap-recpreview-box .recurrence-date .msg.available {
+	color: green;
+	font-weight: bold;
+}
+.vap-recpreview-box .recurrence-date .msg.occupied {
+	color: red;
+	font-weight: bold;
+}
+.vap-recpreview-button {
+	margin-top: 15px;
+}
+
+.vap-confirmrec-box {
+	padding: 15px;
+	border: 1px solid green;
+	background-color: rgba(0, 163, 0, 0.10);
+	font-weight: bold;
+	font-size: 14px;
+	margin-bottom: 15px;
+	color: green;
+}
+
+.vap-recerror-box {
+	padding: 15px;
+	border: 1px solid #a30000;
+	background-color: rgba(204, 0, 0, 0.10);
+	font-weight: bold;
+	font-size: 14px;
+	margin-bottom: 15px;
+	color: #a30000;
+}
+
+/* Joomla 3.x */
+fieldset.adminform {
+	border: 1px solid #aaa;
+	background-color: #fff;
+	padding: 10px;
+	margin-bottom: 30px;
+}
+
+legend.adminlegend {
+	border-bottom: 0;
+	width: auto;
+	padding: 5px;
+	margin-bottom: 10px;
+	line-height: inherit;
+}
+
+table.admintable td {
+	border-bottom: 1px solid #ddd;
+}
+table.admintable td.adminparamcol {
+	vertical-align: middle;
+	text-align: right;
+	border-right: 1px solid #ddd;
+	background-color: #f7f7f7;
+}
+.control-label {
+	max-width: 160px;
+}
+
+table.admintable input {
+	margin-bottom: 0;
+}
+
+/* iOS checkbox */
+
+.switch-ios {
+	display: inline-block;
+}
+.switch-ios .ios-toggle {
+	position: absolute;
+	margin-left: -9999px;
+	visibility: hidden;
+}
+.switch-ios .ios-toggle + label {
+	display: block;
+	position: relative;
+	cursor: pointer;
+	outline: none;
+	margin-bottom: 0;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+.switch-ios input.ios-toggle-round + label {
+	/*padding: 2px;*/
+	/*width: 120px;*/
+	width: 56px;
+	/*height: 60px;*/
+	height: 30px;
+	background-color: #dddddd;
+	-webkit-border-radius: 60px;
+	-moz-border-radius: 60px;
+	-ms-border-radius: 60px;
+	-o-border-radius: 60px;
+	border-radius: 60px;
+}
+.switch-ios input.ios-toggle-round + label:before, 
+.switch-ios input.ios-toggle-round + label:after {
+	display: block;
+	position: absolute;
+	top: 1px;
+	left: 1px;
+	bottom: 1px;
+	content: "";
+}
+.switch-ios input.ios-toggle-round + label:before {
+	right: 1px;
+	background-color: #f1f1f1;
+	-webkit-border-radius: 60px;
+	-moz-border-radius: 60px;
+	-ms-border-radius: 60px;
+	-o-border-radius: 60px;
+	border-radius: 60px;
+	/*-webkit-transition: background 0.4s;*/
+	-webkit-transition: background 0.3s;
+	/*-moz-transition: background 0.4s;*/
+	-moz-transition: background 0.3s;
+	/*-o-transition: background 0.4s;*/
+	-o-transition: background 0.3s;
+	/*transition: background 0.4s;*/
+	transition: background 0.3s;
+}
+.switch-ios input.ios-toggle-round + label:after {
+	/*width: 58px;*/
+	width: 28px;
+	background-color: #fff;
+	-webkit-border-radius: 100%;
+	-moz-border-radius: 100%;
+	-ms-border-radius: 100%;
+	-o-border-radius: 100%;
+	border-radius: 100%;
+	-webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+	-moz-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+	/*-webkit-transition: margin 0.4s;*/
+	-webkit-transition: margin 0.3s;
+	/*-moz-transition: margin 0.4s;*/
+	-moz-transition: margin 0.3s;
+	/*-o-transition: margin 0.4s;*/
+	-o-transition: margin 0.3s;
+	/*transition: margin 0.4s;*/
+	transition: margin 0.3s;
+}
+.switch-ios input.ios-toggle-round:checked + label:before {
+	background-color: #38d873;
+}
+.switch-ios input.ios-toggle-round:checked + label:after {
+	/*margin-left: 60px;*/
+	margin-left: 26px;
+}
+
+/* popover */
+
+i.vap-quest-popover {
+	font-size: 14px;
+	vertical-align: top;
+	transform: translateY(50%);
+	margin-left: 10px;
+	color: #999;
+	cursor: pointer;
+}
+i.vap-quest-popover:hover {
+	color: #444;
+}
+
+/* employee working days */
+
+#wd-edit-fieldset {
+	/* animate margin while scrolling */
+	transition: margin 700ms;
+}
+
+table.vap-workday-calendar {
+	width: 100%;
+}
+
+table.vap-workday-calendar th {
+	text-align: center;
+}
+
+table.vap-workday-calendar td {
+	border: 1px solid #ddd;
+	min-width: 60px;
+	height: 60px;
+	background-color: #fff;
+	padding: 0;
+	/*overflow: hidden;*/
+	/* firefox hack to force td borders */
+	background-clip: padding-box;
+}
+
+table.vap-workday-calendar tr td:first-child {
+	padding-right: 5px;
+	vertical-align: top;
+	border: 0;
+}
+table.vap-workday-calendar tbody td.time-empty:hover {
+	background-color: rgba(27, 210, 149, 0.50);
+	cursor: pointer;
+}
+
+table.vap-workday-calendar td.time-starts,
+table.vap-workday-calendar td.time-ends,
+table.vap-workday-calendar td.time-contains {
+	vertical-align: top;
+}
+table.vap-workday-calendar td.time-starts:not(.time-ends) {
+	border-bottom: 0;
+}
+table.vap-workday-calendar td.time-ends:not(.time-starts) {
+	border-top: 0;
+}
+table.vap-workday-calendar td.time-contains {
+	border-bottom: 0;
+	border-top: 0;
+}
+
+table.vap-workday-calendar td div.time-starts,
+table.vap-workday-calendar td div.time-ends,
+table.vap-workday-calendar td div.time-contains {
+	background-color: #1bd295;
+	height: 100%;
+	cursor: pointer;
+}
+table.vap-workday-calendar td div.time-starts:not(.trim-start) {
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+
+	text-align: center;
+	line-height: 25px;
+	font-size: smaller;
+	font-weight: bold;
+}
+table.vap-workday-calendar td div.time-ends:not(.trim-end) {
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+table.vap-workday-calendar td div.day-closed {
+	background-color: #ff1e31;
+	height: 100%;
+	cursor: pointer;
+}
+
+table.vap-workday-calendar td div.custom-day {
+	background-color: #2eb0d2;
+}
+table.vap-workday-calendar td div.box-selected {
+	border-left: 4px solid #ffb21e;
+	/* remove 4px of left border from total width */
+	width: calc(100% - 4px) !important;
+}
+
+/* fix used to display only time-starts with full height */
+table.vap-workday-calendar td div.time-contains:not(div.time-starts),
+table.vap-workday-calendar td div.time-ends:not(div.time-starts) {
+	display: none;
+}
+table.vap-workday-calendar td div.time-starts {
+	z-index: 1;
+}
+
+/* weekly calendar */
+
+.cal-service {
+	margin: 5px 0;
+}
+.cal-service .check input[type="checkbox"] {
+	margin: 0;
+}
+.cal-service .name {
+	display: inline-block;
+	width: 200px;
+}
+.cal-service .color-thumb {
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+.cal-events-list {
+	margin-top: 15px;
+}
+.cal-events-list .event-row {
+	min-height: 36px;
+	border-top: 1px solid #ddd;
+	padding: 5px 0;
+}
+.cal-events-list .event-row > div {
+	display: inline-block;
+	vertical-align: middle;
+}
+.cal-events-list .event-row > div > span {
+	display: block;
+}
+
+.cal-events-list .event-row .event-id {
+	width: 10%;
+}
+.cal-events-list .event-row .event-checkin {
+	width: 25%;
+}
+.cal-events-list .event-row .event-details {
+	width: 30%;
+}
+.cal-events-list .event-row .event-customer {
+	width: 20%;
+}
+.cal-events-list .event-row .event-guests {
+	width: 10%;
+	text-align: right;
+}
+
+.cal-events-list .event-row .event-id > span {
+	padding-left: 5px;
+}
+.cal-events-list .event-row .event-checkin .duration {
+	margin-left: 5px;
+}
+.cal-events-list .event-row .event-details .service-name {
+	filter: brightness(90%);
+}
+.cal-events-list .event-row .event-guests > span {
+	padding-right: 5px;
+}
+
+.cal-events-list .no-event {
+	border-top: 1px solid #ddd;
+	padding-left: 0;
+}
+.cal-events-list .show-all-events {
+	margin-top: 10px;
+}
+
+.slot-pointer {
+	width: 80px;
+	height: 40px;
+	position: absolute;
+	background: #0766d6;
+	border-bottom-right-radius: 5px;
+	border-top-right-radius: 5px;
+	z-index: 10;
+}
+.slot-pointer:after {
+	content: "";
+	position: absolute;
+	left: -20px;
+	bottom: 0;
+	width: 0;
+	height: 0;
+	border-right: 20px solid #0766d6;
+	border-top: 20px solid transparent;
+	border-bottom: 20px solid transparent;
+}
+
+.service-preferences {
+	width: 120px;
+	height: 80px;
+	background: #ddd;
+	position: absolute;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+}
+
+th.head-date {
+	cursor: pointer;
+}
+
+/* test rates modal */
+
+table.rates-table .rate-child td {
+	border-top: 1px solid #777;
+}
+table.rates-table .rate-child ~ .rate-child td {
+	border-top: 1px solid #ddd;
+}
+table.rates-table .rate-child:last-child td {
+	border-bottom: 1px solid #777;
+}
+
+table.rates-table .rate-id {
+	vertical-align: middle;
+}
+table.rates-table .rate-price {
+	text-align: center;
+	vertical-align: middle;
+}
+
+table.rates-table .final-cost .rate-price {
+	font-weight: bold;
+	font-size: larger;
+}
+
+#debug-wrap {
+	margin: 0 30px;
+	width: calc(100% - 60px);
+}
+table.rates-table .debug-error {
+	color: #b00;
+}
+#debug-wrap table tjoomla3810t td {
+	text-align: center;
+	font-style: italic;
+}
+
+.use-margin-for-alignment {
+	margin-top: 5px;
+}
+
+/* order status */
+
+.order-status-table {
+	width: 100%;
+}
+.order-status-table thead tr {
+	background: #f2f2f2;
+	border-bottom: 2px solid #ddd;
+}
+.order-status-table thead th {
+	padding: 10px;
+	text-transform: uppercase;
+	font-size: .9em;
+	border-top: 0;
+}
+.order-status-table td {
+	padding: 10px !important;
+}
+.order-status-table .track-comment {
+	background: #eee;
+	font-weight: bold;
+}
+.order-status-table .track-comment td {
+	border-bottom: 2px solid #ddd;
+}
+.order-status-table .track-warning {
+	font-weight: bold;
+}
+
+/* reports packages */
+
+span.report-pack-group {
+	display: inline-block;
+	width: 40%;
+}
+span.report-pack-total, span.report-pack-count {
+	display: inline-block;
+	width: 30%;
+	text-align: right;
+}
+
+
+/* media queries */
+
+@media screen and (max-width : 1380px) {
+	#vap-main-menu.vap-horizontal-menu .parent {
+		width: 150px;	
+	}
+	#vap-main-menu.vap-horizontal-menu .parent .title span, #vap-version-content {
+		max-width: 90px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		display: inline-block;
+	}
+}
+@media screen and (max-width : 1054px) {
+	#vap-main-menu.vap-horizontal-menu .version-box {
+		display: none;
+	}
+}
+@media screen and (max-width : 600px) {
+	.vapdash-container {
+		overflow-x:auto;
+		width: 100%;
+		padding:0;
+	}
+	.vap-task-wrapper {
+		width: 100% !important;
+	}
+	.vap-dashboard-box.big, .vap-dashboard-box.small, .vap-dashboard-box.medium {
+		width: 100% !important;
+	}
+	.vap-incoming-table {
+		margin-left: 10px;
+	}
+	.vapdash-tab-head {
+		margin-left: 10px;
+	}
+	#vap-main-menu.vap-leftboard-menu {
+		width: 100%;
+	}
+	#vap-main-menu a:link, #vap-main-menu a:focus, #vap-main-menu a:active, #vap-main-menu a:visited {
+		color: #fff;
+	}
+}

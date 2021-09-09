@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- $Id: install.xml 0506753738 2021-01-31 07:07:16 Joomla Farsi Team $ -->
+<extension version="3.10" client="administrator" type="language" method="upgrade">
+    <name>Persian</name>
+    <tag>fa-IR</tag>
+    <version>3.10.1.1</version>
+	<creationDate>August 2021</creationDate>
+    <author>Persian Translation Team, Joomlafarsi.com</author>
+    <authorEmail>info@joomlafarsi.com</authorEmail>
+    <authorUrl>www.joomlafarsi.com</authorUrl>
+	<copyright>Copyright (C) 2005 - 2021 Joomlafarsi.com and Open Source Matters. All rights reserved.</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+    <description>Persian administrator language pack for Joomla 3.10.1</description>
+    <files>
+		<folder>/</folder>
+		<filename file="meta">install.xml</filename>
+      </files>
+</extension>

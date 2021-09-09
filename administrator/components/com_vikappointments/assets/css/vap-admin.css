@@ -1,0 +1,71 @@
+/* Joomla 3.x */
+
+input, select {
+	width: auto !important;
+}
+input.invalid {
+	/* to avoid different sizes between the input */
+	font-weight: normal;
+}
+
+table.adminform label {
+	display: inline;
+	margin:0 0 0 5px;
+}
+table.adminform td {
+	padding: 6px 0;
+}
+table.adminform div.input-append {
+	display: inline;
+}
+
+table.table-striped i.empty,
+table.striped i.empty {
+	margin-right: 16px;
+}
+
+.btn-toolbar .field-calendar {
+	font-size: initial;
+}
+.field-calendar {
+	display: inline-block;
+}
+
+.btn-toolbar .vap-setfont {
+	font-size: 13px;
+}
+
+.btn.active {
+	background-color: #e6e6e6;
+	text-decoration: none;
+	text-shadow: none;
+}
+
+a.no-decoration:hover {
+	text-decoration: none;
+}
+
+/* bootstrap modal */
+.modal-header .close {
+	/* fix vertical separator */
+	line-height: 46px !important;
+}
+.modal-body {
+	overflow-y: scroll !important;
+}
+
+.modal-body.jviewport-height40 {
+	height: 40vh !important;
+}
+.modal-body.jviewport-height60 {
+	height: 60vh !important;
+}
+.modal-body.jviewport-height80 {
+	height: 80vh !important;
+}
+
+/* chosen */
+
+.chzn-container.active .chzn-single {
+	border: 2px solid #2384D3;
+}

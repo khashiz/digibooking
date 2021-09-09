@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<layout title="COM_VIKAPPOINTMENTS_PACKAGES_VIEW_DEFAULT_TITLE">
+		<message>COM_VIKAPPOINTMENTS_PACKAGES_VIEW_DEFAULT_DESC</message>
+	</layout>
+	<view title="COM_VIKAPPOINTMENTS_PACKAGES_VIEW_DEFAULT_TITLE" >
+		<message><![CDATA[VikAppointments]]></message>
+	</view>
+	<state>
+		<name>COM_VIKAPPOINTMENTS_PACKAGES_VIEW_DEFAULT_TITLE</name>
+		<description>VikAppointments</description>
+	</state>
+	<fields name="request">
+		<fieldset name="request" addfieldpath="/administrator/components/com_vikappointments/fields">
+			<field name="package_group" type="vappackgroup" label="COM_VIKAPPOINTMENTS_PACKAGES_FIELD_SELECT_TITLE" required="false" description="COM_VIKAPPOINTMENTS_PACKAGES_FIELD_SELECT_TITLE_DESC" />
+		</fieldset>
+	</fields>
+</metadata>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="3.0.0" method="upgrade">
+	<name>COM_VIKAPPOINTMENTS</name>
+	<creationDate>Sep 18, 2019</creationDate>
+	<author>Extensionsforjoomla.com</author>
+	<authorEmail>dev@extensionsforjoomla.com</authorEmail>
+	<authorUrl>https://extensionsforjoomla.com</authorUrl>
+	<copyright>Copyright (C) 2019 e4j - Extensionsforjoomla.com . All Rights Reserved</copyright>
+	<license>GNU/GPL Version 2 or later - http://www.gnu.org/licenses/gpl-2.0.html</license>
+	<version>1.6.3</version>
+	<description><![CDATA[
+		<h1>VikAppointments 1.6.3</h1>
+		<div style="clear: both;"></div>
+		<p>VikAppointments : a professional tool for managing any kind of appointments.</p>
+		<p>Developed by e4j - <a href="https://extensionsforjoomla.com" target="_blank">Extensionsforjoomla.com</a></p>
+	]]></description>
+
+	<scriptfile>script.php</scriptfile>
+
+	<install>
+		<sql>
+			<file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+		</sql>
+	</install> 
+	
+	<uninstall>
+		<sql>
+			<file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+		</sql>
+	</uninstall>
+
+	<!-- Runs on update -->
+	<update>
+		<schemas>
+			<schemapath type="mysql">sql/updates/mysql</schemapath>
+		</schemas>
+	</update>
+
+	<files folder="site">
+		<filename>controller.php</filename>
+		<filename>index.html</filename>
+		<filename>router.php</filename>
+		<filename>vikappointments.php</filename>
+		<folder>assets</folder>
+		<folder>arascode</folder>
+		<folder>controllers</folder>
+		<folder>helpers</folder>
+		<folder>layouts</folder>
+		<folder>views</folder>
+	</files>
+	
+	<languages folder="site">
+		<language tag="en-GB">language/en-GB.com_vikappointments.ini</language>
+		<language tag="fa-IR">language/fa-IR.com_vikappointments.ini</language>
+	</languages>
+	
+	<administration>
+		<!-- Administration Menu Section -->
+		<menu img="components/com_vikappointments/assets/images/icon-16-vikappointments.png">COM_VIKAPPOINTMENTS_MENU</menu>
+		<files folder="admin">
+			<filename>access.xml</filename>
+			<filename>config.xml</filename>
+			<filename>controller.php</filename>
+			<filename>index.html</filename>
+			<filename>vikappointments.php</filename>
+			<folder>assets</folder>
+			<folder>cronjobs</folder>
+			<folder>export</folder>
+			<folder>fields</folder>
+			<folder>helpers</folder>
+			<folder>payments</folder>
+			<folder>smsapi</folder>
+			<folder>sql</folder>
+			<folder>views</folder>
+		</files>
+
+		<languages folder="admin">
+			<language tag="en-GB">language/en-GB.com_vikappointments.ini</language>
+			<language tag="en-GB">language/en-GB.com_vikappointments.sys.ini</language>
+			<language tag="fa-IR">language/fa-IR.com_vikappointments.ini</language>
+			<language tag="fa-IR">language/fa-IR.com_vikappointments.sys.ini</language>
+		</languages>
+
+	</administration>
+
+	<!-- Server update -->
+	<updateservers>
+		<server type="extension" priority="1" name="VikAppointments Update Site">https://extensionsforjoomla.com/api/updates/com_vikappointments_latest.xml</server>
+	</updateservers>
+
+</extension>

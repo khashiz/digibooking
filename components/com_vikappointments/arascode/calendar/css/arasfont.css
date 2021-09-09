@@ -1,0 +1,13 @@
+@font-face {
+font-family: 'arasJoomlaYekan';
+src: url('../fonts/BYekan/BYekan.eot');
+src: url('../fonts/BYekan/BYekan.eot?#iefix') format('embedded-opentype'),
+     url('../fonts/BYekan/BYekan.woff') format('woff'),
+     url('../fonts/BYekan/BYekan.ttf') format('truetype');
+font-weight: normal;
+font-style: normal;
+
+}
+body,#k2InfoPage,#k2AdminContainer,label,h3,a,li,span,strong,.itemHits,th,td{
+    font-family: arasJoomlaYekan !important;
+}
