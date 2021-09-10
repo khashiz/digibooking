@@ -693,7 +693,6 @@
 /templates/beez3/*
 /templates/protostar/*
 /templates/system/*
-/templates/index.html
 /tmp/*
 /configuration.php
 /htaccess.txt
@@ -703,3 +702,4 @@
 /README.txt
 /robots.txt.dist
 /web.config.txt
+/templates/index.html

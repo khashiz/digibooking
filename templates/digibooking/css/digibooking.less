@@ -1,0 +1,75 @@
+@font-face {
+  font-family: 'YekanBakh';
+  font-style: normal;
+  font-weight: 100;
+  src: url("../font/YekanBakh01Hairline.woff") format("woff");
+}
+@font-face {
+  font-family: 'YekanBakh';
+  font-style: normal;
+  font-weight: 200;
+  src: url("../font/YekanBakh02Thin.woff") format("woff");
+}
+@font-face {
+  font-family: 'YekanBakh';
+  font-style: normal;
+  font-weight: 300;
+  src: url("../font/YekanBakh03Light.woff") format("woff");
+}
+@font-face {
+  font-family: 'YekanBakh';
+  font-style: normal;
+  font-weight: 400;
+  src: url("../font/YekanBakh04Regular.woff") format("woff");
+}
+@font-face {
+  font-family: 'YekanBakh';
+  font-style: normal;
+  font-weight: 500;
+  src: url("../font/YekanBakh05Medium.woff") format("woff");
+}
+@font-face {
+  font-family: 'YekanBakh';
+  font-style: normal;
+  font-weight: 600;
+  src: url("../font/YekanBakh06Bold.woff") format("woff");
+}
+@font-face {
+  font-family: 'YekanBakh';
+  font-style: normal;
+  font-weight: 700;
+  src: url("../font/YekanBakh07Heavy.woff") format("woff");
+}
+@font-face {
+  font-family: 'YekanBakh';
+  font-style: normal;
+  font-weight: 800;
+  src: url("../font/YekanBakh08Fat.woff") format("woff");
+}
+.f500{font-weight: 500;}
+.f600{font-weight: 600;}
+.f700{font-weight: 700;}
+.font{font-family: 'YekanBakh', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;}
+.ltr{direction: ltr;}
+
+//Mixins
+.border-radius (@radius: 5px) {
+  border-radius: @radius;
+  -moz-border-radius: @radius;
+  -webkit-border-radius: @radius;
+}
+.transition (@transition: all .3s ease-out) {
+  transition: @transition;
+  -moz-transition: @transition;
+  -webkit-transition: @transition;
+}
+.transform (@transform) {
+  transform: @transform;
+  -moz-transform: @transform;
+  -webkit-transform: @transform;
+}
+.box-shadow (@shadow) {
+  box-shadow: @shadow;
+  -moz-box-shadow: @shadow;
+  -webkit-box-shadow: @shadow;
+}
