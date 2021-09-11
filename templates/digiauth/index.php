@@ -48,7 +48,7 @@ JHtml::_('script', 'uikit.min.js', array('version' => 'auto', 'relative' => true
         <div class="uk-container uk-container-xsmall">
             <div class="uk-width-1-1 uk-width-1-2@m uk-margin-auto">
                 <div class="uk-text-center uk-margin-medium-bottom">
-                    <a href="https://uxdee.org" target="_blank" rel="nofollow" class="uk-display-inline-block">
+                    <a href="<?php echo JUri::base(); ?>" target="_blank" rel="nofollow" class="uk-display-inline-block">
                         <img src="<?php echo JUri::base().'images/digikala-logo.png'; ?>" alt="DigiKala" width="215" height="53">
                     </a>
                     <span class="uk-text-muted uk-display-block uk-margin-small-top font"><?php echo JText::sprintf('RESERVE_SYSTEM'); ?></span>

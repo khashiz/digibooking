@@ -28,7 +28,32 @@ defined('_JEXEC') or die;
 			</li>
 		</ul>
 	<?php endif; ?>
-	<?php echo $this->loadTemplate('core'); ?>
-	<?php echo $this->loadTemplate('params'); ?>
-	<?php echo $this->loadTemplate('custom'); ?>
+    <div class="uk-child-width-1-1" data-uk-grid>
+        <div>aaaaaa</div>
+        <div>aaaaaa</div>
+    </div>
 </div>
+<?php
+$user = JFactory::getUser();
+
+// Get a db connection.
+$db = JFactory::getDbo();
+// Create a new query object.
+$query = $db->getQuery(true);
+
+// Select all records from the user profile table where key begins with "custom.".
+// Order it by the ordering field.
+$query->select($db->quoteName(array('user_id', 'profile_key', 'profile_value', 'ordering')));
+$query->from($db->quoteName('#__user_profiles'));
+$query->where($db->quoteName('profile_key') . ' LIKE ' . $db->quote('custom.%'));
+$query->order('ordering ASC');
+
+// Reset the query using our newly populated query object.
+$db->setQuery($query);
+
+// Load the results as a list of stdClass objects (see later for more options on retrieving data).
+$results = $db->loadObjectList();
+?>
+<?php /* echo $this->loadTemplate('core'); ?>
+<?php echo $this->loadTemplate('params'); ?>
+<?php echo $this->loadTemplate('custom'); */ ?>
