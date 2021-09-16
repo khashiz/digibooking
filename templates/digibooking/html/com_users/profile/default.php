@@ -11,13 +11,13 @@ defined('_JEXEC') or die;
 
 ?>
 <div class="profile<?php echo $this->pageclass_sfx; ?>">
-	<?php if ($this->params->get('show_page_heading')) : ?>
-		<div class="page-header">
-			<h1>
-				<?php echo $this->escape($this->params->get('page_heading')); ?>
-			</h1>
-		</div>
-	<?php endif; ?>
+    <div class="uk-height-medium uk-background-secondary  uk-padding uk-flex uk-flex-middle uk-flex-right">
+        <?php if ($this->params->get('show_page_heading')) : ?>
+            <div class="page-header">
+                <h1 class="font uk-text-white uk-h2 f500 uk-margin-remove"><?php echo $this->escape($this->params->get('page_heading')); ?></h1>
+            </div>
+        <?php endif; ?>
+    </div>
 	<?php if (JFactory::getUser()->id == $this->data->id) : ?>
 		<ul class="btn-toolbar pull-right">
 			<li class="btn-group">
@@ -57,3 +57,21 @@ $results = $db->loadObjectList();
 <?php /* echo $this->loadTemplate('core'); ?>
 <?php echo $this->loadTemplate('params'); ?>
 <?php echo $this->loadTemplate('custom'); */ ?>
+
+<?php if ($user->requireReset) { ?>
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            UIkit.modal('#resetPassModal').show();
+        });
+    </script>
+    <div id="resetPassModal" class="uk-modal-full" data-uk-modal="esc-close:false">
+        <div class="uk-modal-dialog uk-background-primary transparented">
+            <div class="uk-padding uk-height-viewport uk-flex uk-flex-middle uk-flex-center">
+                <div class="uk-text-center">
+                    <h3 class="uk-h3 uk-text-white uk-margin-medium-bottom f500 font"><?php echo JText::sprintf('RESET_PASS_TEXT'); ?></h3>
+                    <a href="<?php echo JUri::base().'profile'; ?>" class="uk-button uk-button-primary uk-button-large uk-width-medium uk-margin-small-top" target=""><?php echo JText::sprintf('CHANGE_PASSWORD'); ?>&ensp;<img src="<?php echo JUri::base().'images/sprite.svg#arrow-left-short'; ?>" width="24" height="24" alt="" data-uk-svg></a>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php } ?>

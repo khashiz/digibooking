@@ -13,12 +13,10 @@ JHtml::_('behavior.keepalive');
 JHtml::_('behavior.formvalidator');
 
 ?>
-<div class="login<?php echo $this->pageclass_sfx; ?>">
+<div class="uk-margin-bottom login<?php echo $this->pageclass_sfx; ?>">
 	<?php if ($this->params->get('show_page_heading')) : ?>
 		<div class="page-header">
-			<h1>
-				<?php echo $this->escape($this->params->get('page_heading')); ?>
-			</h1>
+			<h1 class="font uk-h4 f500 uk-text-center uk-margin-medium-bottom"><?php echo $this->escape($this->params->get('page_heading')); ?></h1>
 		</div>
 	<?php endif; ?>
 	<?php if (($this->params->get('logindescription_show') == 1 && str_replace(' ', '', $this->params->get('login_description')) != '') || $this->params->get('login_image') != '') : ?>
@@ -34,55 +32,43 @@ JHtml::_('behavior.formvalidator');
 		</div>
 	<?php endif; ?>
 	<form action="<?php echo JRoute::_('index.php?option=com_users&task=user.login'); ?>" method="post" class="form-validate form-horizontal well">
-		<fieldset>
-			<?php echo $this->form->renderFieldset('credentials'); ?>
-			<?php if ($this->tfa) : ?>
-				<?php echo $this->form->renderField('secretkey'); ?>
-			<?php endif; ?>
-			<?php if (JPluginHelper::isEnabled('system', 'remember')) : ?>
-				<div class="control-group">
-					<div class="control-label">
-						<label for="remember">
-							<?php echo JText::_('COM_USERS_LOGIN_REMEMBER_ME'); ?>
-						</label>
-					</div>
-					<div class="controls">
-						<input id="remember" type="checkbox" name="remember" class="inputbox" value="yes" />
-					</div>
-				</div>
-			<?php endif; ?>
-			<div class="control-group">
-				<div class="controls">
-					<button type="submit" class="btn btn-primary">
-						<?php echo JText::_('JLOGIN'); ?>
-					</button>
-				</div>
-			</div>
-			<?php $return = $this->form->getValue('return', '', $this->params->get('login_redirect_url', $this->params->get('login_redirect_menuitem'))); ?>
-			<input type="hidden" name="return" value="<?php echo base64_encode($return); ?>" />
-			<?php echo JHtml::_('form.token'); ?>
+		<fieldset class="uk-padding-remove uk-margin-remove">
+            <div class="uk-child-width-1-1 uk-grid-small" data-uk-grid>
+                <?php echo $this->form->renderFieldset('credentials'); ?>
+                <?php if ($this->tfa) : ?>
+                    <?php echo $this->form->renderField('secretkey'); ?>
+                <?php endif; ?>
+                <?php if (JPluginHelper::isEnabled('system', 'remember')) : ?>
+                    <div class="control-group uk-hidden">
+                        <div class="control-label">
+                            <label for="remember">
+                                <?php echo JText::_('COM_USERS_LOGIN_REMEMBER_ME'); ?>
+                            </label>
+                        </div>
+                        <div class="controls">
+                            <input id="remember" type="checkbox" name="remember" class="inputbox" value="yes" checked />
+                        </div>
+                    </div>
+                <?php endif; ?>
+                <div class="control-group">
+                    <div class="controls">
+                        <button type="submit" class="uk-button uk-button-primary uk-button-large uk-width-1-1 uk-margin-small-top"><?php echo JText::_('JLOGIN'); ?>&ensp;<img src="<?php echo JUri::base().'images/sprite.svg#arrow-left-short'; ?>" width="24" height="24" alt="" data-uk-svg></button>
+                    </div>
+                </div>
+                <?php $return = $this->form->getValue('return', '', $this->params->get('login_redirect_url', $this->params->get('login_redirect_menuitem'))); ?>
+                <input type="hidden" name="return" value="<?php echo base64_encode($return); ?>" />
+                <?php echo JHtml::_('form.token'); ?>
+            </div>
 		</fieldset>
 	</form>
 </div>
-<div>
-	<ul class="nav nav-tabs nav-stacked">
-		<li>
-			<a href="<?php echo JRoute::_('index.php?option=com_users&view=reset'); ?>">
-				<?php echo JText::_('COM_USERS_LOGIN_RESET'); ?>
-			</a>
-		</li>
-		<li>
-			<a href="<?php echo JRoute::_('index.php?option=com_users&view=remind'); ?>">
-				<?php echo JText::_('COM_USERS_LOGIN_REMIND'); ?>
-			</a>
-		</li>
-		<?php $usersConfig = JComponentHelper::getParams('com_users'); ?>
-		<?php if ($usersConfig->get('allowUserRegistration')) : ?>
-			<li>
-				<a href="<?php echo JRoute::_('index.php?option=com_users&view=registration'); ?>">
-					<?php echo JText::_('COM_USERS_LOGIN_REGISTER'); ?>
-				</a>
-			</li>
-		<?php endif; ?>
-	</ul>
+<div class="uk-text-left">
+    <a class="font uk-text-small f600 authBottomLink" href="<?php echo JRoute::_('index.php?option=com_users&view=reset'); ?>"><?php echo JText::_('COM_USERS_LOGIN_RESET'); ?></a>
+    <!--
+    <a href="<?php /* echo JRoute::_('index.php?option=com_users&view=remind'); ?>"><?php echo JText::_('COM_USERS_LOGIN_REMIND'); */ ?></a>
+    -->
+    <?php $usersConfig = JComponentHelper::getParams('com_users'); ?>
+    <?php if ($usersConfig->get('allowUserRegistration')) : ?>
+        <a href="<?php echo JRoute::_('index.php?option=com_users&view=registration'); ?>"><?php echo JText::_('COM_USERS_LOGIN_REGISTER'); ?></a>
+    <?php endif; ?>
 </div>

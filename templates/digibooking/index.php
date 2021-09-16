@@ -24,7 +24,7 @@ $lang = JFactory::getLanguage();
 $languages = JLanguageHelper::getLanguages('lang_code');
 $languageCode = $languages[ $lang->getTag() ]->sef;
 
-JHtml::_('jquery.framework');
+JHtml::_('jquery.framework', false);
 
 // Add Stylesheets
 JHtml::_('stylesheet', 'uikit-rtl.min.css', array('version' => 'auto', 'relative' => true));
@@ -32,6 +32,7 @@ JHtml::_('stylesheet', 'digibooking.css', array('version' => 'auto', 'relative' 
 
 // Add js
 JHtml::_('script', 'uikit.min.js', array('version' => 'auto', 'relative' => true));
+JHtml::_('script', 'custom.js', array('version' => 'auto', 'relative' => true));
 ?>
 <!DOCTYPE html>
 <html lang="<?php echo JFactory::getLanguage()->getTag(); ?>" dir="<?php echo JFactory::getLanguage()->isRtl() ? 'rtl' : 'ltr'; ?>">
@@ -41,25 +42,52 @@ JHtml::_('script', 'uikit.min.js', array('version' => 'auto', 'relative' => true
     <jdoc:include type="head" />
 </head>
 <body>
-<div class="uk-grid-collapse" data-uk-grid>
-    <div class="uk-width-1-1 uk-width-medium@m">
-        <aside class="uk-background-primary uk-position-fixed uk-width-medium uk-height-viewport uk-padding">
-            <div class="uk-text-center uk-margin-medium-bottom">
-                <a href="<?php echo JUri::base(); ?>" target="_self" rel="nofollow" class="uk-display-inline-block">
-                    <img src="<?php echo JUri::base().'images/digikala-logo.png'; ?>" alt="DigiKala" width="215" height="53">
-                </a>
-                <span class="uk-text-muted uk-display-block uk-margin-small-top font"><?php echo JText::sprintf('RESERVE_SYSTEM'); ?></span>
+<?php if ($pageclass == 'auth') { ?>
+    <main class="uk-height-viewport uk-flex uk-flex-middle uk-background-primary">
+        <div class="uk-flex-1">
+            <div class="uk-container uk-container-xsmall">
+                <div class="uk-width-1-1 uk-width-1-2@m uk-margin-auto">
+                    <div class="uk-text-center uk-margin-medium-bottom">
+                        <a href="<?php echo JUri::base(); ?>" target="_blank" rel="nofollow" class="uk-display-inline-block">
+                            <img src="<?php echo JUri::base().'images/digikala-logo.png'; ?>" alt="DigiKala" width="215" height="53">
+                        </a>
+                        <span class="uk-text-muted uk-display-block uk-margin-small-top font"><?php echo JText::sprintf('RESERVE_SYSTEM'); ?></span>
+                    </div>
+                    <div class="uk-card uk-card-default uk-border-rounded-large uk-margin-medium-bottom uk-box-shadow-xlarge uk-border-rounded">
+                        <div class="uk-card-body">
+                            <jdoc:include type="message" />
+                            <jdoc:include type="component" />
+                        </div>
+                    </div>
+                    <div class="uk-text-center">
+                        <a href="https://uxdee.org" target="_blank" rel="nofollow" class="uk-display-inline-block">
+                            <img src="<?php echo JUri::base().'images/uxdee-logo.png'; ?>" alt="UXDee" width="66" height="16">
+                        </a>
+                    </div>
+                </div>
             </div>
-            <div><jdoc:include type="modules" name="aside" style="xhtml" /></div>
-        </aside>
-    </div>
-    <div class="uk-width-1-1 uk-width-expand@m">
-        <div>
-            <jdoc:include type="message" />
-            <jdoc:include type="component" />
+        </div>
+    </main>
+<?php } else { ?>
+    <div class="uk-grid-collapse" data-uk-grid>
+        <div class="uk-width-1-1 uk-width-medium@m">
+            <aside class="uk-background-primary uk-position-fixed uk-width-medium uk-height-viewport uk-padding">
+                <div class="uk-text-center uk-margin-medium-bottom">
+                    <a href="<?php echo JUri::base(); ?>" target="_self" rel="nofollow" class="uk-display-inline-block">
+                        <img src="<?php echo JUri::base().'images/digikala-logo.png'; ?>" alt="DigiKala" width="215" height="53">
+                    </a>
+                    <span class="uk-text-muted uk-display-block uk-margin-small-top font"><?php echo JText::sprintf('RESERVE_SYSTEM'); ?></span>
+                </div>
+                <div><jdoc:include type="modules" name="aside" style="xhtml" /></div>
+            </aside>
+        </div>
+        <div class="uk-width-1-1 uk-width-expand@m">
+            <div>
+                <jdoc:include type="message" />
+                <jdoc:include type="component" />
 
 
-            <?php /* ?>
+                <?php /* ?>
              <a class="uk-button uk-button-default" href="#editProfile" uk-toggle>YouTube</a>
             <div id="editProfile" class="uk-flex-top" data-uk-modal>
                 <div class="uk-modal-dialog uk-width-auto uk-margin-auto-vertical uk-width-large@m">
@@ -70,8 +98,9 @@ JHtml::_('script', 'uikit.min.js', array('version' => 'auto', 'relative' => true
             <?php JHTML::_('behavior.modal'); ?>
             <a class="modal" href="index.php?option=com_users&view=profile&layout=edit&tmpl=component?" rel="{handler: 'iframe', size: {x: 640, y: 540}}"> Edit Login Details</a>
             <?php */ ?>
+            </div>
         </div>
     </div>
-</div>
+<?php } ?>
 </body>
 </html>

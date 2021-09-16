@@ -24,7 +24,7 @@ $lang->load('plg_user_profile', JPATH_ADMINISTRATOR);
     <div class="uk-flex-1">
         <div class="uk-container uk-container-xsmall">
             <div class="uk-width-1-1 uk-width-2-3@m uk-margin-auto">
-                <div class="uk-card uk-card-default uk-padding uk-box-shadow-xlarge">
+                <div class="uk-card uk-card-default uk-padding uk-box-shadow-xlarge uk-border-rounded">
                     <?php if ($this->params->get('show_page_heading')) : ?>
                         <div class="page-header">
                             <h1><?php echo $this->escape($this->params->get('page_heading')); ?></h1>
@@ -135,19 +135,3 @@ $lang->load('plg_user_profile', JPATH_ADMINISTRATOR);
         </div>
     </div>
 </div>
-<script type="text/javascript">
-    function readURL(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-            reader.onload = function(e) {
-                jQuery('#imagePreview').css('background-image', 'url('+e.target.result +')');
-                jQuery('#imagePreview').hide();
-                jQuery('#imagePreview').fadeIn(650);
-            }
-            reader.readAsDataURL(input.files[0]);
-        }
-    }
-    jQuery("#jform_cmavatar_cmavatar").change(function() {
-        readURL(this);
-    });
-</script>

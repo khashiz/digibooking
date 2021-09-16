@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<extension type="plugin" version="3.7.0" group="system" method="upgrade">
+    <name>System - DJ-Notifications</name>
+    <creationDate>July 2021</creationDate>
+    <author>DJ-Extensions.com</author>
+    <copyright>Copyright (C) DJ-Extensions.com, All rights reserved.</copyright>
+    <license>http://www.gnu.org/licenses GNU/GPL</license>
+    <authorEmail>contact@dj-extensions.com</authorEmail>
+    <authorUrl>http://dj-extensions.com</authorUrl>
+    <version>1.1</version>
+    <description>PLG_SYSTEM_DJNOTIFICATIONS_DESCRIPTION</description>
+    <files>
+        <filename plugin="djnotifications">djnotifications.php</filename>
+        <folder>language</folder>
+        <folder>fields</folder>
+        <folder>assets</folder>
+        <folder>themes</folder>
+    </files>
+    <updateservers>
+        <server type="extension" priority="1" name="System - DJ-Notifications">
+            http://dj-extensions.com/updates/djnotifications.xml
+        </server>
+    </updateservers>
+    <config>
+        <fields name="params">
+            <fieldset name="basic" addfieldpath="plugins/system/djnotifications/fields">
+                <field name="theme" default="flat" type="djnotificationstheme" label="PLG_SYSTEM_DJNOTIFICATIONS_THEME"/>
+
+                <field name="position" default="toast-top-right" type="list" description="PLG_SYSTEM_DJNOTIFICATIONS_POSITION_DESC" label="PLG_SYSTEM_DJNOTIFICATIONS_POSITION">
+                    <option value="toast-top-center">PLG_SYSTEM_DJNOTIFICATIONS_POSITION_TOP_CENTER</option>
+                    <option value="toast-top-right">PLG_SYSTEM_DJNOTIFICATIONS_POSITION_TOP_RIGHT</option>
+                    <option value="toast-top-left">PLG_SYSTEM_DJNOTIFICATIONS_POSITION_TOP_LEFT</option>
+                    <option value="toast-top-full-width">PLG_SYSTEM_DJNOTIFICATIONS_POSITION_TOP_FULL_WIDTH</option>
+                    <option value="toast-bottom-center">PLG_SYSTEM_DJNOTIFICATIONS_POSITION_BOTTOM_CENTER</option>
+                    <option value="toast-bottom-right">PLG_SYSTEM_DJNOTIFICATIONS_POSITION_BOTTOM_RIGHT</option>
+                    <option value="toast-bottom-left">PLG_SYSTEM_DJNOTIFICATIONS_POSITION_BOTTOM_LEFT</option>
+                    <option value="toast-bottom-full-width">PLG_SYSTEM_DJNOTIFICATIONS_POSITION_BOTTOM_FULL_WIDTH</option>
+                </field>
+
+                <field name="show_method" type="list" default="fadeIn" description="PLG_SYSTEM_DJNOTIFICATIONS_SHOW_METHOD_DESC" label="PLG_SYSTEM_DJNOTIFICATIONS_SHOW_METHOD">
+                    <option value="slideDown">slideDown</option>
+                    <option value="fadeIn">fadeIn</option>
+                    <option value="show">show</option>
+                </field>
+
+                <field name="hide_method" type="list" default="fadeOut" description="PLG_SYSTEM_DJNOTIFICATIONS_HIDE_METHOD_DESC" label="PLG_SYSTEM_DJNOTIFICATIONS_HIDE_METHOD">
+                    <option value="slideUp">slideUp</option>
+                    <option value="fadeOut">fadeOut</option>
+                    <option value="hide">hide</option>
+                </field>
+
+                <field name="show_easing" type="list" default="swing" description="PLG_SYSTEM_DJNOTIFICATIONS_SHOW_EASING_DESC" label="PLG_SYSTEM_DJNOTIFICATIONS_SHOW_EASING">
+                    <option value="linear">linear</option>
+                    <option value="swing">swing</option>
+                    <option value="_default">_default</option>
+                    <option value="easeInQuad">easeInQuad</option>
+                    <option value="easeOutQuad">easeOutQuad</option>
+                    <option value="easeInOutQuad">easeInOutQuad</option>
+                    <option value="easeInCubic">easeInCubic</option>
+                    <option value="easeOutCubic">easeOutCubic</option>
+                    <option value="easeInOutCubic">easeInOutCubic</option>
+                    <option value="easeInQuart">easeInQuart</option>
+                    <option value="easeOutQuart">easeOutQuart</option>
+                    <option value="easeInOutQuart">easeInOutQuart</option>
+                    <option value="easeInQuint">easeInQuint</option>
+                    <option value="easeOutQuint">easeOutQuint</option>
+                    <option value="easeInOutQuint">easeInOutQuint</option>
+                    <option value="easeInExpo">easeInExpo</option>
+                    <option value="easeOutExpo">easeOutExpo</option>
+                    <option value="easeInOutExpo">easeInOutExpo</option>
+                    <option value="easeInSine">easeInSine</option>
+                    <option value="easeOutSine">easeOutSine</option>
+                    <option value="easeInOutSine">easeInOutSine</option>
+                    <option value="easeInCirc">easeInCirc</option>
+                    <option value="easeOutCirc">easeOutCirc</option>
+                    <option value="easeInOutCirc">easeInOutCirc</option>
+                    <option value="easeInElastic">easeInElastic</option>
+                    <option value="easeOutElastic">easeOutElastic</option>
+                    <option value="easeInOutElastic">easeInOutElastic</option>
+                    <option value="easeInBack">easeInBack</option>
+                    <option value="easeOutBack">easeOutBack</option>
+                    <option value="easeInOutBack">easeInOutBack</option>
+                    <option value="easeInBounce">easeInBounce</option>
+                    <option value="easeOutBounce">easeOutBounce</option>
+                    <option value="easeInOutBounce">easeInOutBounce</option>
+                </field>
+
+                <field name="hide_easing" type="list" default="swing" description="PLG_SYSTEM_DJNOTIFICATIONS_HIDE_EASING_DESC" label="PLG_SYSTEM_DJNOTIFICATIONS_HIDE_EASING">
+                    <option value="linear">linear</option>
+                    <option value="swing">swing</option>
+                    <option value="_default">_default</option>
+                    <option value="easeInQuad">easeInQuad</option>
+                    <option value="easeOutQuad">easeOutQuad</option>
+                    <option value="easeInOutQuad">easeInOutQuad</option>
+                    <option value="easeInCubic">easeInCubic</option>
+                    <option value="easeOutCubic">easeOutCubic</option>
+                    <option value="easeInOutCubic">easeInOutCubic</option>
+                    <option value="easeInQuart">easeInQuart</option>
+                    <option value="easeOutQuart">easeOutQuart</option>
+                    <option value="easeInOutQuart">easeInOutQuart</option>
+                    <option value="easeInQuint">easeInQuint</option>
+                    <option value="easeOutQuint">easeOutQuint</option>
+                    <option value="easeInOutQuint">easeInOutQuint</option>
+                    <option value="easeInExpo">easeInExpo</option>
+                    <option value="easeOutExpo">easeOutExpo</option>
+                    <option value="easeInOutExpo">easeInOutExpo</option>
+                    <option value="easeInSine">easeInSine</option>
+                    <option value="easeOutSine">easeOutSine</option>
+                    <option value="easeInOutSine">easeInOutSine</option>
+                    <option value="easeInCirc">easeInCirc</option>
+                    <option value="easeOutCirc">easeOutCirc</option>
+                    <option value="easeInOutCirc">easeInOutCirc</option>
+                    <option value="easeInElastic">easeInElastic</option>
+                    <option value="easeOutElastic">easeOutElastic</option>
+                    <option value="easeInOutElastic">easeInOutElastic</option>
+                    <option value="easeInBack">easeInBack</option>
+                    <option value="easeOutBack">easeOutBack</option>
+                    <option value="easeInOutBack">easeInOutBack</option>
+                    <option value="easeInBounce">easeInBounce</option>
+                    <option value="easeOutBounce">easeOutBounce</option>
+                    <option value="easeInOutBounce">easeInOutBounce</option>
+                </field>
+
+                <field name="close_button" type="radio" default="1" label="PLG_SYSTEM_DJNOTIFICATIONS_CLOSE_BUTTON" description="PLG_SYSTEM_DJNOTIFICATIONS_CLOSE_BUTTON_DESC" class="btn-group btn-group-yesno">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="display_icons" type="radio" default="1" label="PLG_SYSTEM_DJNOTIFICATIONS_DISPLAY_ICONS"  class="btn-group btn-group-yesno">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="display_headers" type="radio" default="1" label="PLG_SYSTEM_DJNOTIFICATIONS_DISPLAY_HEADERS"  class="btn-group btn-group-yesno">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="newest_on_top" type="radio" default="1" label="PLG_SYSTEM_DJNOTIFICATIONS_NEWEST_ON_TOP" description="PLG_SYSTEM_DJNOTIFICATIONS_NEWEST_ON_TOP_DESC" class="btn-group btn-group-yesno">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+
+                <field name="prevent_duplicates" type="radio" default="1" description="PLG_SYSTEM_DJNOTIFICATIONS_PREVENT_DUPLICATES_DESC" label="PLG_SYSTEM_DJNOTIFICATIONS_PREVENT_DUPLICATES" class="btn-group btn-group-yesno">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+
+
+
+                <field name="progress_bar" type="radio" default="0" description="PLG_SYSTEM_DJNOTIFICATIONS_PROGRESS_BAR_DESC" label="PLG_SYSTEM_DJNOTIFICATIONS_PROGRESS_BAR" class="btn-group btn-group-yesno">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+
+
+                <field name="time_out" type="number" default="100000" label="PLG_SYSTEM_DJNOTIFICATIONS_TIME_OUT" description="PLG_SYSTEM_DJNOTIFICATIONS_TIME_OUT_DESC" min="100" step="10" />
+                <field name="extended_time_out" type="number" default="100000" label="PLG_SYSTEM_DJNOTIFICATIONS_EXTENDED_TIME_OUT" description="PLG_SYSTEM_DJNOTIFICATIONS_EXTENDED_TIME_OUT_DESC" min="100" step="10" />
+
+                <field name="jquery" type="radio" default="0" label="PLG_SYSTEM_DJNOTIFICATIONS_JQUERY" description="PLG_SYSTEM_DJNOTIFICATIONS_JQUERY_DESC" class="btn-group btn-group-yesno">
+                    <option value="1">JENABLED</option>
+                    <option value="0">JDISABLED</option>
+                </field>
+                <field name="debug" type="radio" default="0" label="PLG_SYSTEM_DJNOTIFICATIONS_DEBUG" description="PLG_SYSTEM_DJNOTIFICATIONS_DEBUG_DESC" class="btn-group btn-group-yesno">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field showon="debug:1" name="url" type="djnotification"  label="PLG_SYSTEM_DJNOTIFICATIONS_ALERTS_URL"  />
+
+            </fieldset>
+        </fields>
+    </config>
+</extension>

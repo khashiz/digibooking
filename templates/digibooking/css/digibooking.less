@@ -1,6 +1,6 @@
 //Colors
-@primary: #5441ff;
 @primaryBG: #15022d;
+@primary: #5441ff;
 @warning: #F59E0B;
 @danger: #EF4444;
 @success: #10B981;
@@ -112,7 +112,63 @@
 .f700{font-weight: 700;}
 .font{font-family: iranyekan, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;}
 .ltr{direction: ltr;}
-
+aside{
+  ul{
+    &.menu{
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      li{
+        > span,a{
+          display: block;
+          .font;
+        }
+        > span{
+          color: #707070;
+          font-size: 12px;
+          margin-bottom: 15px;
+          &:first-of-type{
+            margin-top: 30px;
+          }
+        }
+        > a{
+          color: #fff;
+          font-size: 14px;
+          margin-bottom: 15px;
+          padding-right: 40px;
+          position: relative;
+          text-decoration: none;
+          &:before{
+            content: '';
+            position: absolute;
+            right: 10px;
+            top: 0;
+            width: 24px;
+            height: 24px;
+            background: url("../img/arrow-left-short.svg") center center no-repeat;
+            background-size: cover;
+          }
+        }
+      }
+    }
+  }
+}
+fieldset{
+  border: none;
+  outline: none;
+}
+.authBottomLink{
+  color: #222;
+  text-decoration: none;
+  border-bottom: 1px dashed #ccc;
+  display: inline-block;
+  padding-bottom: 5px;
+  &:hover{
+    color: #000;
+    text-decoration: none;
+    border-bottom-style: solid;
+  }
+}
 div{
   &.alertWrapper{
     margin-bottom: 40px;
@@ -142,8 +198,14 @@ div{
 .uk-text-tiny{
   font-size: 12px;
 }
+.uk-text-white{
+  color: #fff;
+}
 .uk-background-primary{
   background-color: @primaryBG;
+  &.transparented{
+    background-color: rgba(21, 2, 45, .9);
+  }
 }
 .uk-background-secondary{
   background-color: #39026b;
