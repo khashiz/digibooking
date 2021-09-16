@@ -35,13 +35,14 @@ class JFormFieldCMAvatar extends JFormFieldFile
 	 */
 	protected function getInput()
 	{
+        $user = JFactory::getUser();
 		if (empty($this->value))
 		{
-			$currentAvatar = JText::_('PLG_USER_CMAVATAR_NO_AVATAR');
+			$currentAvatar = '<div class="container"><div class="uk-grid-small avatar-upload" data-uk-grid><div class="avatar-preview"><div id="imagePreview" class="uk-background-muted uk-border-rounded" style="background-image: url('.JUri::base().'/templates/digibooking/img/person-bounding-box.svg);"></div></div><div class="uk-flex uk-flex-middle avatar-edit"><div><span class="uk-text-secondary uk-display-block font">'.$user->name.'</span><label for="jform_cmavatar_cmavatar" class="uk-text-tiny uk-text-muted font">'.JText::sprintf('EDIT_USER_AVATAR').'</label></div></div></div></div>';
 		}
 		else
 		{
-			$currentAvatar = '<img src="' . $this->value . '">';
+            $currentAvatar = '<div class="container"><div class="uk-grid-small avatar-upload" data-uk-grid><div class="avatar-preview"><div id="imagePreview" class="uk-background-muted uk-border-rounded" style="background-image: url(' . $this->value . ');"></div></div><div class="uk-flex uk-flex-middle avatar-edit"><div><span class="uk-text-secondary uk-display-block font">'.$user->name.'</span><label for="jform_cmavatar_cmavatar" class="uk-text-tiny uk-text-muted font">'.JText::sprintf('EDIT_USER_AVATAR').'</label></div></div></div></div>';
 		}
 
 		$uploadField = parent::getInput();

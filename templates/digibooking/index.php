@@ -54,20 +54,22 @@ JHtml::_('script', 'uikit.min.js', array('version' => 'auto', 'relative' => true
         </aside>
     </div>
     <div class="uk-width-1-1 uk-width-expand@m">
-        <div class="uk-padding">
+        <div>
             <jdoc:include type="message" />
             <jdoc:include type="component" />
-            <a class="uk-button uk-button-default" href="#editProfile" uk-toggle>YouTube</a>
+
+
+            <?php /* ?>
+             <a class="uk-button uk-button-default" href="#editProfile" uk-toggle>YouTube</a>
             <div id="editProfile" class="uk-flex-top" data-uk-modal>
                 <div class="uk-modal-dialog uk-width-auto uk-margin-auto-vertical uk-width-large@m">
                     <button class="uk-modal-close-outside" type="button" uk-close></button>
                     <iframe src="http://localhost/digibooking/edit-profile?tmpl=component" class="uk-height-large uk-width-1-1" frameborder="0"></iframe>
                 </div>
             </div>
-
             <?php JHTML::_('behavior.modal'); ?>
             <a class="modal" href="index.php?option=com_users&view=profile&layout=edit&tmpl=component?" rel="{handler: 'iframe', size: {x: 640, y: 540}}"> Edit Login Details</a>
-
+            <?php */ ?>
         </div>
     </div>
 </div>
