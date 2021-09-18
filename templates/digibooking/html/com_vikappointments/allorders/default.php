@@ -17,6 +17,12 @@ if ($this->user->guest)
 }
 
 ?>
+<div class="uk-height-medium uk-background-secondary  uk-padding uk-flex uk-flex-middle uk-flex-center">
+    <div class="page-header">
+        <h1 class="font uk-text-white uk-h2 f500 uk-margin-remove"><?php echo JText::sprintf('RESERVES_HISTORY'); ?></h1>
+        <div><?php echo JHtml::_('content.prepare','{loadposition breadcrumb}'); ?></div>
+    </div>
+</div>
 <div class="vap-allorders-userhead uk-hidden">
 	<div class="vap-allorders-userleft">
 		<h2><?php echo JText::sprintf('VAPALLORDERSTITLE', $this->user->name); ?></h2>
@@ -32,7 +38,12 @@ if ($this->user->guest)
 	
 <?php if (!count($this->orders)) { ?>
 
-	<div class="vap-allorders-void"><?php echo JText::_('VAPALLORDERSVOID'); ?></div>
+	<div class="vap-allorders-void uk-flex uk-flex-center uk-flex-middle" data-uk-height-viewport="expand: true">
+        <div>
+            <div class="uk-margin-medium-bottom"><img src="<?php echo JUri::base().'images/empty-box.svg'; ?>" width="372" height="423" class="uk-width-medium"></div>
+            <div class="font f500 uk-text-large"><?php echo JText::_('VAPALLORDERSVOID'); ?></div>
+        </div>
+    </div>
 
 <?php } else { 
 

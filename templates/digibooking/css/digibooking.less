@@ -3,7 +3,7 @@
 @primary: #5441ff;
 @warning: #F59E0B;
 @danger: #EF4444;
-@success: #10B981;
+@success: #2a7753;
 //Fonts
 @font-face {
   font-family: iranyekan;
@@ -194,21 +194,98 @@ div{
     }
   }
 }
+a{
+  &.itemWrapper{
+    .transition();
+    &.reservable{
+      .box-shadow(inset 0 0 0 2px @success);
+      &:hover{
+        background-color: #e3ffd9;
+      }
+    }
+    span{
+      &.itemTitle{
+        margin-bottom: 5px;
+      }
+      &.status{
+        .transform(rotate(90deg));
+      }
+    }
+    div{
+      &.statusWrapper{
+        &.reservable{
+          background-color: @success;
+          span{
+            top: 47px;
+            right: -5px;
+          }
+        }
+      }
+    }
+  }
+}
+ul{
+  list-style: none;
+  &.breadcrumb{
+    li{
+      a,span{
+        font-size: 14px;
+        color: #fff;
+        .font;
+      }
+    }
+  }
+}
 //UIKit Overrides
 .uk-text-tiny{
   font-size: 12px;
 }
+.uk-text-zero{
+  font-size: 0;
+}
 .uk-text-white{
   color: #fff;
+}
+.uk-text-primary{
+  color: @primaryBG !important;
+}
+.uk-border-rounded-large{
+  .border-radius(15px);
 }
 .uk-background-primary{
   background-color: @primaryBG;
   &.transparented{
-    background-color: rgba(21, 2, 45, .9);
+    background-color: rgba(21, 2, 45, .97);
   }
 }
 .uk-background-secondary{
   background-color: #39026b;
+}
+.uk-background-success{
+  background-color: @success;
+}
+.uk-tooltip{
+  font-size: 12px;
+  .font;
+}
+.uk-notification{
+  div{
+    &.uk-notification-message{
+      .border-radius(5px);
+      &.uk-notification-message-success{
+        background-color: @success;
+      }
+    }
+    a{
+      display: none !important;
+    }
+    div{
+      color: #fff;
+      font-size: 14px;
+      text-align: center;
+      .font;
+    }
+  }
 }
 .uk-input{
   border-color: #242424;

@@ -15,3 +15,11 @@ jQuery(document).ready(function () {
         readURL(this);
     });
 });
+//Copy to Clipboard
+function copyToClipboard(element) {
+    var jQuerytemp = jQuery("<input>");
+    jQuery("body").append(jQuerytemp);
+    jQuerytemp.val(jQuery(element).text()).select();
+    document.execCommand("copy");
+    jQuerytemp.remove();
+}
