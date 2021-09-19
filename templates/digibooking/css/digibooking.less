@@ -2,8 +2,9 @@
 @primaryBG: #15022d;
 @primary: #5441ff;
 @warning: #F59E0B;
-@danger: #EF4444;
+@danger: #bd3f54;
 @success: #2a7753;
+@blue: #02496b;
 //Fonts
 @font-face {
   font-family: iranyekan;
@@ -193,6 +194,45 @@ div{
       color: #fff;
     }
   }
+  &.empSearchWrapper{
+    border: 1px dashed #ccc;
+    div{
+      &.leftBordered{
+        border-left: 1px dashed #ccc;
+      }
+      &.bottomBordered{
+        border-bottom: 1px dashed #ccc;
+      }
+    }
+  }
+  &.vaptlblock0{
+    background-color: @danger;
+  }
+  &.vaptlblock1{
+    background-color: @success;
+    &.vaptimeselected{
+      background-color: @blue !important;
+    }
+  }
+}
+span{
+  &.vap-cal-box{
+    width: 32px;
+    height: 32px;
+    background-color: #f7f7f7;
+    &.green{
+      background-color: @success;
+    }
+    &.blue{
+      background-color: @blue;
+    }
+    &.yellow{
+      background-color: @warning;
+    }
+    &.red{
+      background-color: @danger;
+    }
+  }
 }
 a{
   &.itemWrapper{
@@ -236,6 +276,59 @@ ul{
     }
   }
 }
+table{
+  &.vapcaltable{
+    border: 1px solid #ccc;
+    border-top: none;
+    thead{
+      tr{
+        &:nth-child(1){
+          border-top: 3px solid #707070;
+          th{
+            padding-bottom: 0;
+            font-size: 20px;
+            font-weight: 600;
+          }
+        }
+        &:nth-child(2){
+          th{}
+        }
+      }
+    }
+    tbody{
+      tr{
+        td{
+          color: #fff;
+          font-size: 14px;
+          border: 1px solid #ccc;
+          padding: 0;
+          .font;
+          a{
+            color: #fff;
+            text-decoration: none;
+            display: block;
+            font-size: 14px;
+            font-weight: 400;
+            padding: 12px 10px 10px;
+            div{
+              font-size: 18px;
+              font-weight: 400;
+            }
+          }
+          &.vaptdnoday{
+            background-color: #f7f7f7;
+          }
+          &.vaptdgreen{
+            background-color: @success;
+          }
+          &.vaptdselected{
+            background-color: @blue;
+          }
+        }
+      }
+    }
+  }
+}
 //UIKit Overrides
 .uk-text-tiny{
   font-size: 12px;
@@ -263,6 +356,9 @@ ul{
 }
 .uk-background-success{
   background-color: @success;
+}
+.uk-background-blue{
+  background-color: @blue;
 }
 .uk-tooltip{
   font-size: 12px;
@@ -320,6 +416,13 @@ ul{
     &:hover{
       background-color: #0da9e3;
       border-color: #0da9e3;
+    }
+  }
+  &.uk-button-success{
+    background-color: @success;
+    color: #fff;
+    &:hover{
+      background-color: #2c8647;
     }
   }
 }

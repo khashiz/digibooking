@@ -32,6 +32,7 @@ JHtml::_('stylesheet', 'digibooking.css', array('version' => 'auto', 'relative' 
 
 // Add js
 JHtml::_('script', 'uikit.min.js', array('version' => 'auto', 'relative' => true));
+JHtml::_('script', 'persianumber.min.js', array('version' => 'auto', 'relative' => true));
 JHtml::_('script', 'custom.js', array('version' => 'auto', 'relative' => true));
 ?>
 <!DOCTYPE html>

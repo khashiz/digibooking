@@ -44,16 +44,8 @@ if ($this->filtersInRequest && !empty($this->requestFilters['base_coord']))
 // to make it available also for the sublayout.
 $this->displayData = array();
 // get toolbar template, used for filters
-// echo $this->loadTemplate('toolbar');
-//print_r($this);
-
-function trim_number($num)
-{
-    $eng = array('0','1','2','3','4','5','6','7','8','9');
-    $per = array('۰','۱','۲','۳','۴','۵','۶','۷','۸','۹');
-    return str_replace($eng,$per,$num);
-}
-?>
+//echo $this->loadTemplate('toolbar');
+//?>
 <!-- employees list -->
 <div class="vapempallblocks">
     <div class="uk-height-medium uk-background-secondary uk-padding-large uk-flex uk-flex-middle uk-flex-center">
@@ -73,7 +65,7 @@ function trim_number($num)
                             </div>
                             <div class="uk-text-center uk-flex uk-flex-middle uk-flex-center">
                                 <div>
-                                    <div class="uk-h1 uk-text-white uk-margin-remove font uk-text-bold"><?php echo trim_number(count($employees)); ?></div>
+                                    <div class="uk-h1 uk-text-white uk-margin-remove font uk-text-bold fnum"><?php echo count($employees); ?></div>
                                     <div class="uk-text-small uk-text-white font"><?php echo JText::sprintf('ALL_'.$this->employees[0]['group_name']); ?></div>
                                 </div>
                             </div>
@@ -86,7 +78,7 @@ function trim_number($num)
     <div data-uk-height-viewport="expand: true" id="modalContainer" class="uk-position-relative">
         <div class="uk-padding-large">
             <div>
-                <div class="uk-child-width-1-1 uk-child-width-1-2@m uk-child-width-1-3@l uk-child-width-1-4@xl" data-uk-grid data-uk-scrollspy="cls: uk-animation-fade; target: >div; delay: 200;">
+                <div class="uk-child-width-1-1 uk-child-width-1-2@m uk-child-width-1-3@l uk-child-width-1-4@xl" data-uk-grid data-uk-scrollspy="cls: uk-animation-fade; target: .empItem; delay: 200;">
                     <?php
                     foreach ($employees as $e)
                     {
@@ -150,7 +142,6 @@ function trim_number($num)
 </form>
 
 <!-- employees contact form -->
-
 <?php
 // Register some vars within a property of this class 
 // to make it available also for the sublayout.

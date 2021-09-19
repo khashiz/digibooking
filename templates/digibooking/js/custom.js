@@ -14,6 +14,9 @@ jQuery(document).ready(function () {
     jQuery("#jform_cmavatar_cmavatar").change(function() {
         readURL(this);
     });
+
+    // Persian Numbers
+    jQuery('.fnum').persiaNumber('fa');
 });
 //Copy to Clipboard
 function copyToClipboard(element) {

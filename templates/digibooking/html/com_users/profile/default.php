@@ -29,8 +29,8 @@ defined('_JEXEC') or die;
 		</ul>
 	<?php endif; ?>
     <div class="uk-child-width-1-1" data-uk-grid>
-        <div>aaaaaa</div>
-        <div>aaaaaa</div>
+        <div></div>
+        <div></div>
     </div>
 </div>
 <?php
