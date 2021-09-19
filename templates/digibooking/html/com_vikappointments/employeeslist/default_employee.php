@@ -73,7 +73,7 @@ $vik = UIApplication::getInstance();
                             <div class="uk-width-1-3 uk-flex uk-flex-middle uk-flex-center">
                                 <div>
                                     <span class="uk-display-inline-block uk-text-tiny uk-text-muted uk-margin-small-left font itemTitle"><?php echo JText::sprintf($e['group_name'].'_NAME'); ?></span>
-                                    <span class="uk-display-inline-block uk-text-large uk-text-white font f500"><?php echo $e['lastname']; ?></span>
+                                    <span class="uk-display-inline-block uk-text-large uk-text-white font f500 fnum"><?php echo $e['lastname']; ?></span>
                                 </div>
                             </div>
                             <div class="uk-width-1-3 uk-flex uk-flex-middle uk-flex-center">
