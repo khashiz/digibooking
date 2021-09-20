@@ -65,9 +65,7 @@ $cart_expanded   = VikAppointments::isCartAutoExpanded();
 				}
 				?>
 
-<hr class="uk-margin-remove">
-
-				<div class="uk-padding-small vapcartitemdiv" id="vapcartitemdiv<?php echo $item->getID(); ?>">
+				<div class="vapcartitemdiv_" id="vapcartitemdiv<?php echo $item->getID(); ?>">
 
 					<div class="vapcartitemleft uk-hidden">
 						<a href="javascript: void(0);"
@@ -99,25 +97,38 @@ $cart_expanded   = VikAppointments::isCartAutoExpanded();
 			<?php } ?>
 
 
+<?php
+$db = JFactory::getDbo();
+$empDetailsQuery = $db->getQuery(true);
+$empDetailsQuery
+    ->select($db->quoteName(array('id', 'firstname', 'lastname', 'nickname')))
+    ->from($db->quoteName('#__vikappointments_employee'))
+    ->where($db->quoteName('id') . ' = ' . $item->getID2());
+$empDetails = $db->setQuery($empDetailsQuery)->loadObject();
+?>
+
+
 			<div class="vapcartinneritemdiv_" id="vapcartinneritemdiv<?php echo $k; ?>">
+                <hr class="uk-margin-remove">
                 <div class="uk-padding-small">
-                    <div class="uk-grid-small" data-uk-grid>
-                        <div class="uk-width-small uk-flex uk-flex-middle uk-flex-center">
-                            <div class="uk-width-1-2 uk-text-secondary"><img src="<?php echo JUri::base().'images/sprite.svg#'.$item->getName(); ?>" data-uk-svg></div>
-                        </div>
-                        <div class="uk-width-expand uk-flex uk-flex-middle uk-flex-center">
-                            <span class="uk-text-secondary uk-text-small fnum font uk-position-relative"><?php echo $item->getName2(); ?></span>
-                        </div>
-                        <div class="uk-width-1-6 uk-flex uk-flex-middle uk-flex-center">
-                            <span class="uk-text-secondary uk-text-small fnum font uk-position-relative"><?php echo $item->getID2(); ?></span>
-                        </div>
-                        <div class="uk-width-1-6 uk-flex uk-flex-middle uk-flex-center">
-                            <span class="uk-text-secondary uk-text-small fnum font uk-position-relative"><?php echo $item->getCheckinDate('l ، j F Y'); ?></span>
-                        </div>
-                        <div class="uk-width-small uk-flex uk-flex-middle uk-flex-center">
-                            <span class="uk-text-secondary uk-text-small fnum font uk-position-relative bullet green"><?php echo $item->getCheckinDate($config->get('timeformat')); ?></span>
-                        </div>
-                        <div class="uk-width-1-6 uk-flex uk-flex-middle uk-flex-center">
+                    <div class="uk-padding-small">
+                        <div class="uk-grid-small" data-uk-grid>
+                            <div class="uk-width-small uk-flex uk-flex-middle uk-flex-center">
+                                <div class="uk-width-1-2 uk-text-secondary"><img src="<?php echo JUri::base().'images/sprite.svg#'.$item->getName(); ?>" data-uk-svg></div>
+                            </div>
+                            <div class="uk-width-expand uk-flex uk-flex-middle uk-flex-center">
+                                <span class="uk-text-secondary uk-text-small fnum font uk-position-relative"><?php echo $item->getName2(); ?></span>
+                            </div>
+                            <div class="uk-width-1-6 uk-flex uk-flex-middle uk-flex-center">
+                                <span class="uk-text-secondary uk-text-small fnum font uk-position-relative"><?php echo JText::sprintf('FLOOR'.$empDetails->nickname); ?></span>
+                            </div>
+                            <div class="uk-width-1-6 uk-flex uk-flex-middle uk-flex-center">
+                                <span class="uk-text-secondary uk-text-small fnum font uk-position-relative"><?php echo $item->getCheckinDate('l ، j F Y'); ?></span>
+                            </div>
+                            <div class="uk-width-small uk-flex uk-flex-middle uk-flex-center">
+                                <span class="uk-text-secondary uk-text-small fnum font uk-position-relative bullet green"><?php echo $item->getCheckinDate($config->get('timeformat')); ?></span>
+                            </div>
+                            <div class="uk-width-1-6 uk-flex uk-flex-middle uk-flex-center">
                             <span class="uk-text-secondary uk-text-small fnum font uk-position-relative bullet red vapcartitemboxoptionsdur">
                                 <?php
                                 echo VikAppointments::formatMinutesToTime($item->getDuration());
@@ -125,10 +136,11 @@ $cart_expanded   = VikAppointments::isCartAutoExpanded();
                                 echo ' (' . JText::sprintf('VAPCHECKOUTAT', date($config->get('timeformat'), $checkout)) . ')';
                                 ?>
                             </span>
-                        </div>
-                        <div class="uk-width-1-6">
-                            <div class="vapcartitemright">
-                                <a href="javascript: void(0);" onClick="vapRemoveService(<?php echo $k . "," . $item->getID() . "," . $item->getID2() . "," . $item->getCheckinTimeStamp(); ?>);" class="uk-button uk-button-danger uk-width-1-1 uk-button-outline uk-button-large font f500 vapcartremovebtn_"><?php echo JText::sprintf('REMOVE_FROM_LIST'); ?></a>
+                            </div>
+                            <div class="uk-width-1-6">
+                                <div class="vapcartitemright">
+                                    <a href="javascript: void(0);" onClick="vapRemoveService(<?php echo $k . "," . $item->getID() . "," . $item->getID2() . "," . $item->getCheckinTimeStamp(); ?>);" class="uk-button uk-button-danger uk-width-1-1 uk-button-outline uk-button-large font f500 vapcartremovebtn_"><?php echo JText::sprintf('REMOVE_FROM_LIST'); ?></a>
+                                </div>
                             </div>
                         </div>
                     </div>

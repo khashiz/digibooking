@@ -133,7 +133,7 @@ if ($recurrence_enabled)
                     </div>
                 <?php } ?>
                 <div class="uk-width-1-1 uk-width-expand@m checkout">
-                    <button type="button" class="uk-button uk-button-primary uk-button-large uk-width-1-1" onClick="vapBookNow();" id="reserveSubmit"><?php echo JText::_('VAPBOOKNOWBUTTON'); ?>&ensp;<img src="<?php echo JUri::base().'images/sprite.svg#arrow-left-short'; ?>" width="24" height="24" alt="" data-uk-svg></button>
+                    <button type="button" class="uk-button uk-button-primary uk-button-large uk-width-1-1" onClick="vapBookNow(); setPlateCookies();" id="reserveSubmit"><?php echo JText::_('VAPBOOKNOWBUTTON'); ?>&ensp;<img src="<?php echo JUri::base().'images/sprite.svg#arrow-left-short'; ?>" width="24" height="24" alt="" data-uk-svg></button>
                 </div>
             </div>
         </div>

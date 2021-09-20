@@ -13,8 +13,6 @@ defined('_JEXEC') or die('Restricted access');
 
 ?>
 
-<h3 class="vap-confirmapp-h3"><?php echo JText::_('VAPCOMPLETEORDERHEADTITLE'); ?></h3>
-		
 <div id="vapordererrordiv" class="vapordererrordiv" style="display: none;">
 	
 </div>
@@ -94,3 +92,8 @@ defined('_JEXEC') or die('Restricted access');
 	}
 	?>
 </div>
+<script>
+    jQuery(document).ready(function () {
+        plateInserter();
+    });
+</script>

@@ -236,13 +236,4 @@ if ($waiting_list_enabled)
 		return typeof VIKAPPOINTMENTS_CART_INSTANCE !== "undefined";
 	}
 
-
-
-    jQuery(document).ready(function () {
-        jQuery('#reserveSubmit').on('click', function () {
-            document.cookie = "username=khashhhh;path=/";
-        })
-    });
-
-
 </script>

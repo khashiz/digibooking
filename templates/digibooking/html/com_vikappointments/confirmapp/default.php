@@ -48,7 +48,7 @@ if ($login_req > 0 && !VikAppointments::isUserLogged())
 echo $this->loadTemplate('coupon');
 ?>
 <div class="vapseparatordiv"></div>
-<div class="uk-height-medium uk-background-green uk-padding-large uk-flex uk-flex-middle uk-flex-center">
+<div class="uk-background-green uk-padding-large uk-flex uk-flex-middle uk-flex-center">
     <div class="page-header uk-flex-1 uk-text-zero">
         <div class="uk-grid-small" data-uk-grid>
             <div class="uk-width-expand uk-flex uk-flex-middle">

@@ -48,7 +48,7 @@ $this->displayData = array();
 //?>
 <!-- employees list -->
 <div class="vapempallblocks">
-    <div class="uk-height-medium uk-background-secondary uk-padding-large uk-flex uk-flex-middle uk-flex-center">
+    <div class="uk-height-mediu uk-background-secondary uk-padding-large uk-flex uk-flex-middle uk-flex-center">
         <div class="page-header uk-flex-1 uk-text-zero">
             <div class="uk-grid-small" data-uk-grid>
                 <div class="uk-width-expand uk-flex uk-flex-middle">
@@ -78,7 +78,7 @@ $this->displayData = array();
     <div data-uk-height-viewport="expand: true" id="modalContainer" class="uk-position-relative">
         <div class="uk-padding-large">
             <div>
-                <div class="uk-child-width-1-1 uk-child-width-1-2@m uk-child-width-1-3@l uk-child-width-1-4@xl" data-uk-grid data-uk-scrollspy="cls: uk-animation-fade; target: .empItem; delay: 200;">
+                <div class="uk-child-width-1-1 uk-child-width-1-2@m uk-child-width-1-3@l uk-child-width-1-4@xl" data-uk-grid>
                     <?php
                     foreach ($employees as $e)
                     {

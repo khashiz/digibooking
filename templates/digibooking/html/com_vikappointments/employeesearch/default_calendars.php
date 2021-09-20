@@ -47,7 +47,7 @@ for ($i = 0; $i < 7; $i++)
 	 */
 }
 
-$_DAY_TEXT = ArasJoomlaVikApp::weekDaysShort();
+$_DAY_TEXT = ArasJoomlaVikApp::weekDays();
 
 VikAppointments::setCurrentTimezone($employee['timezone']);
 $arr = ArasJoomlaVikApp::jgetdate(ArasJoomlaVikApp::jmktime(0, 0, 0, $this->month, 1, $this->year));
@@ -279,6 +279,11 @@ $time_format = UIFactory::getConfig()->get('timeformat');
             <div class="uk-padding">
                 <h3 class="uk-margin-medium-bottom font f500 uk-h4 uk-text-secondary uk-text-center"><?php echo $service['name'] == 'PARKINGS' ? JText::sprintf('SELECT_YOUR_PLATE') : JText::sprintf('SELECT_YOUR_HOUR'); ?></h3>
                 <?php if ($service['name'] == 'PARKINGS') { ?>
+                    <script>
+                        jQuery(document).ready(function () {
+                            plateSpliteInserter();
+                        });
+                    </script>
                     <div>
                     <div class="uk-text-zero uk-border-rounded plateWrapper">
                         <div>
@@ -286,7 +291,7 @@ $time_format = UIFactory::getConfig()->get('timeformat');
                                 <div class="uk-width-auto">
                                     <div class="uk-background-white uk-border-rounded sidePart">
                                         <div>
-                                            <input type="tel" name="sideDigit" placeholder="_&ensp;_" maxlength="2" id="" class="uk-width-1-1 ltr">
+                                            <input type="tel" name="sideDigit" placeholder="_&ensp;_" maxlength="2" id="sideDigit" class="uk-width-1-1 ltr">
                                         </div>
                                     </div>
                                 </div>
@@ -295,10 +300,10 @@ $time_format = UIFactory::getConfig()->get('timeformat');
                                         <div class="uk-padding-small uk-padding-remove-vertical">
                                             <div class="uk-grid-collapse uk-flex-around" data-uk-grid>
                                                 <div>
-                                                    <input type="tel" name="threeDigit" placeholder="_&ensp;_&ensp;_" maxlength="3" id="" class="uk-width-1-1 uk-margin-auto ltr">
+                                                    <input type="tel" name="threeDigit" placeholder="_&ensp;_&ensp;_" maxlength="3" id="threeDigit" class="uk-width-1-1 uk-margin-auto ltr">
                                                 </div>
                                                 <div>
-                                                    <select>
+                                                    <select id="alphabet">
                                                         <option value="الف">الف</option>
                                                         <option value="ب">ب</option>
                                                         <option value="پ">پ</option>
@@ -334,7 +339,7 @@ $time_format = UIFactory::getConfig()->get('timeformat');
                                                     </select>
                                                 </div>
                                                 <div>
-                                                    <input type="tel" name="twoDigit" placeholder="_&ensp;_" maxlength="2" id="" class="uk-width-1-1 ltr">
+                                                    <input type="tel" name="twoDigit" placeholder="_&ensp;_" maxlength="2" id="twoDigit" class="uk-width-1-1 ltr">
                                                 </div>
                                             </div>
                                         </div>
@@ -663,19 +668,12 @@ $time_format = UIFactory::getConfig()->get('timeformat');
 	}
 
 
-
-
-
-
-    // Original JavaScript code by Chirp Internet: chirpinternet.eu
-    // Please acknowledge use of this code by including this header.
-
-    var today = new Date();
-    var expiry = new Date(today.getTime() + 30 * 24 * 3600 * 1000); // plus 30 days
-
-    function setCookie()
+    function setPlateCookies()
     {
-        document.cookie = "username=ffffffffffff";
+        document.cookie = "plate_sideDigit="+jQuery('#sideDigit').val()+"; path=/";
+        document.cookie = "plate_threeDigit="+jQuery('#threeDigit').val()+"; path=/";
+        document.cookie = "plate_alphabetDigit="+jQuery('#alphabet').val()+"; path=/";
+        document.cookie = "plate_twoDigit="+jQuery('#twoDigit').val()+"; path=/";
     }
 
 </script>

@@ -34,7 +34,7 @@ $vik = UIApplication::getInstance();
             <div class="uk-grid-collapse" data-uk-grid>
                 <div class="uk-width-expand">
                     <div class="uk-padding-small uk-text-zero">
-                        <div class="uk-padding-small uk-height-1-1">
+                        <div class="uk-padding-small uk-padding-remove-vertical uk-height-1-1">
                             <div class="uk-child-width-1-3 uk-grid-small uk-text-center" data-uk-grid>
                                 <div class="uk-text-secondary uk-flex uk-flex-middle uk-flex-center"><img src="<?php echo JUri::base().'images/sprite.svg#'.$e['group_name']; ?>" data-uk-svg></div>
                                 <div class="uk-flex uk-flex-middle uk-flex-center">
