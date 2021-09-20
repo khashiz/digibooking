@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<extension type="module" version="3.0.0" client="site" method="upgrade">
+	<name>VikAppointments Employees Filter</name>
+	<author>Matteo Galletti - Extensionsforjoomla.com</author>
+	<creationDate>Jun 13, 2018</creationDate>
+	<copyright>Copyright (C) 2018 Extensionsforjoomla.com. All rights reserved.</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<authorEmail>dev@extensionsforjoomla.com</authorEmail>
+	<authorUrl>https://extensionsforjoomla.com</authorUrl>
+	<version>1.2</version>
+	<description><![CDATA[ 
+  <div style="font-weight:normal; font-size:13px;">
+  <h2 style="color:#666; font-size:22px; font-weight:normal; border-bottom:1px solid #ddd;">VikAppointments Employees Filter</h2>
+  <p>Module used to show the employees filter tools for VikAppointments 1.6 or newer.</p>
+ 
+  </div>
+  <div style="font-size:12px; float:right;"><a style="color:#666;" href="https://extensionsforjoomla.com/" target="_blank">Copyright Extensions For Joomla</a></div>]]></description>
+ 
+	<files>
+		<filename module="mod_vikappointments_employees_filter">mod_vikappointments_employees_filter.php</filename>
+		<filename>mod_vikappointments_employees_filter.css</filename>
+		<filename>helper.php</filename>
+		<filename>index.html</filename>
+		<folder>tmpl</folder>
+	</files>
+
+	<languages>
+		<language tag="en-GB">languages/en-GB.mod_vikappointments_employees_filter.ini</language>
+	</languages>
+
+	<config>
+		<fields name="params">
+
+			<fieldset name="filters">	
+				
+				<field
+					name="filters_group"
+					type="list"
+					default="1"
+					label="VAP_EMPFILTER_ENABLE_GROUPS"
+					description="VAP_EMPFILTER_ENABLE_GROUPS_DESC"
+				>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				
+				<field
+					name="default_group"
+					type="sql"
+					label="VAP_EMPFILTER_DEFAULT_GROUP"
+					query="SELECT id, name FROM #__vikappointments_group ORDER BY ordering ASC"
+					key_field="id"
+					value_field="name"
+				>
+					<option value="0">--</option>
+				</field>
+				
+				<field
+					name="filters_service"
+					type="list"
+					default="1"
+					label="VAP_EMPFILTER_ENABLE_SERVICES"
+					description="VAP_EMPFILTER_ENABLE_SERVICES_DESC"
+				>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				
+				<field
+					name="default_service"
+					type="sql"
+					label="VAP_EMPFILTER_DEFAULT_SERVICE"
+					query="SELECT id, name FROM #__vikappointments_service ORDER BY ordering ASC"
+					key_field="id"
+					value_field="name"
+				>
+					<option value="0">--</option>
+				</field>
+
+				<field
+					name="filters_nearby"
+					type="list"
+					default="0"
+					label="VAP_EMPFILTER_ENABLE_NEARBY"
+					description="VAP_EMPFILTER_ENABLE_NEARBY_DESC"
+				>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+
+				<field
+					name="nearby_distances"
+					type="text"
+					default="5, 10, 25, 50"
+					label="VAP_EMPFILTER_NEARBY_DISTANCE"
+					description="VAP_EMPFILTER_NEARBY_DISTANCE_DESC"
+				/>
+
+				<field
+					name="nearby_distunit"
+					type="list"
+					default=""
+					label="VAP_EMPFILTER_NEARBY_DISTANCE_UNIT"
+					description="VAP_EMPFILTER_NEARBY_DISTANCE_UNIT_DESC"
+				>
+					<option value="">VAP_DISTANCE_UNIT_KM</option>
+					<option value="mi">VAP_DISTANCE_UNIT_MILES</option>
+				</field>
+				
+				<field
+					name="filters_price"
+					type="list"
+					default="1"
+					label="VAP_EMPFILTER_ENABLE_PRICE"
+					description="VAP_EMPFILTER_ENABLE_PRICE_DESC"
+				>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				
+				<field
+					type="spacer"
+					name="price_spacer"
+					label="VAP_EMPFILTER_PRICE_SEPARATOR"
+				/>
+				
+				<field
+					name="price_range_min"
+					type="text"
+					default="0"
+					label="VAP_EMPFILTER_PRICE_RANGE_MIN"
+					description="VAP_EMPFILTER_PRICE_RANGE_MIN_DESC"
+				/>
+				
+				<field
+					name="price_range_max"
+					type="text"
+					default="500"
+					label="VAP_EMPFILTER_PRICE_RANGE_MAX"
+					description="VAP_EMPFILTER_PRICE_RANGE_MAX_DESC"
+				/>
+				
+				<field
+					name="price_range_def"
+					type="text"
+					default="75, 300"
+					label="VAP_EMPFILTER_PRICE_RANGE_DEF"
+					description="VAP_EMPFILTER_PRICE_RANGE_DEF_DESC"
+				/>
+				
+				<field
+					type="spacer"
+					name="countries_spacer"
+					label="VAP_EMPFILTER_COUNTRY_SEPARATOR"
+				/>
+				
+				<field
+					name="filters_country"
+					type="list"
+					default="1"
+					label="VAP_EMPFILTER_ENABLE_COUNTRIES"
+					description="VAP_EMPFILTER_ENABLE_COUNTRIES_DESC"
+				>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				
+				<field
+					name="default_country"
+					type="sql"
+					label="VAP_EMPFILTER_DEFAULT_COUNTRY"
+					query="SELECT id, country_name FROM #__vikappointments_countries ORDER BY country_name ASC"
+					key_field="id"
+					value_field="country_name"
+				>
+					<option value="0">--</option>
+				</field>
+				
+				<field
+					name="filters_state"
+					type="list"
+					default="1"
+					label="VAP_EMPFILTER_ENABLE_STATES"
+					description="VAP_EMPFILTER_ENABLE_STATES_DESC"
+				>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				
+				<field
+					name="filters_city"
+					type="list"
+					default="0"
+					label="VAP_EMPFILTER_ENABLE_CITIES"
+					description="VAP_EMPFILTER_ENABLE_CITIES_DESC"
+				>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				
+				<field
+					type="spacer"
+					name="zip_spacer"
+					label="VAP_EMPFILTER_ZIP_SEPARATOR"
+				/>
+				
+				<field
+					name="filters_zip"
+					type="list"
+					default="0"
+					label="VAP_EMPFILTER_ENABLE_ZIP"
+					description="VAP_EMPFILTER_ENABLE_ZIP_DESC"
+				>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+
+				<field
+					type="spacer"
+					name="cf_spacer"
+					label="VAP_EMPFILTER_CF_SEPARATOR"
+				/>
+				
+				<field
+					name="filters_custom"
+					type="sql"
+					default="0"
+					multiple="true"
+					label="VAP_EMPFILTER_SELECT_CF"
+					description="VAP_EMPFILTER_SELECT_CF_DESC"
+					query="SELECT id, name FROM #__vikappointments_custfields WHERE `group`=1 AND type IN ('text', 'select') ORDER BY ordering ASC"
+					key_field="id"
+					value_field="name"
+				/>
+				
+			</fieldset>
+			
+			<fieldset name="basic">	
+
+				<field
+					name="loadjquery"
+					type="list"
+					default="0"
+					label="VAP_EMPFILTER_LOAD_JQUERY"
+					description="VAP_EMPFILTER_LOAD_JQUERY_DESC"
+				>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+
+				<field
+					name="itemid"
+					type="menuitem"
+					default="0"
+					label="VAP_EMPFILTER_MENU_ITEM"
+					description="VAP_EMPFILTER_MENU_ITEM_DESC"
+				>
+					<option value="">COM_MODULES_OPTION_SELECT_MENU_ITEM</option>
+				</field>
+
+			</fieldset>
+
+			<fieldset name="advanced">
+
+				<field
+					name="layout"
+					type="modulelayout"
+					label="JFIELD_ALT_LAYOUT_LABEL"
+					description="JFIELD_ALT_MODULE_LAYOUT_DESC"
+				/>
+
+				<field
+					name="moduleclass_sfx"
+					type="text"
+					default=""
+					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+					description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC"
+				/>
+
+			</fieldset>
+
+		</fields>
+	</config>
+
+	<updateservers>
+		<server type="extension" name="VikAppointments Modules Update Site" priority="1">https://extensionsforjoomla.com/api/updates/com_vikappointments/modules/mod_vikappointments_employees_filter_latest.xml</server>
+	</updateservers>
+
+</extension>

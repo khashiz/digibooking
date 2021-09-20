@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<extension type="module" version="3.0.0" client="site" method="upgrade">
+	<name>VikAppointments Search</name>
+	<author>Matteo Galletti - Extensionsforjoomla.com</author>
+	<creationDate>Jul 4, 2018</creationDate>
+	<copyright>Copyright (C) 2018 Extensionsforjoomla.com. All rights reserved.</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<authorEmail>dev@extensionsforjoomla.com</authorEmail>
+	<authorUrl>https://extensionsforjoomla.com</authorUrl>
+	<version>1.3</version>
+	<description><![CDATA[ 
+  <div style="font-weight:normal; font-size:13px;">
+  <h2 style="color:#666; font-size:22px; font-weight:normal; border-bottom:1px solid #ddd;">VikAppointments Search</h2>
+  <p>Module used to show the search form for VikAppointments 1.6 or newer.</p>
+ 
+  </div>
+  <div style="font-size:12px; float:right;"><a style="color:#666;" href="https://extensionsforjoomla.com/" target="_blank">Copyright Extensions For Joomla</a></div>]]></description>
+ 
+	<files>
+		<filename module="mod_vikappointments_search">mod_vikappointments_search.php</filename>
+		<filename>mod_vikappointments_search.css</filename>
+		<filename>helper.php</filename>
+		<filename>index.html</filename>
+		<folder>tmpl</folder>
+	</files>
+
+	<languages>
+		<language tag="en-GB">languages/en-GB.mod_vikappointments_search.ini</language>
+	</languages>
+
+	<config>
+		<fields name="params">
+
+			<fieldset name="basic">
+
+				<field
+					name="orientation"
+					type="list"
+					default="vertical"
+					label="VAP_SEARCH_ORIENTATION"
+					description="VAP_SEARCH_ORIENTATION_DESC"
+				>
+					<option value="vertical">VAP_SEARCH_ORI_VERTICAL</option>
+					<option value="horizontal">VAP_SEARCH_ORI_HORIZONTAL</option>
+				</field>
+
+				<field
+					name="advselect"
+					type="list"
+					default="1"
+					label="VAP_SEARCH_ADVANCED_SELECT"
+					description="VAP_SEARCH_ADVANCED_SELECT_DESC"
+				>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+
+				<field
+					name="loadjquery"
+					type="list"
+					default="0"
+					label="VAP_SEARCH_LOAD_JQUERY"
+					description="VAP_SEARCH_LOAD_JQUERY_DESC"
+				>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+
+				<field
+					name="itemid"
+					type="menuitem"
+					default="0"
+					label="VAP_SEARCH_MENU_ITEM"
+					description="VAP_SEARCH_MENU_ITEM_DESC"
+				>
+					<option value="">COM_MODULES_OPTION_SELECT_MENU_ITEM</option>
+				</field>
+
+			</fieldset>
+
+			<fieldset name="advanced">
+
+				<field
+					name="layout"
+					type="modulelayout"
+					label="JFIELD_ALT_LAYOUT_LABEL"
+					description="JFIELD_ALT_MODULE_LAYOUT_DESC"
+				/>
+
+				<field
+					name="moduleclass_sfx"
+					type="text"
+					default=""
+					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+					description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC"
+				/>
+
+			</fieldset>
+
+		</fields>
+	</config>
+
+	<updateservers>
+		<server type="extension" name="VikAppointments Modules Update Site" priority="1">https://extensionsforjoomla.com/api/updates/com_vikappointments/modules/mod_vikappointments_search_latest.xml</server>
+	</updateservers>
+
+</extension>

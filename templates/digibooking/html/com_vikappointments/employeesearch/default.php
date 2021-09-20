@@ -98,7 +98,7 @@ if ($employee['quick_contact'])
 
 <!-- SEARCH FORM -->
 <div class="uk-padding-large">
-    <form name="empsearchform" action="<?php echo JRoute::_('index.php?option=com_vikappointments&view=employeesearch&id_employee=' . $employee['id']  . ($this->itemid ? '&Itemid=' . $this->itemid : '')); ?>" method="post" id="vapempsearchform">
+    <form id="plateForm" name="empsearchform" action="<?php echo JRoute::_('index.php?option=com_vikappointments&view=employeesearch&id_employee=' . $employee['id']  . ($this->itemid ? '&Itemid=' . $this->itemid : '')); ?>" method="post" id="vapempsearchform">
 
         <!-- FILTER BAR -->
 
@@ -235,5 +235,14 @@ if ($waiting_list_enabled)
 	function vapIsCartPublished() {
 		return typeof VIKAPPOINTMENTS_CART_INSTANCE !== "undefined";
 	}
+
+
+
+    jQuery(document).ready(function () {
+        jQuery('#reserveSubmit').on('click', function () {
+            document.cookie = "username=khashhhh;path=/";
+        })
+    });
+
 
 </script>

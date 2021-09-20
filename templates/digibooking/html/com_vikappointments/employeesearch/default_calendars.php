@@ -60,7 +60,6 @@ $closing_periods = VikAppointments::getClosingPeriods();
 $no_day_char = JText::_('VAPRESNODAYCHAR');
 
 $time_format = UIFactory::getConfig()->get('timeformat');
-
 ?>
 <div class="empSearchWrapper">
     <div class="uk-grid-collapse uk-child-width-1-1 uk-child-width-1-2@m" data-uk-grid>
@@ -230,7 +229,7 @@ $time_format = UIFactory::getConfig()->get('timeformat');
                                         </div>
                                     </div>
                                 </div>
-                                <div class="uk-width-1-6 uk-flex uk-flex-middle uk-text-muted">
+                                <div class="uk-width-1-6 uk-flex uk-flex-middle uk-flex-left uk-text-muted">
                                     <a href="#" class="uk-flex uk-flex-middle uk-flex-center uk-link-reset" data-uk-slider-item="next">
                                         <span class="font uk-text-small uk-margin-small-left"><?php echo JText::sprintf('NEXT_MONTH'); ?></span>
                                         <span><img src="<?php echo JUri::base().'images/sprite.svg#chevron-left'; ?>" width="18" height="18" data-uk-svg></span>
@@ -278,7 +277,88 @@ $time_format = UIFactory::getConfig()->get('timeformat');
                 </div>
             </div>
             <div class="uk-padding">
-                <h3 class="uk-margin-medium-bottom font f500 uk-h4 uk-text-secondary uk-text-center"><?php echo JText::sprintf('SELECT_YOUR_HOUR'); ?></h3>
+                <h3 class="uk-margin-medium-bottom font f500 uk-h4 uk-text-secondary uk-text-center"><?php echo $service['name'] == 'PARKINGS' ? JText::sprintf('SELECT_YOUR_PLATE') : JText::sprintf('SELECT_YOUR_HOUR'); ?></h3>
+                <?php if ($service['name'] == 'PARKINGS') { ?>
+                    <div>
+                    <div class="uk-text-zero uk-border-rounded plateWrapper">
+                        <div>
+                            <div class="uk-grid-collapse" data-uk-grid>
+                                <div class="uk-width-auto">
+                                    <div class="uk-background-white uk-border-rounded sidePart">
+                                        <div>
+                                            <input type="tel" name="sideDigit" placeholder="_&ensp;_" maxlength="2" id="" class="uk-width-1-1 ltr">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="uk-width-expand">
+                                    <div class="uk-background-white uk-border-rounded mainPart">
+                                        <div class="uk-padding-small uk-padding-remove-vertical">
+                                            <div class="uk-grid-collapse uk-flex-around" data-uk-grid>
+                                                <div>
+                                                    <input type="tel" name="threeDigit" placeholder="_&ensp;_&ensp;_" maxlength="3" id="" class="uk-width-1-1 uk-margin-auto ltr">
+                                                </div>
+                                                <div>
+                                                    <select>
+                                                        <option value="الف">الف</option>
+                                                        <option value="ب">ب</option>
+                                                        <option value="پ">پ</option>
+                                                        <option value="ت">ت</option>
+                                                        <option value="ث">ث</option>
+                                                        <option value="ج">ج</option>
+                                                        <option value="چ">چ</option>
+                                                        <option value="ح">ح</option>
+                                                        <option value="خ">خ</option>
+                                                        <option value="د">د</option>
+                                                        <option value="ذ">ذ</option>
+                                                        <option value="ر">ر</option>
+                                                        <option value="ز">ز</option>
+                                                        <option value="ژ">ژ</option>
+                                                        <option value="س">س</option>
+                                                        <option value="ش">ش</option>
+                                                        <option value="ص">ص</option>
+                                                        <option value="ض">ض</option>
+                                                        <option value="ط">ط</option>
+                                                        <option value="ظ">ظ</option>
+                                                        <option value="ع">ع</option>
+                                                        <option value="غ">غ</option>
+                                                        <option value="ف">ف</option>
+                                                        <option value="ق">ق</option>
+                                                        <option value="ک">ک</option>
+                                                        <option value="گ">گ</option>
+                                                        <option value="ل">ل</option>
+                                                        <option value="م">م</option>
+                                                        <option value="ن">ن</option>
+                                                        <option value="و">و</option>
+                                                        <option value="ه">ه</option>
+                                                        <option value="ی">ی</option>
+                                                    </select>
+                                                </div>
+                                                <div>
+                                                    <input type="tel" name="twoDigit" placeholder="_&ensp;_" maxlength="2" id="" class="uk-width-1-1 ltr">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="uk-width-auto">
+                                    <div class="uk-border-rounded uk-height-1-1">
+                                        <div class="uk-border-rounded uk-height-1-1 plateBlue">
+                                            <div class="uk-flex uk-flex-column uk-flex-between uk-height-1-1">
+                                                <div>
+                                                    <span class="uk-display-block flag"></span>
+                                                </div>
+                                                <div>
+                                                    <span class="uk-display-block uk-text-white font uk-text-small uk-text-left ltr iran">I.R.<br>IRAN</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <?php } ?>
                 <div>
                     <div class="vaptimeline" id="vaptimeline"></div>
                 </div>
@@ -421,7 +501,7 @@ $time_format = UIFactory::getConfig()->get('timeformat');
 			 * @todo retries automatically on connection lost error
 			 */
 		});
-		
+
 	}
 
 	var HOUR_MIN_SELECTED = false;
@@ -581,5 +661,21 @@ $time_format = UIFactory::getConfig()->get('timeformat');
 		
 		isTimeChoosen = true;
 	}
+
+
+
+
+
+
+    // Original JavaScript code by Chirp Internet: chirpinternet.eu
+    // Please acknowledge use of this code by including this header.
+
+    var today = new Date();
+    var expiry = new Date(today.getTime() + 30 * 24 * 3600 * 1000); // plus 30 days
+
+    function setCookie()
+    {
+        document.cookie = "username=ffffffffffff";
+    }
 
 </script>

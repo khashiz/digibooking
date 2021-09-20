@@ -22,13 +22,34 @@ $cart_expanded   = VikAppointments::isCartAutoExpanded();
 ?>
 
 <div>
-	<div class="vapsummaryservicescontـ">
-		<?php 
+	<div class="uk-margin-medium-bottom summeryTable vapsummaryservicescontـ">
+
+        <div class="uk-padding-small">
+            <div class="uk-padding-small">
+                <div class="uk-grid-small" data-uk-grid>
+                    <div class="uk-flex uk-flex-center uk-flex-middle uk-text-small font f600 uk-width-small">&ensp;</div>
+                    <div class="uk-flex uk-flex-center uk-flex-middle uk-text-small font f600 uk-width-expand"><?php echo JText::sprintf('NAME'); ?></div>
+                    <div class="uk-flex uk-flex-center uk-flex-middle uk-text-small font f600 uk-width-1-6"><?php echo JText::sprintf('FLOOR'); ?></div>
+                    <div class="uk-flex uk-flex-center uk-flex-middle uk-text-small font f600 uk-width-1-6"><?php echo JText::sprintf('ENTRANCE_DATE'); ?></div>
+                    <div class="uk-flex uk-flex-center uk-flex-middle uk-text-small font f600 uk-width-small"><?php echo JText::sprintf('ENTRANCE_TIME'); ?></div>
+                    <div class="uk-flex uk-flex-center uk-flex-middle uk-text-small font f600 uk-width-1-6"><?php echo JText::sprintf('DURATION'); ?></div>
+                    <div class="uk-flex uk-flex-center uk-flex-middle uk-text-small font f600 uk-width-1-6"><?php echo JText::sprintf('DELETE'); ?></div>
+                </div>
+            </div>
+        </div>
+
+		<?php
 		$default_tz = date_default_timezone_get();
 
 		foreach ($items_list as $k => $item)
-		{ 
-			$emp_tz = VikAppointments::getEmployeeTimezone($item->getID2());
+		{
+
+//		    echo '<pre>';
+//		    print_r($item);
+//		    echo '</pre>';
+
+
+        $emp_tz = VikAppointments::getEmployeeTimezone($item->getID2());
 			VikAppointments::setCurrentTimezone($emp_tz ? $emp_tz : $default_tz);
 			?>
 
@@ -43,27 +64,28 @@ $cart_expanded   = VikAppointments::isCartAutoExpanded();
 				<?php
 				}
 				?>
-		
-				<div class="vapcartitemdiv" id="vapcartitemdiv<?php echo $item->getID(); ?>">
-			
-					<div class="vapcartitemleft">
+
+<hr class="uk-margin-remove">
+
+				<div class="uk-padding-small vapcartitemdiv" id="vapcartitemdiv<?php echo $item->getID(); ?>">
+
+					<div class="vapcartitemleft uk-hidden">
 						<a href="javascript: void(0);"
 							onClick="vapCartExtendItem(<?php echo $item->getID(); ?>);"
 							class="vapcartexplink <?php echo ($cart_expanded ? 'vapcartexpopened' : 'vapcartexphidden'); ?>"
 							id="vapcartexplink<?php echo $item->getID(); ?>"
 						>
 							<span class="vapcartitemname">
-								<i class="fa fa-chevron-<?php echo $cart_expanded ? 'down' : 'right'; ?>"></i>
 								<?php echo $item->getName(); ?>
 							</span>
 						</a>
 					</div>
 
-					<div class="vapcartitemright">
+					<div class="vapcartitemright uk-hidden">
 						<div class="vapcartitemprice" id="vapcartgroupitemprice<?php echo $item->getID(); ?>">
-							<?php 
+							<?php
 							$group_tcost = VikAppointmentsCartUtils::getServiceTotalCost($items_list, $item->getID());
-							
+
 							if ($group_tcost > 0)
 							{
 								echo VikAppointments::printPriceCurrencySymb($group_tcost);
@@ -71,31 +93,55 @@ $cart_expanded   = VikAppointments::isCartAutoExpanded();
 							?>
 						</div>
 					</div>
-				
-					<div class="vapcartinneritemscont" id="vapcartinneritemscont<?php echo $item->getID(); ?>" style="<?php echo ($cart_expanded ? '' : 'display: none;'); ?>">
-		
+
+					<div class="vapcartinneritemscont" id="vapcartinneritemscont<?php echo $item->getID(); ?>">
+
 			<?php } ?>
-		
-			<div class="vapcartinneritemdiv" id="vapcartinneritemdiv<?php echo $k; ?>">
-			
-				<div class="vapcartinitemup">
+
+
+			<div class="vapcartinneritemdiv_" id="vapcartinneritemdiv<?php echo $k; ?>">
+                <div class="uk-padding-small">
+                    <div class="uk-grid-small" data-uk-grid>
+                        <div class="uk-width-small uk-flex uk-flex-middle uk-flex-center">
+                            <div class="uk-width-1-2 uk-text-secondary"><img src="<?php echo JUri::base().'images/sprite.svg#'.$item->getName(); ?>" data-uk-svg></div>
+                        </div>
+                        <div class="uk-width-expand uk-flex uk-flex-middle uk-flex-center">
+                            <span class="uk-text-secondary uk-text-small fnum font uk-position-relative"><?php echo $item->getName2(); ?></span>
+                        </div>
+                        <div class="uk-width-1-6 uk-flex uk-flex-middle uk-flex-center">
+                            <span class="uk-text-secondary uk-text-small fnum font uk-position-relative"><?php echo $item->getID2(); ?></span>
+                        </div>
+                        <div class="uk-width-1-6 uk-flex uk-flex-middle uk-flex-center">
+                            <span class="uk-text-secondary uk-text-small fnum font uk-position-relative"><?php echo $item->getCheckinDate('l ، j F Y'); ?></span>
+                        </div>
+                        <div class="uk-width-small uk-flex uk-flex-middle uk-flex-center">
+                            <span class="uk-text-secondary uk-text-small fnum font uk-position-relative bullet green"><?php echo $item->getCheckinDate($config->get('timeformat')); ?></span>
+                        </div>
+                        <div class="uk-width-1-6 uk-flex uk-flex-middle uk-flex-center">
+                            <span class="uk-text-secondary uk-text-small fnum font uk-position-relative bullet red vapcartitemboxoptionsdur">
+                                <?php
+                                echo VikAppointments::formatMinutesToTime($item->getDuration());
+                                $checkout = strtotime('+' . $item->getDuration() . ' minutes', $item->getCheckinTimeStamp());
+                                echo ' (' . JText::sprintf('VAPCHECKOUTAT', date($config->get('timeformat'), $checkout)) . ')';
+                                ?>
+                            </span>
+                        </div>
+                        <div class="uk-width-1-6">
+                            <div class="vapcartitemright">
+                                <a href="javascript: void(0);" onClick="vapRemoveService(<?php echo $k . "," . $item->getID() . "," . $item->getID2() . "," . $item->getCheckinTimeStamp(); ?>);" class="uk-button uk-button-danger uk-width-1-1 uk-button-outline uk-button-large font f500 vapcartremovebtn_"><?php echo JText::sprintf('REMOVE_FROM_LIST'); ?></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+				<div class="vapcartinitemup uk-hidden">
 					<div class="vapcartinitemupleft">
 						<div class="vapcartitemexp">
-							<a href="javascript: void(0);"
-								onClick="vapCartOpenDetails(<?php echo $k; ?>);"
-								class="vapcartitemdetlink"
-							>
-								<span>
-									<i class="fa fa-bars"></i>
-									<?php echo $item->getCheckinDate($config->get('dateformat') . ' ' . $config->get('timeformat')); ?>
-								</span>
-							</a>
-						
 						<!-- START MODAL BOX - Summary - Options list -->
-						<div class="vapcartitemboxdialog" id="vapcartitemboxdialog<?php echo $k; ?>" style="<?php echo ($cart_expanded ? '' : 'display: none;'); ?>">
-							
+						<div class="vapcartitemboxdialog" id="vapcartitemboxdialog<?php echo $k; ?>">
+
 							<div class="vapcartitemboxdetails"><?php echo $item->getDetails(); ?></div>
-							
+
 							<div class="vapcartitemboxoptionscont">
 								<?php
 								$opt_tcost = $item->getPrice();
@@ -147,19 +193,7 @@ $cart_expanded   = VikAppointments::isCartAutoExpanded();
 							</div>
 
 							<div class="vapcartitemboxoptionsbottom">
-								<span class="vapcartitemboxoptionsdur">
-									<?php
-									echo VikAppointments::formatMinutesToTime($item->getDuration());
 
-									/**
-									 * Display checkout time.
-									 *
-									 * @since 1.6
-									 */
-									$checkout = strtotime('+' . $item->getDuration() . ' minutes', $item->getCheckinTimeStamp());
-									echo ' (' . JText::sprintf('VAPCHECKOUTAT', date($config->get('timeformat'), $checkout)) . ')';
-									?>
-								</span>
 
 								<?php if ($item->getPeople() > 1) { ?>
 									<span class="vapcartitemboxoptionspeople">
@@ -191,33 +225,25 @@ $cart_expanded   = VikAppointments::isCartAutoExpanded();
 						}
 						else
 						{
-							echo '&nbsp;'; 
+							echo '&nbsp;';
 						}
 						?>
 					</div>
 
-					<div class="vapcartitemright">
-						<a 
-							href="javascript: void(0);"
-							onClick="vapRemoveService(<?php echo $k . "," . $item->getID() . "," . $item->getID2() . "," . $item->getCheckinTimeStamp(); ?>);"
-							class="vapcartremovebtn"
-						>
-							<i class="fa fa-minus-circle"></i>
-						</a>
-					</div>
+
 				</div>
 			</div>
-			
+
 		</div>
-		
+
 		<?php $last_service_id = $item->getID(); ?>
-		
+
 		<?php if ($k == count($items_list) - 1)
 		{
 			?></div></div><?php
 		}
 	} ?>
-	
+
 	</div>
 	
 	<?php
@@ -237,7 +263,7 @@ $cart_expanded   = VikAppointments::isCartAutoExpanded();
 	}
 	?>
 
-	<div class="vap-cart-summary-gtotal">
+	<div class="vap-cart-summary-gtotal uk-hidden">
 	
 		<?php if ($discount) { ?>
 			<div class="vapsummarycoupondiv">

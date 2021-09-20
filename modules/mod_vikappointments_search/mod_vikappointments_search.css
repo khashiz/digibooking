@@ -1,0 +1,93 @@
+.moduletablevikapp {
+	display: inline-block;
+}
+.moduletablevikapp select {
+    width: 100%;
+}
+.moduletablevikapp input {
+    width: 100%;
+	border: 1px solid #ccc;
+    border-radius: 2px;
+    background: #fff;
+    padding: 6px 10px;
+    color: #666;
+    font-size: 14px;
+    outline: none;
+}
+.moduletablevikapp input:focus {
+    outline: none;
+    border: solid 1px #8da3c8;
+    -webkit-box-shadow: 0 0 5px 1px #bed9fa;
+    -moz-box-shadow: 0 0 5px 1px #bed9fa;
+    box-shadow: 0 0 5px 1px #bed9fa;
+}
+.moduletablevikapp .vapsearchsubmitmod {
+	background: none repeat scroll 0 0 #069;
+    border: 0 none;
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    font-size: 16px;
+    padding: 8px 20px;
+    width: 100%;
+    margin: 10px 0 0;
+    transition: all 400ms ease-in-out 0s;
+    -moz-transition: all 400ms ease-in-out 0s;
+    -webkit-transition: all 400ms ease-in-out 0s;
+    -o-transition: all 400ms ease-in-out 0s;
+}
+.moduletablevikapp .vapsearchsubmitmod:hover {
+    background: none repeat scroll 0 0 #0088cc;
+    transition: all 400ms ease-in-out 0s;
+    -moz-transition: all 400ms ease-in-out 0s;
+    -webkit-transition: all 400ms ease-in-out 0s;
+    -o-transition: all 400ms ease-in-out 0s;
+}
+.moduletablevikapp .vapsearchsubmitmod:active {
+    background: none repeat scroll 0 0 #0079b6;
+}
+.vapsearchinputdivmod {
+	display: inline-block;
+	width: 100%;
+	margin: 0 0 8px 0;
+}
+.moduletablevikapp label {
+	float: left;
+	display: inline-block;
+	margin: 5px 5px 0 0;
+	min-width: 25%;
+}
+.select2-container .select2-choice {
+    height: 30px;
+}
+.vapmainsearchmod.horizontal {
+    display: table;
+    margin: 0 auto;
+}
+.vapmainsearchmod.horizontal .vapsearchinputdivmod {
+    display: inline-block;
+    vertical-align: top;
+    width: auto;
+    margin: 0 5px;
+}
+.vapmainsearchmod.horizontal .vapsearchinputdivmod .select2-container .select2-choice {
+    height: 34px;
+    line-height: 34px;
+}
+.vapmainsearchmod.horizontal .vapformfieldsetmod {
+    display: flex;
+}
+.vapmainsearchmod.horizontal .vapformfieldsetmod .mod-booknow {
+    align-self: flex-end;
+}
+.vapmainsearchmod.horizontal .vapsearchinputlabelmod {
+    margin-bottom: 3px;
+    font-weight: bold;
+}
+
+@media screen and (max-width : 550px) {
+    .vapmainsearchmod.horizontal .vapformfieldsetmod {
+        display: flex;
+        flex-wrap: wrap;
+    }
+}

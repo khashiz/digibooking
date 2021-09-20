@@ -1,0 +1,89 @@
+#vap-modpricerange-slider .ui-slider-range {
+	background: #25a2ef;
+}
+#vap-modpricerange-slider .ui-slider-handle {
+	outline-style: none !important;
+}
+
+.vap-modpricerange-values {
+	width: 100%;
+	display: inline-block;
+}
+.vap-modpricerange-values .left {
+	width: 30%;
+	display: inline-block;
+	float: left;
+	text-align: left;
+}
+.vap-modpricerange-values .center {
+	width: 40%;
+	display: inline-block;
+	text-align: center;
+}
+.vap-modpricerange-values .right {
+	width: 30%;
+	display: inline-block;
+	float: right;
+	text-align: right;
+}
+.vap-empfilter-submit {
+	background: none repeat scroll 0 0 #006699;
+    border: 0 none;
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    font-size: 16px;
+    padding: 8px 20px;
+    width: 100%;
+    margin: 10px 0 0;
+    transition: all 400ms ease-in-out 0s;
+	-moz-transition: all 400ms ease-in-out 0s;
+	-webkit-transition: all 400ms ease-in-out 0s;
+	-o-transition: all 400ms ease-in-out 0s;
+}
+.vap-empfilter-submit:hover {
+	background: none repeat scroll 0 0 #0088cc;
+	transition: all 400ms ease-in-out 0s;
+	-moz-transition: all 400ms ease-in-out 0s;
+	-webkit-transition: all 400ms ease-in-out 0s;
+	-o-transition: all 400ms ease-in-out 0s;
+}
+.vap-empfilter-submit:active {
+	background: none repeat scroll 0 0 #0079b6;
+}
+.vap-empfilter-item {
+	margin: 3px 0;
+}
+.vap-modfilter-sel {
+	width: 100% !important;
+}
+
+.vap-empfilter-item-input input[type="text"] {
+	width: 94%;
+	background-color: #fff;
+	border: 1px solid #b8babf;
+	border-radius: 3px;
+	color: #181a1d;
+	display: inline-block;
+	font-size: 14px;
+	height: 21px;
+	line-height: 24.2px;
+	padding: 7px 4px 6px 9px;
+	transition: all 150ms ease-in-out 0s;
+}
+
+.vap-empfilter-item-input input[type="text"]:disabled {
+	background-color: rgba(225, 225, 225, 0.70);
+}
+.ui-widget-content {
+	background: #f6f6f6 !important;
+	border: 1px solid #ddd !important;
+}
+.ui-slider-horizontal .ui-slider-handle {
+	background: #eee !important;
+	border: 1px solid #ddd !important;
+	cursor: pointer !important;
+}
+.select2-container .select2-choice {
+	height: 30px;
+}

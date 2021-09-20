@@ -92,7 +92,7 @@ echo $this->loadTemplate('coupon');
             }
         }
         ?>
-        <div class="vapcompleteorderdiv">
+        <div class="vapcompleteorderdiv uk-hidden">
 
             <?php
             if (count($cfields))
@@ -104,7 +104,7 @@ echo $this->loadTemplate('coupon');
             ?>
 
         </div>
-        <div class="vapcompleteorderdiv" id="vappaymentsdiv" style="display: none;">
+        <div class="vapcompleteorderdiv uk-hidden" id="vappaymentsdiv" style="display: none;">
 
             <?php
             // display the list of the payments that the customers can choose
@@ -112,7 +112,12 @@ echo $this->loadTemplate('coupon');
             ?>
 
         </div>
-        <button type="button" class="vap-btn big blue" id="vapcontinuebutton" onClick="vapContinueButton();"><?php echo JText::_($skip_payments ? 'VAPCONFIRMRESBUTTON' : 'VAPCONTINUEBUTTON'); ?></button>
+        <div class="uk-grid-collapse" data-uk-grid>
+            <div class="uk-width-1-1 uk-width-3-4@m">&emsp;</div>
+            <div class="uk-width-1-1 uk-width-1-4@m">
+                <button type="button" class="uk-button uk-button-primary uk-button-large uk-width-1-1" id="vapcontinuebutton" onClick="vapContinueButton();"><?php echo JText::_($skip_payments ? 'VAPCONFIRMRESBUTTON' : 'VAPCONTINUEBUTTON'); ?>&ensp;<img src="<?php echo JUri::base().'images/sprite.svg#arrow-left-short'; ?>" width="24" height="24" alt="" data-uk-svg></button>
+            </div>
+        </div>
         <input type="hidden" name="option" value="com_vikappointments" />
         <input type="hidden" name="task" value="saveorder" />
     </div>
