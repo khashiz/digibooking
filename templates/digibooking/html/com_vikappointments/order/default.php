@@ -92,7 +92,7 @@ if (!count($orders))
                             <h1 class="font uk-text-white uk-h2 uk-text-center f500 uk-margin-remove"><?php echo JText::_('VAPORDERTITLE1'); ?></h1>
                             <ul class="uk-flex-center uk-margin-medium-top uk-text-zero uk-child-width-auto uk-grid-medium" data-uk-grid>
                                 <li>
-                                    <span class="font uk-margin-remove uk-h5 uk-text-gray fnum"><?php echo JText::sprintf('VAPORDERNUMBER', $order['id']); ?></span>
+                                    <span class="font uk-margin-remove uk-h5 uk-text-gray fnum"><?php echo JText::sprintf('VAPORDERNUMBER', 100000+$order['id']); ?></span>
                                 </li>
                                 <li>
                                     <span class="font uk-margin-remove uk-h5 uk-text-gray"><?php echo JText::sprintf('VAPORDERKEY', $order['sid']); ?></span>

@@ -10,14 +10,39 @@
 defined('_JEXEC') or die;
 
 $db = JFactory::getDbo();
+/* Latest Orders Query */
 $lastXOrders = $db->getQuery(true);
 $lastXOrders
     ->select($db->quoteName(array('id','id_employee', 'checkin_ts', 'duration', 'status', 'sid', 'conf_key', 'createdby')))
     ->from($db->quoteName('#__vikappointments_reservation'))
     ->where($db->quoteName('createdby') . ' = ' . JFactory::getUser()->id)
     ->order('id DESC')
-    ->setLimit('4');
+    ->setLimit('3');
 $orders = $db->setQuery($lastXOrders)->loadObjectList();
+
+/* Count Sluts */
+$countParkingSluts = $db->getQuery(true);
+$countParkingSluts
+    ->select($db->quoteName(array('id_group')))
+    ->from($db->quoteName('#__vikappointments_employee'))
+    ->where($db->quoteName('id_group') . ' = ' . 1);
+$parkings = $db->setQuery($countParkingSluts)->loadObjectList();
+
+/* Count Rooms */
+$countRoomsSluts = $db->getQuery(true);
+$countRoomsSluts
+    ->select($db->quoteName(array('id_group')))
+    ->from($db->quoteName('#__vikappointments_employee'))
+    ->where($db->quoteName('id_group') . ' = ' . 6);
+$rooms = $db->setQuery($countRoomsSluts)->loadObjectList();
+
+/* Count Tables */
+$countTablesSluts = $db->getQuery(true);
+$countTablesSluts
+    ->select($db->quoteName(array('id_group')))
+    ->from($db->quoteName('#__vikappointments_employee'))
+    ->where($db->quoteName('id_group') . ' = ' . 5);
+$tables = $db->setQuery($countTablesSluts)->loadObjectList();
 ?>
 <div class="profile<?php echo $this->pageclass_sfx; ?>">
     <div class="uk-background-secondary uk-padding-large uk-flex uk-flex-middle uk-flex-right">
@@ -27,22 +52,103 @@ $orders = $db->setQuery($lastXOrders)->loadObjectList();
             </div>
         <?php endif; ?>
     </div>
-    <div class="uk-padding-large uk-background-muted">
-        <div>
-            <div class="uk-child-width-1-1 uk-child-width-1-3@m" data-uk-grid>
-                <div>
-                    <div>ggggg</div>
+    <div class="uk-padding-large uk-padding-remove-top uk-padding-remove-bottom uk-position-relative">
+        <div class="dashboardBoxWrapper">
+            <div data-uk-slider>
+                <div class="uk-position-relative">
+                    <ul class="uk-slider-items uk-child-width-1-1 uk-child-width-1-3@m uk-grid uk-grid-large">
+                        <li>
+                            <div class="uk-background-white uk-margin-bottom">
+                                <div class="summeryTable">
+                                    <div class="uk-padding">
+                                        <div>
+                                            <div class="uk-child-width-1-2 uk-grid-small" data-uk-grid>
+                                                <div class="uk-flex uk-flex-center uk-flex-middle uk-text-center uk-text-primary">
+                                                    <div><img src="<?php echo JUri::base().'images/sprite.svg#PARKINGS'; ?>" data-uk-svg></div>
+                                                </div>
+                                                <div class="uk-flex uk-flex-center uk-flex-middle uk-text-center">
+                                                    <div>
+                                                        <div class="uk-h1 uk-text-primary uk-margin-remove font uk-text-bold fnum"><?php echo count($parkings); ?></div>
+                                                        <div class="uk-text-small uk-text-secondary font"><?php echo JText::sprintf('ALL_PARKINGS'); ?></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <a href="<?php echo JRoute::_('index.php?option=com_vikappointments&view=employeeslist&employee_group=1'); ?>" class="uk-button uk-button-primary uk-width-1-1 uk-button-large font"><?php echo JText::sprintf('PARKING_RESERVE'); ?>&ensp;<img src="<?php echo JUri::base().'images/sprite.svg#arrow-left-short'; ?>" width="24" height="24" alt="" data-uk-svg></a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="uk-background-white uk-margin-bottom">
+                                <div class="summeryTable">
+                                    <div class="uk-padding">
+                                        <div>
+                                            <div class="uk-child-width-1-2 uk-grid-small" data-uk-grid>
+                                                <div class="uk-flex uk-flex-center uk-flex-middle uk-text-center uk-text-primary">
+                                                    <div><img src="<?php echo JUri::base().'images/sprite.svg#MEETING_ROOMS'; ?>" data-uk-svg></div>
+                                                </div>
+                                                <div class="uk-flex uk-flex-center uk-flex-middle uk-text-center">
+                                                    <div>
+                                                        <div class="uk-h1 uk-text-primary uk-margin-remove font uk-text-bold fnum"><?php echo count($rooms); ?></div>
+                                                        <div class="uk-text-small uk-text-secondary font"><?php echo JText::sprintf('ALL_MEETING_ROOMS'); ?></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <a href="<?php echo JRoute::_('index.php?option=com_vikappointments&view=employeeslist&employee_group=6'); ?>" class="uk-button uk-button-primary uk-width-1-1 uk-button-large font"><?php echo JText::sprintf('SEE_MEETIBG_ROOMS'); ?>&ensp;<img src="<?php echo JUri::base().'images/sprite.svg#arrow-left-short'; ?>" width="24" height="24" alt="" data-uk-svg></a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="uk-background-white uk-margin-bottom">
+                                <div class="summeryTable">
+                                    <div class="uk-padding">
+                                        <div>
+                                            <div class="uk-child-width-1-2 uk-grid-small" data-uk-grid>
+                                                <div class="uk-flex uk-flex-center uk-flex-middle uk-text-center uk-text-primary">
+                                                    <div><img src="<?php echo JUri::base().'images/sprite.svg#TABLES'; ?>" data-uk-svg></div>
+                                                </div>
+                                                <div class="uk-flex uk-flex-center uk-flex-middle uk-text-center">
+                                                    <div>
+                                                        <div class="uk-h1 uk-text-primary uk-margin-remove font uk-text-bold fnum"><?php echo count($tables); ?></div>
+                                                        <div class="uk-text-small uk-text-secondary font"><?php echo JText::sprintf('ALL_TABLES'); ?></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <a href="<?php echo JRoute::_('index.php?option=com_vikappointments&view=employeeslist&employee_group=5'); ?>" class="uk-button uk-button-primary uk-width-1-1 uk-button-large font"><?php echo JText::sprintf('TABLES_RESERVE'); ?>&ensp;<img src="<?php echo JUri::base().'images/sprite.svg#arrow-left-short'; ?>" width="24" height="24" alt="" data-uk-svg></a>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
-                <div>
-                    <div>ggggg</div>
-                </div>
-                <div>
-                    <div>ggggg</div>
-                </div>
+                <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
             </div>
         </div>
     </div>
     <div class="uk-padding-large">
+        <div class="uk-margin-bottom">
+            <div class="uk-grid-medium" data-uk-grid>
+                <div class="uk-width-auto">
+                    <h2 class="uk-margin-remove uk-h3 uk-text-secondary font f600"><?php echo JText::sprintf('RESERVES_RECENT'); ?></h2>
+                </div>
+                <div class="uk-width-auto uk-text-success uk-flex uk-flex-middle">
+                    <a href="<?php echo JRoute::_('index.php?option=com_vikappointments&view=allorders'); ?>" class="uk-flex uk-flex-middle uk-link-reset font f500">
+                        <span class="uk-margin-small-left"><?php echo JText::sprintf('ALL_MY_RESERVES'); ?></span>
+                        <span><img src="<?php echo JUri::base().'images/sprite.svg#arrow-left-short'; ?>" data-uk-svg></span>
+                    </a>
+                </div>
+            </div>
+        </div>
         <div class="summeryTable">
             <div class="uk-padding-small">
                 <div class="uk-padding-small uk-padding-remove-vertical">
