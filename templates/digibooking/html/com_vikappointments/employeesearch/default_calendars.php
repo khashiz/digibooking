@@ -240,14 +240,16 @@ $time_format = UIFactory::getConfig()->get('timeformat');
                     </div>
                     <div>
                         <hr class="uk-margin-medium-bottom uk-margin-medium-top">
-                        <ul class="uk-child-width-1-5 uk-grid-small" data-uk-grid>
+                        <ul class="uk-child-width-1-4 uk-grid-small" data-uk-grid>
                             <?php foreach ($legend_arr as $color) { ?>
-                                <li>
-                                    <div class="uk-flex uk-flex-middle">
-                                        <span class="uk-border-rounded uk-display-inline-block uk-margin-small-left uk-flex-none vap-cal-box <?php echo $color; ?>"></span>
-                                        <span class="uk-text-tiny uk-text-muted uk-display-inline-block font"><?php echo JText::_('CALENDARLEGEND' . strtoupper($color)); ?></span>
-                                    </div>
-                                </li>
+                                <?php if ($color != 'grey') { ?>
+                                    <li>
+                                        <div class="uk-flex uk-flex-middle">
+                                            <span class="uk-border-rounded uk-display-inline-block uk-margin-small-left uk-flex-none vap-cal-box <?php echo $color; ?>"></span>
+                                            <span class="uk-text-tiny uk-text-muted uk-display-inline-block font"><?php echo JText::_('CALENDARLEGEND' . strtoupper($color)); ?></span>
+                                        </div>
+                                    </li>
+                                <?php } ?>
                             <?php } ?>
                         </ul>
                     </div>

@@ -172,6 +172,36 @@ fieldset{
   }
 }
 div{
+  &.sideFooter{
+    left: 0;
+    right: 0;
+    bottom: 0;
+    a{
+      &.errorReport{
+        padding-right: 15px;
+        &:hover{
+          color: #fff;
+        }
+        &:before{
+          content: '';
+          position: absolute;
+          right: 0;
+          top: 5px;
+          width: 6px;
+          height: 6px;
+          background-color: @primary;
+          .border-radius(10px);
+        }
+      }
+      &.uxdee{
+        opacity: .5;
+        .transition();
+        &:hover{
+          opacity: 1;
+        }
+      }
+    }
+  }
   &.alert{
     h4,button{
       display: none;
@@ -284,6 +314,16 @@ div{
       }
     }
   }
+  &.rowIcon{
+    svg{
+      height: 53px;
+    }
+  }
+  &.finished{
+    filter: grayscale(1);
+    opacity: .5;
+    background-color: #f0f0f0;
+  }
 }
 span{
   &.vap-cal-box{
@@ -312,15 +352,18 @@ span{
       height: 8px;
       right: 0;
       top: 50%;
+      background-color: #e0e0e0;
       .transform(translateY(-5px));
       .border-radius(20px);
     }
-    &.green{
+    &.green,
+    &.confirmed{
       &:before{
         background-color: @success;
       }
     }
-    &.red{
+    &.red,
+    &.canceled{
       &:before{
         background-color: @danger;
       }
@@ -353,6 +396,16 @@ a{
             right: -5px;
           }
         }
+      }
+    }
+  }
+  &.countActiveUsers{
+    span{
+      &.count{
+        width: 30px;
+        height: 30px;
+        border: 2px solid #fff;
+        .border-radius(40px);
       }
     }
   }

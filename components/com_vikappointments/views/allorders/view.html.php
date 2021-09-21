@@ -35,7 +35,7 @@ class VikAppointmentsViewallorders extends JViewUI
 		
 		if (!$user->guest)
 		{
-			$lim 	= 5;
+			$lim 	= 1000;
 			$lim0 	= $app->getUserStateFromRequest('allorders.limitstart', 'limitstart', 0, 'uint');
 			$navbut = "";
 			

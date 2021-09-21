@@ -49,8 +49,8 @@ JHtml::_('script', 'custom.js', array('version' => 'auto', 'relative' => true));
             <div class="uk-container uk-container-xsmall">
                 <div class="uk-width-1-1 uk-width-1-2@m uk-margin-auto">
                     <div class="uk-text-center uk-margin-medium-bottom">
-                        <a href="<?php echo JUri::base(); ?>" target="_blank" rel="nofollow" class="uk-display-inline-block">
-                            <img src="<?php echo JUri::base().'images/digikala-logo.png'; ?>" alt="DigiKala" width="215" height="53">
+                        <a href="<?php echo JUri::base(); ?>" target="_blank" class="uk-display-inline-block">
+                            <img src="<?php echo JUri::base().'images/sprite.svg#logo'; ?>" alt="DigiKala" width="212" height="50" data-uk-svg>
                         </a>
                         <span class="uk-text-muted uk-display-block uk-margin-small-top font"><?php echo JText::sprintf('RESERVE_SYSTEM'); ?></span>
                     </div>
@@ -73,13 +73,47 @@ JHtml::_('script', 'custom.js', array('version' => 'auto', 'relative' => true));
     <div class="uk-grid-collapse" data-uk-grid>
         <div class="uk-width-1-1 uk-width-medium@m">
             <aside class="uk-background-primary uk-position-fixed uk-width-medium uk-height-viewport uk-padding">
-                <div class="uk-text-center uk-margin-medium-bottom">
-                    <a href="<?php echo JUri::base(); ?>" target="_self" rel="nofollow" class="uk-display-inline-block">
-                        <img src="<?php echo JUri::base().'images/digikala-logo.png'; ?>" alt="DigiKala" width="215" height="53">
+                <div class="uk-text-center uk-margin-large-bottom">
+                    <a href="<?php echo JUri::base(); ?>" target="_self" class="uk-display-inline-block">
+                        <img src="<?php echo JUri::base().'images/sprite.svg#logo'; ?>" alt="DigiKala" width="212" height="50" data-uk-svg>
                     </a>
                     <span class="uk-text-muted uk-display-block uk-margin-small-top font"><?php echo JText::sprintf('RESERVE_SYSTEM'); ?></span>
                 </div>
+                <?php $now = strtotime(new JDate('now')); ?>
+                <?php
+                $db = JFactory::getDbo();
+                $countActiveOrders = $db->getQuery(true);
+                $countActiveOrders
+                    ->select($db->quoteName(array('id','id_employee', 'checkin_ts', 'duration', 'status', 'sid', 'conf_key', 'id_parent', 'createdby')))
+                    ->from($db->quoteName('#__vikappointments_reservation'))
+                    ->where($db->quoteName('createdby') . ' = ' . JFactory::getUser()->id)
+                    ->where($db->quoteName('id_parent') . ' != ' . -1)
+                    ->where($db->quoteName('status') . ' LIKE ' . $db->quote('CONFIRMED'))
+                    ->where($db->quoteName('checkin_ts') . ' > ' . $now);
+                $orders = $db->setQuery($countActiveOrders)->loadObjectList();
+                ?>
+                <div class="uk-margin-large-bottom uk-text-white">
+                    <a href="<?php echo JRoute::_('index.php?option=com_vikappointments&view=allorders'); ?>" class="uk-link-reset uk-padding-small uk-background-success uk-flex uk-flex-middle uk-flex-center uk-text-white uk-box-shadow-small uk-text-zero countActiveUsers">
+                        <?php if (count($orders)) { ?>
+                            <span class="uk-margin-left count fnum font uk-text-small uk-flex uk-flex-middle uk-flex-center"><?php echo count($orders); ?></span>
+                            <span class="text uk-text-small font uk-text-small"><?php echo JText::sprintf('ACTIVE_RESERVE'); ?></span>
+                        <?php } else { ?>
+                            <span class="text uk-text-small font uk-text-small"><?php echo JText::sprintf('NO_ACTIVE_RESERVE'); ?></span>
+                        <?php } ?>
+                    </a>
+                </div>
                 <div><jdoc:include type="modules" name="aside" style="xhtml" /></div>
+                <div class="uk-padding-small uk-position-absolute uk-text-zero sideFooter">
+                    <div class="uk-grid-small" data-uk-grid>
+                        <div class="uk-width-expand">
+                            <a href="#" class="uk-text-tiny uk-text-white uk-margin-small-left uk-position-relative font errorReport" target="_blank"><?php echo JText::sprintf('REPORT_AN_ERROR'); ?></a>
+                            <span class="uk-text-tiny uk-text-gray font">v.1.2</span>
+                        </div>
+                        <div class="uk-width-auto uk-flex uk-flex-bottom">
+                            <a href="https://uxdee.org" rel="nofollow" class="uk-display-inline-block uxdee" target="_blank"><img src="<?php echo JUri::base().'images/uxdee.svg'; ?>" width="60"></a>
+                        </div>
+                    </div>
+                </div>
             </aside>
         </div>
         <div class="uk-width-1-1 uk-width-expand@m">

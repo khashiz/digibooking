@@ -79,17 +79,6 @@ if (!count($orders))
 	$deposit = VikAppointments::getDepositAmountToLeave($order['total_cost'], $this->payFullAmount);
 
 	$global_cancel_uri = JRoute::_("index.php?option=com_vikappointments&task=cancel_order&oid={$order['id']}&sid={$order['sid']}&parent={$order['id']}&Itemid={$itemid}");
-
-
-    function convertToHoursMins($time, $format = '%02d:%02d')
-    {
-        if ($time < 1) {
-            return;
-        }
-        $hours = floor($time / 60);
-        $minutes = ($time % 60);
-        return sprintf($format, $hours, $minutes);
-    }
 	
 	?>
 
@@ -139,9 +128,11 @@ if (!count($orders))
                         <div class="uk-flex uk-flex-center uk-flex-middle uk-text-small font f600 uk-width-1-6"><?php echo JText::sprintf('ENTRANCE_DATE'); ?></div>
                         <div class="uk-flex uk-flex-center uk-flex-middle uk-text-small font f600 uk-width-small"><?php echo JText::sprintf('ENTRANCE_TIME'); ?></div>
                         <div class="uk-flex uk-flex-center uk-flex-middle uk-text-small font f600 uk-width-1-6"><?php echo JText::sprintf('DURATION'); ?></div>
-                        <?php if ($still_confirmed_orders > 1) { ?>
-                            <div class="uk-flex uk-flex-center uk-flex-middle uk-text-small font f600 uk-width-1-6"><?php echo JText::sprintf('DELETE'); ?></div>
-                        <?php } ?>
+                        <div class="uk-flex uk-flex-center uk-flex-middle uk-text-small font f600 uk-width-1-6">
+                            <?php if ($still_confirmed_orders > 1) { ?>
+                                <?php echo JText::sprintf('DELETE'); ?>
+                            <?php } ?>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -181,7 +172,12 @@ if (!count($orders))
                     $empDetails = $db->setQuery($empDetailsQuery)->loadObject();
                     ?>
                     <hr class="uk-margin-remove">
-                    <div class="uk-padding-small">
+                    <?php
+                    $date = new JDate($ord['checkin_ts']);
+                    $date->toUnix();
+                    $now =  new JDate('now');
+                    ?>
+                    <div class="uk-padding-small <?php if($date < $now) { echo 'finished'; } ?>">
                         <div>
                             <div>
                                 <div class="uk-padding-small">
@@ -206,30 +202,34 @@ if (!count($orders))
                                         <div class="uk-width-1-6 uk-flex uk-flex-middle uk-flex-center">
                                             <span class="uk-text-secondary uk-text-small fnum font uk-position-relative bullet red vapcartitemboxoptionsdur"><?php echo floor($ord['duration'] / 60) ? floor($ord['duration'] / 60).' '.JText::_('VAPSHORTCUTHOURS') : floor($ord['duration'] % 60).' '.JText::_('VAPSHORTCUTMINUTE'); echo ' ('.JText::sprintf('FINISH').' '.ArasJoomlaVikApp::jdate($date_format_time, VikAppointments::getCheckout($ord['checkin_ts'], $ord['duration'])).')'; ?></span>
                                         </div>
-                                        <?php
-                                        // CANCELLATION
-                                        if ($still_confirmed_orders > 1)
-                                        {
-                                            if (VikAppointments::canUserCancelOrder($ord['checkin_ts']) && $ord['status'] == 'CONFIRMED')
+                                        <div class="uk-width-1-6 uk-flex uk-flex-middle uk-flex-center">
+                                            <?php
+                                            // CANCELLATION
+                                            if ($still_confirmed_orders > 1)
                                             {
-                                                $at_least_canc_order = true;
-                                                ?>
-                                                <div class="uk-width-1-6">
-                                                    <button type="button" class="uk-button uk-button-danger uk-width-1-1 uk-button-outline uk-button-large font" onClick="vapCancelButtonPressed('<?php echo $cancel_uri; ?>');"><?php echo JText::_('REMOVE_FROM_LIST'); ?></button>
-                                                </div>
-                                                <?php
+                                                if (VikAppointments::canUserCancelOrder($ord['checkin_ts']) && $ord['status'] == 'CONFIRMED')
+                                                {
+                                                    $at_least_canc_order = true;
+                                                    ?>
+
+                                                        <button type="button" class="uk-button uk-button-danger uk-width-1-1 uk-button-outline uk-button-large font" onClick="vapCancelButtonPressed('<?php echo $cancel_uri; ?>');"><?php echo JText::_('REMOVE_FROM_LIST'); ?></button>
+
+                                                    <?php
+                                                }
+                                                else
+                                                {
+                                                    $ok_canc_orders = false;
+                                                    echo '<span class="uk-text-secondary uk-text-small font">'.JTEXT::sprintf('THIS_RESERVE_FINISHED').'</span>';
+                                                }
                                             }
                                             else
                                             {
-                                                $ok_canc_orders = false;
+                                                $at_least_canc_order = true;
+                                                /* echo '<span class="uk-text-secondary uk-text-small font">'.JTEXT::sprintf('RESERVE_FINISHED').'</span>'; */
                                             }
-                                        }
-                                        else
-                                        {
-                                            $at_least_canc_order = true;
-                                        }
 
-                                        ?>
+                                            ?>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
