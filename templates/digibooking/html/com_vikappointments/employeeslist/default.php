@@ -51,13 +51,13 @@ $this->displayData = array();
     <div class="uk-height-mediu uk-background-secondary uk-padding-large uk-flex uk-flex-middle uk-flex-center">
         <div class="page-header uk-flex-1 uk-text-zero">
             <div class="uk-grid-small" data-uk-grid>
-                <div class="uk-width-expand uk-flex uk-flex-middle">
-                    <div class="uk-flex-1">
+                <div class="uk-width-1-1 uk-width-expand@m uk-flex uk-flex-middle">
+                    <div class="uk-flex-1 uk-text-center uk-text-right@m">
                         <h1 class="font uk-text-white uk-h2 f500 uk-margin-remove"><?php echo $this->document->title; ?></h1>
-                        <div class="uk-flex"><?php echo JHtml::_('content.prepare','{loadposition breadcrumb}'); ?></div>
+                        <div class="uk-flex uk-flex-center uk-flex-right@m"><?php echo JHtml::_('content.prepare','{loadposition breadcrumb}'); ?></div>
                     </div>
                 </div>
-                <div class="uk-width-auto">
+                <div class="uk-width-1-1 uk-width-auto@m uk-visible@m">
                     <div>
                         <div class="uk-child-width-auto" data-uk-grid>
                             <div>

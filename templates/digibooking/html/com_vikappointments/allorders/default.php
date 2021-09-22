@@ -26,9 +26,9 @@ if ($this->user->guest)
 	
 <?php if (!count($this->orders)) { ?>
 
-    <div class="vap-allorders-void uk-flex uk-flex-center uk-flex-middle" data-uk-height-viewport="expand: true">
+    <div class="vap-allorders-void uk-flex uk-flex-center uk-flex-middle uk-padding-large" data-uk-height-viewport="expand: true">
         <div>
-            <div class="uk-margin-medium-bottom"><img src="<?php echo JUri::base().'images/empty-box.svg'; ?>" width="372" height="423" class="uk-width-medium"></div>
+            <div class="uk-margin-medium-bottom uk-text-center"><img src="<?php echo JUri::base().'images/empty-box.svg'; ?>" width="372" height="423" class="uk-width-1-2 uk-width-medium@m"></div>
             <div class="font f500 uk-text-large"><?php echo JText::_('VAPALLORDERSVOID'); ?></div>
         </div>
     </div>
@@ -46,8 +46,8 @@ if ($this->user->guest)
 	
 	<div class="uk-padding-large vap-allorders-list_">
         <div class="summeryTable">
-            <div class="uk-padding-small">
-                <div class="uk-padding-small uk-padding-remove-vertical">
+            <div class="uk-padding-small uk-visible@m">
+                <div class="uk-padding-small uk-padding-remove-vertical removePaddingOnTouch">
                     <div class="uk-grid-small" data-uk-grid>
                         <div class="uk-flex uk-flex-center uk-flex-middle uk-text-small font f600 uk-width-small">&ensp;</div>
                         <div class="uk-flex uk-flex-center uk-flex-middle uk-text-small font f600 uk-width-expand"><?php echo JText::sprintf('ORDER_ID'); ?></div>
@@ -106,31 +106,36 @@ if ($this->user->guest)
                     <hr class="uk-margin-remove">
                     <div class="<?php if (!empty($ord['child'])) {echo '';} ?>">
                         <div class="uk-padding-small <?php if($date < $now && $ord['id_parent'] != -1) { echo 'uk-background-muted'; } ?>">
-                            <div class="uk-padding-small uk-padding-remove-vertical">
+                            <div class="uk-padding-small uk-padding-remove-vertical removePaddingOnTouch">
                                 <div class="uk-grid-small" data-uk-grid>
-                                    <div class="uk-width-small uk-flex uk-flex-middle uk-flex-center">
+                                    <div class="uk-width-small uk-flex uk-flex-middle uk-flex-center uk-visible@m">
                                         <div class="uk-width-2-5 uk-height-1-1 uk-flex uk-flex-middle uk-flex-center rowIcon  <?php echo ($date < $now && $ord['id_parent'] != -1) ? 'uk-text-gray' : 'uk-text-secondary'; ?>">
                                             <img src="<?php echo JUri::base().'images/sprite.svg#receipt-cutoff'; ?>" width="36" height="36" data-uk-svg>
                                         </div>
                                     </div>
-                                    <div class="uk-width-expand uk-flex uk-flex-middle uk-flex-center">
+                                    <div class="uk-width-1-1 uk-width-expand@m uk-flex uk-flex-middle uk-flex-center">
+                                        <span class="uk-text-small fnum font uk-hidden@m"><?php echo JText::sprintf('ORDER_ID').'&ensp;:&ensp;'; ?></span>
                                         <span class="uk-text-small fnum font uk-position-relative <?php echo ($date < $now && $ord['id_parent'] != -1) ? 'uk-text-muted' : 'uk-text-secondary'; ?>"><?php echo $ord['id']+100000; ?></span>
                                     </div>
-                                    <div class="uk-width-1-6 uk-flex uk-flex-middle uk-flex-center">
+                                    <div class="uk-width-1-1 uk-width-1-6@m uk-flex uk-flex-middle uk-flex-center">
+                                        <span class="uk-text-small fnum font uk-hidden@m"><?php echo JText::sprintf('RESERVE_KEY').'&ensp;:&ensp;'; ?></span>
                                         <span class="uk-text-small font uk-position-relative <?php echo ($date < $now && $ord['id_parent'] != -1) ? 'uk-text-muted' : 'uk-text-secondary'; ?>"><?php echo $ord['sid']; ?></span>
                                     </div>
-                                    <div class="uk-width-1-6 uk-flex uk-flex-middle uk-flex-center">
+                                    <div class="uk-width-1-1 uk-width-1-6@m uk-flex uk-flex-middle uk-flex-center">
+                                        <span class="uk-text-small fnum font uk-hidden@m"><?php echo JText::sprintf('RESERVE_DATE').'&ensp;:&ensp;'; ?></span>
                                         <span class="uk-text-small fnum font uk-position-relative <?php echo ($date < $now && $ord['id_parent'] != -1) ? 'uk-text-muted' : 'uk-text-secondary'; ?>"><?php echo ArasJoomlaVikApp::jdate($dt_format, $ord['createdon']); ?></span>
                                     </div>
-                                    <div class="uk-width-small uk-flex uk-flex-middle uk-flex-center">
-                                        <div class="uk-text-center uk-text-small fnum font uk-position-relative <?php echo ($date < $now && $ord['id_parent'] != -1) ? 'uk-text-muted' : 'uk-text-secondary'; ?>"><?php echo $ord['id_parent'] == -1 ? JText::sprintf('RESERVE_MULTIPLE') : JText::sprintf('RESERVE_SINGLE').' <br><span class="uk-text-tiny uk-text-muted uk-display-block font" style="margin-top: 5px;">'.JText::sprintf($ord['sername']).'</span>'; ?></div>
+                                    <div class="uk-width-1-1 uk-width-small@m uk-flex uk-flex-middle uk-flex-center">
+                                        <span class="uk-text-small fnum font uk-hidden@m"><?php echo JText::sprintf('RESERVE_TYPE').'&ensp;:&ensp;'; ?></span>
+                                        <div class="uk-text-center uk-text-small fnum font uk-position-relative <?php echo ($date < $now && $ord['id_parent'] != -1) ? 'uk-text-muted' : 'uk-text-secondary'; ?>"><?php echo $ord['id_parent'] == -1 ? JText::sprintf('RESERVE_MULTIPLE') : JText::sprintf('RESERVE').' '.JText::sprintf($ord['sername']).'</span>'; ?></div>
                                     </div>
-                                    <div class="uk-width-1-6 uk-flex uk-flex-middle uk-flex-center">
+                                    <div class="uk-width-1-1 uk-width-1-6@m uk-flex uk-flex-middle uk-flex-center">
                                         <?php if($ord['id_parent'] != -1) { ?>
+                                            <span class="uk-text-small fnum font uk-hidden@m"><?php echo JText::sprintf('STATUS').'&ensp;:&ensp;'; ?></span>
                                             <span class="uk-text-small fnum font uk-position-relative bullet <?php echo $date < $now ? 'uk-text-muted' : 'uk-text-secondary green'; ?>"><?php echo $date < $now ? JText::sprintf('RESERVE_FINISHED') : JText::sprintf('RESERVE_PENDING'); ?></span>
                                         <?php } ?>
                                     </div>
-                                    <div class="uk-width-1-6 uk-flex uk-flex-middle uk-flex-center">
+                                    <div class="uk-width-1-1 uk-width-1-6@m uk-flex uk-flex-middle uk-flex-center">
                                         <?php if (empty($ord['child'])) { ?>
                                             <a href="<?php echo JRoute::_('index.php?option=com_vikappointments&view=order&ordnum=' . $ord['id'].'&ordkey=' . $ord['sid']); ?>" class="uk-button uk-button-primary uk-width-1-1 uk-button-large font" onClick="vapCancelButtonPressed('<?php echo $cancel_uri; ?>');"><?php echo JText::sprintf('RESERVE_DETAILS'); ?></a>
                                         <?php } ?>
@@ -144,7 +149,7 @@ if ($this->user->guest)
         </div>
 	</div>
 	
-	<form action="<?php echo JRoute::_('index.php?option=com_vikappointments&view=allorders' . ($this->itemid ? '&Itemid=' . $this->itemid : '')); ?>" method="post">
+	<form class="uk-hidden" action="<?php echo JRoute::_('index.php?option=com_vikappointments&view=allorders' . ($this->itemid ? '&Itemid=' . $this->itemid : '')); ?>" method="post">
 		<?php echo JHtml::_('form.token'); ?>
 		<div class="vap-list-pagination"><?php echo $this->navbut; ?></div>
 		<input type="hidden" name="option" value="com_vikappointments" />

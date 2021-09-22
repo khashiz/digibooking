@@ -24,7 +24,7 @@ $cart_expanded   = VikAppointments::isCartAutoExpanded();
 <div>
 	<div class="uk-margin-medium-bottom summeryTable vapsummaryservicescontـ">
 
-        <div class="uk-padding-small">
+        <div class="uk-padding-small uk-visible@m">
             <div class="uk-padding-small">
                 <div class="uk-grid-small" data-uk-grid>
                     <div class="uk-flex uk-flex-center uk-flex-middle uk-text-small font f600 uk-width-small">&ensp;</div>
@@ -43,10 +43,6 @@ $cart_expanded   = VikAppointments::isCartAutoExpanded();
 
 		foreach ($items_list as $k => $item)
 		{
-
-//		    echo '<pre>';
-//		    print_r($item);
-//		    echo '</pre>';
 
 
         $emp_tz = VikAppointments::getEmployeeTimezone($item->getID2());
@@ -137,7 +133,7 @@ $empDetails = $db->setQuery($empDetailsQuery)->loadObject();
                                 ?>
                             </span>
                             </div>
-                            <div class="uk-width-1-6">
+                            <div class="uk-width-1-1 uk-width-1-6@m">
                                 <div class="vapcartitemright">
                                     <a href="javascript: void(0);" onClick="vapRemoveService(<?php echo $k . "," . $item->getID() . "," . $item->getID2() . "," . $item->getCheckinTimeStamp(); ?>);" class="uk-button uk-button-danger uk-width-1-1 uk-button-outline uk-button-large font f500 vapcartremovebtn_"><?php echo JText::sprintf('REMOVE_FROM_LIST'); ?></a>
                                 </div>

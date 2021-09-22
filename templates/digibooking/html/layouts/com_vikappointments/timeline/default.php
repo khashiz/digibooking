@@ -36,7 +36,7 @@ $date = getdate($checkin_day);
 foreach ($times as $block)
 {
 	?>
-	<div class="vaptimelinewt uk-text-zero uk-grid-small uk-child-width-1-6" data-uk-grid>
+	<div class="vaptimelinewt uk-text-zero uk-grid-small uk-child-width-1-3 uk-child-width-1-6@m" data-uk-grid>
 		<?php
 		foreach ($block as $k => $v)
 		{
@@ -66,7 +66,7 @@ foreach ($times as $block)
             <div>
 			<a href="javascript: void(0);" title="<?php echo $titles_lookup[$v]; ?>" onClick="<?php echo $clickEvent; ?>" class="uk-margin-remove uk-display-block">
 				<div 
-					class="<?php if ($block_id == 0) {echo 'firstSlut';} ?> uk-margin-remove uk-display-block uk-padding-small fnum vap-timeline-block<?php echo ($time_format != "H:i" ? " large" : ""); ?> vaptlblock<?php echo $v; ?>"
+					class="<?php if ($block_id == 0) {echo 'firstSlut';} ?> uk-margin-remove uk-display-block vap-timeline-block<?php echo ($time_format != "H:i" ? " large" : ""); ?> vaptlblock<?php echo $v; ?>"
 					id="vaptimelineblock<?php echo $block_id; ?>"
 					data-rate="<?php echo isset($rates[$k]) ? $rates[$k] : ''; ?>"
 					data-hour="<?php echo $hour; ?>"

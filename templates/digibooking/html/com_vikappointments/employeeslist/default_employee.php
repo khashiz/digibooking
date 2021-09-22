@@ -70,16 +70,16 @@ $vik = UIApplication::getInstance();
                     </div>
                     <div>
                         <div data-uk-grid>
-                            <div class="uk-width-1-3">
+                            <div class="uk-width-1-3 uk-visible@m">
                                 <div class="uk-text-white"><img src="<?php echo JUri::base().'images/sprite.svg#'.$e['group_name']; ?>" class="uk-width-2-3" data-uk-svg></div>
                             </div>
-                            <div class="uk-width-1-3 uk-flex uk-flex-middle uk-flex-center">
+                            <div class="uk-width-1-2 uk-width-1-3@m uk-flex uk-flex-middle uk-flex-center">
                                 <div>
                                     <span class="uk-display-inline-block uk-text-tiny uk-text-muted uk-margin-small-left font itemTitle"><?php echo JText::sprintf($e['group_name'].'_NAME'); ?></span>
                                     <span class="uk-display-inline-block uk-text-large uk-text-white font f500 fnum"><?php echo $e['lastname']; ?></span>
                                 </div>
                             </div>
-                            <div class="uk-width-1-3 uk-flex uk-flex-middle uk-flex-center">
+                            <div class="uk-width-1-2 uk-width-1-3@m uk-flex uk-flex-middle uk-flex-center">
                                 <div>
                                     <span class="uk-display-inline-block uk-text-tiny uk-text-muted uk-margin-small-left font itemTitle"><?php echo JText::sprintf('FLOOR'); ?></span>
                                     <span class="uk-display-inline-block uk-text-large uk-text-white font f500"><?php echo JText::sprintf('FLOOR'.$e['nickname']); ?></span>
@@ -99,6 +99,9 @@ $vik = UIApplication::getInstance();
                             </div>
                             <div class="uk-width-1-1">
                                 <p class="uk-text-small uk-text-muted font uk-text-center"><?php echo JText::sprintf('ROOM_TEXT'); ?></p>
+                            </div>
+                            <div class="uk-width-1-1 uk-hidden@m uk-text-muted">
+                                <a href="mailto:<?php echo $e['email']; ?>" class="uk-text-small uk-link-reset font uk-text-center uk-display-block"><?php echo JText::sprintf('ROOM_TEXT_SEND_EMAIL'); ?></a>
                             </div>
                         </div>
                     </div>

@@ -20,7 +20,7 @@ $lang = JFactory::getLanguage();
 $lang->load('plg_user_profile', JPATH_ADMINISTRATOR);
 
 ?>
-<div class="uk-height-viewport uk-background-secondary uk-flex uk-flex-middle profile-edit<?php echo $this->pageclass_sfx; ?>">
+<div class="uk-background-secondary uk-flex uk-flex-middle profile-edit<?php echo $this->pageclass_sfx; ?>" data-uk-height-viewport="expand: true">
     <div class="uk-flex-1">
         <div class="uk-container uk-container-xsmall">
             <div class="uk-width-1-1 uk-width-2-3@m uk-margin-auto">

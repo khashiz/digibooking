@@ -54,7 +54,7 @@ JHtml::_('script', 'custom.js', array('version' => 'auto', 'relative' => true));
 </head>
 <body>
 <div class="uk-grid-collapse" data-uk-grid>
-    <div class="uk-width-1-1 uk-width-medium@m">
+    <div class="uk-width-1-1 uk-width-medium@m uk-visible@m">
         <aside class="uk-background-primary uk-position-fixed uk-width-medium uk-height-viewport uk-padding">
             <div class="uk-text-center uk-margin-medium-bottom">
                 <a href="<?php echo JUri::base(); ?>" target="_self" rel="nofollow" class="uk-display-inline-block">
@@ -72,6 +72,9 @@ JHtml::_('script', 'custom.js', array('version' => 'auto', 'relative' => true));
                     <div class="uk-margin-medium-bottom"><img src="<?php echo JUri::base().'images/404-error.svg'; ?>" width="387" height="339" class="uk-width-medium"></div>
                     <div class="font f500 uk-text-large"><?php echo JText::_('JERROR_LAYOUT_PAGE_NOT_FOUND'); ?></div>
                 </div>
+            </div>
+            <div class="uk-padding-large uk-text-center">
+                <a href="<?php echo JUri::base(); ?>" class="uk-text-muted font f500"><?php echo JText::sprintf('BACK_TO_DASHBOARD'); ?></a>
             </div>
             <jdoc:include type="message" />
             <jdoc:include type="component" />

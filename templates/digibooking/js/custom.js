@@ -31,8 +31,12 @@ function plateInserter() {
 
 // Set Split Plate Value
 function plateSpliteInserter() {
-    jQuery("#sideDigit").val(getCookie("plate_sideDigit"));
-    jQuery("#threeDigit").val(getCookie("plate_threeDigit"));
+    if (getCookie("plate_sideDigit") != "") {
+        jQuery("#sideDigit").val(getCookie("plate_sideDigit"));
+    }
+    if (getCookie("plate_threeDigit") != "") {
+        jQuery("#threeDigit").val(getCookie("plate_threeDigit"));
+    }
     jQuery("#alphabet").val(getCookie("plate_alphabetDigit"));
     jQuery("#twoDigit").val(getCookie("plate_twoDigit"));
 }

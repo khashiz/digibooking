@@ -67,10 +67,10 @@ $time_format = UIFactory::getConfig()->get('timeformat');
             <div class="uk-padding uk-text-zero leftBordered">
                 <?php if (VikAppointments::isCalendarLegendVisible()) { $legend_arr = array('green', 'yellow', 'red', 'blue', 'grey'); ?>
                     <div class="vapallcaldiv_">
-                        <h3 class="uk-margin-medium-bottom font f500 uk-h4 uk-text-secondary uk-text-center"><?php echo JText::sprintf('SELECT_YOUR_DATE'); ?></h3>
-                        <div data-uk-slider="finite: false; draggable: false;">
+                        <h3 class="uk-margin-bottom font f500 uk-h4 uk-text-secondary uk-text-center"><?php echo JText::sprintf('SELECT_YOUR_DATE'); ?></h3>
+                        <div data-uk-slider="finite: true;">
                             <div class="uk-grid-small" data-uk-grid>
-                                <div class="uk-width-1-6 uk-flex uk-flex-middle uk-text-muted">
+                                <div class="uk-width-1-6 uk-flex uk-flex-middle uk-text-muted uk-visible@m">
                                     <a href="#" class="uk-flex uk-flex-middle uk-flex-center uk-link-reset" data-uk-slider-item="previous">
                                         <span><img src="<?php echo JUri::base().'images/sprite.svg#chevron-right'; ?>" width="18" height="18" data-uk-svg></span>
                                         <span class="font uk-text-small uk-margin-small-right"><?php echo JText::sprintf('PREV_MONTH'); ?></span>
@@ -229,7 +229,7 @@ $time_format = UIFactory::getConfig()->get('timeformat');
                                         </div>
                                     </div>
                                 </div>
-                                <div class="uk-width-1-6 uk-flex uk-flex-middle uk-flex-left uk-text-muted">
+                                <div class="uk-width-1-6 uk-flex uk-flex-middle uk-flex-left uk-text-muted uk-visible@m">
                                     <a href="#" class="uk-flex uk-flex-middle uk-flex-center uk-link-reset" data-uk-slider-item="next">
                                         <span class="font uk-text-small uk-margin-small-left"><?php echo JText::sprintf('NEXT_MONTH'); ?></span>
                                         <span><img src="<?php echo JUri::base().'images/sprite.svg#chevron-left'; ?>" width="18" height="18" data-uk-svg></span>
@@ -238,9 +238,8 @@ $time_format = UIFactory::getConfig()->get('timeformat');
                             </div>
                         </div>
                     </div>
-                    <div>
-                        <hr class="uk-margin-medium-bottom uk-margin-medium-top">
-                        <ul class="uk-child-width-1-4 uk-grid-small" data-uk-grid>
+                    <div class="uk-margin-top">
+                        <ul class="uk-child-width-1-2 uk-child-width-auto@m uk-flex-center uk-grid-small" data-uk-grid>
                             <?php foreach ($legend_arr as $color) { ?>
                                 <?php if ($color != 'grey') { ?>
                                     <li>
@@ -252,26 +251,29 @@ $time_format = UIFactory::getConfig()->get('timeformat');
                                 <?php } ?>
                             <?php } ?>
                         </ul>
+                        <hr class="uk-hidden@m uk-margin-medium-top uk-margin-medium-bottom">
                     </div>
                 <?php } ?>
             </div>
         </div>
         <div>
-            <div class="uk-padding-large bottomBordered">
-                <div class="uk-grid-large" data-uk-grid>
-                    <div class="uk-width-auto uk-flex uk-flex-middle">
-                        <div><img src="<?php echo JUri::base().'images/sprite.svg#MEETING_ROOMS'; ?>" data-uk-svg></div>
-                    </div>
-                    <div class="uk-width-expand uk-flex uk-flex-middle">
-                        <div>
-                            <div class="uk-child-width-auto" data-uk-grid>
-                                <div>
-                                    <span class="uk-display-block uk-h4 uk-margin-small-bottom uk-text-muted font"><?php echo JText::sprintf('SERVICE_NAME'); ?></span>
-                                    <span class="uk-display-block uk-h4 uk-margin-remove uk-text-muted font"><?php echo JText::sprintf('FLOOR'); ?></span>
-                                </div>
-                                <div>
-                                    <span class="uk-display-block uk-h4 uk-margin-small-bottom uk-text-secondary font fnum"><?php echo JText::sprintf('GROUP_'.$employee['id_group'].'_SINLE_PAGE_MAIN_TITLE', $employee['lastname']); ?></span>
-                                    <span class="uk-display-block uk-h4 uk-margin-remove uk-text-secondary font"><?php echo JText::sprintf('FLOOR'.$employee['nickname']); ?></span>
+            <div class="uk-padding-large uk-padding-remove-vertical bottomBordered uk-visible@m">
+                <div class="uk-padding uk-padding-remove-horizontal">
+                    <div class="uk-grid-large" data-uk-grid>
+                        <div class="uk-width-auto uk-flex uk-flex-middle">
+                            <div><img src="<?php echo JUri::base().'images/sprite.svg#MEETING_ROOMS'; ?>" data-uk-svg></div>
+                        </div>
+                        <div class="uk-width-expand uk-flex uk-flex-middle">
+                            <div>
+                                <div class="uk-child-width-auto" data-uk-grid>
+                                    <div>
+                                        <span class="uk-display-block uk-h4 uk-margin-small-bottom uk-text-muted font"><?php echo JText::sprintf('SERVICE_NAME'); ?></span>
+                                        <span class="uk-display-block uk-h4 uk-margin-remove uk-text-muted font"><?php echo JText::sprintf('FLOOR'); ?></span>
+                                    </div>
+                                    <div>
+                                        <span class="uk-display-block uk-h4 uk-margin-small-bottom uk-text-secondary font fnum"><?php echo JText::sprintf('GROUP_'.$employee['id_group'].'_SINLE_PAGE_MAIN_TITLE', $employee['lastname']); ?></span>
+                                        <span class="uk-display-block uk-h4 uk-margin-remove uk-text-secondary font"><?php echo JText::sprintf('FLOOR'.$employee['nickname']); ?></span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -279,7 +281,7 @@ $time_format = UIFactory::getConfig()->get('timeformat');
                 </div>
             </div>
             <div class="uk-padding">
-                <h3 class="uk-margin-medium-bottom font f500 uk-h4 uk-text-secondary uk-text-center"><?php echo $service['name'] == 'PARKINGS' ? JText::sprintf('SELECT_YOUR_PLATE') : JText::sprintf('SELECT_YOUR_HOUR'); ?></h3>
+                <h3 class="uk-margin-bottom font f500 uk-h4 uk-text-secondary uk-text-center"><?php echo $service['name'] == 'PARKINGS' ? JText::sprintf('SELECT_YOUR_PLATE') : JText::sprintf('SELECT_YOUR_HOUR'); ?></h3>
                 <?php if ($service['name'] == 'PARKINGS') { ?>
                     <script>
                         jQuery(document).ready(function () {
@@ -366,7 +368,7 @@ $time_format = UIFactory::getConfig()->get('timeformat');
                     </div>
                 </div>
                 <?php } ?>
-                <div>
+                <div class="<?php if ($service['name'] == 'PARKINGS') {echo 'uk-hidde';} ?>">
                     <div class="vaptimeline" id="vaptimeline"></div>
                 </div>
             </div>
@@ -382,6 +384,9 @@ $time_format = UIFactory::getConfig()->get('timeformat');
 	
 		if (day.length > 0) {
 			vapGetTimeLine(parseInt(day));
+            <?php if ($service['name'] == 'PARKINGS') { ?>
+            setTimeout(function(){ jQuery('.vaptimelinewt > div:first-child > a').click(); }, 1000);
+            <?php } ?>
 		}
 
 	});
@@ -508,6 +513,10 @@ $time_format = UIFactory::getConfig()->get('timeformat');
 			 * @todo retries automatically on connection lost error
 			 */
 		});
+
+		<?php if ($service['name'] == 'PARKINGS') { ?>
+        setTimeout(function(){ jQuery('.vaptimelinewt > div:first-child > a').click(); }, 1000);
+        <?php } ?>
 
 	}
 

@@ -119,7 +119,7 @@ if (!count($orders))
 
 	<div class="uk-padding-large">
         <div class="summeryTable uk-margin-medium-bottom">
-            <div class="uk-padding-small">
+            <div class="uk-padding-small uk-visible@m">
                 <div class="uk-padding-small">
                     <div class="uk-grid-small" data-uk-grid>
                         <div class="uk-flex uk-flex-center uk-flex-middle uk-text-small font f600 uk-width-small">&ensp;</div>
@@ -141,6 +141,9 @@ if (!count($orders))
 
         date_default_timezone_set('Asian/Tehran');
 		$old_service = -1;
+
+
+		$counter = 1;
 
 		foreach ($orders as $ord)
 		{
@@ -171,7 +174,7 @@ if (!count($orders))
                         ->where($db->quoteName('id') . ' = ' . $ord['id_employee']);
                     $empDetails = $db->setQuery($empDetailsQuery)->loadObject();
                     ?>
-                    <hr class="uk-margin-remove">
+                    <hr class="uk-margin-remove <?php if ($counter == 1) {echo 'uk-visible@m';} ?>">
                     <?php
                     $date = new JDate($ord['checkin_ts']);
                     $date->toUnix();
@@ -180,29 +183,34 @@ if (!count($orders))
                     <div class="uk-padding-small <?php if($date < $now) { echo 'finished'; } ?>">
                         <div>
                             <div>
-                                <div class="uk-padding-small">
+                                <div class="uk-padding-small removePaddingOnTouch">
                                     <div class="uk-grid-small" data-uk-grid>
-                                        <div class="uk-width-small uk-flex uk-flex-middle uk-flex-center">
+                                        <div class="uk-width-1-1 uk-width-small@m uk-flex uk-flex-middle uk-flex-center uk-visible@m">
                                             <div class="uk-width-1-2 uk-text-secondary">
                                                 <img src="<?php echo JUri::base().'images/sprite.svg#'.$ord['sname']; ?>" data-uk-svg>
                                             </div>
                                         </div>
-                                        <div class="uk-width-expand uk-flex uk-flex-middle uk-flex-center">
+                                        <div class="uk-width-1-1 uk-width-expand@m uk-flex uk-flex-middle uk-flex-center">
+                                            <span class="uk-text-small fnum font uk-hidden@m"><?php echo JText::sprintf('NAME').'&ensp;:&ensp;'; ?></span>
                                             <span class="uk-text-secondary uk-text-small fnum font uk-position-relative"><?php echo $empDetails->firstname.' '.$empDetails->lastname; ?></span>
                                         </div>
-                                        <div class="uk-width-1-6 uk-flex uk-flex-middle uk-flex-center">
+                                        <div class="uk-width-1-1 uk-width-1-6@m uk-flex uk-flex-middle uk-flex-center">
+                                            <span class="uk-text-small fnum font uk-hidden@m"><?php echo JText::sprintf('FLOOR').'&ensp;:&ensp;'; ?></span>
                                             <span class="uk-text-secondary uk-text-small font uk-position-relative"><?php echo JText::sprintf('FLOOR'.$ord['ename']); ?></span>
                                         </div>
-                                        <div class="uk-width-1-6 uk-flex uk-flex-middle uk-flex-center">
+                                        <div class="uk-width-1-1 uk-width-1-6@m uk-flex uk-flex-middle uk-flex-center">
+                                            <span class="uk-text-small fnum font uk-hidden@m"><?php echo JText::sprintf('ENTRANCE_DATE').'&ensp;:&ensp;'; ?></span>
                                             <span class="uk-text-secondary uk-text-small fnum font uk-position-relative"><?php echo ArasJoomlaVikApp::jdate($date_format, $ord['checkin_ts']); ?></span>
                                         </div>
-                                        <div class="uk-width-small uk-flex uk-flex-middle uk-flex-center">
+                                        <div class="uk-width-1-1 uk-width-small@m uk-flex uk-flex-middle uk-flex-center">
+                                            <span class="uk-text-small fnum font uk-hidden@m"><?php echo JText::sprintf('ENTRANCE_TIME').'&ensp;:&ensp;'; ?></span>
                                             <span class="uk-text-secondary uk-text-small fnum font uk-position-relative bullet green"><?php echo ArasJoomlaVikApp::jdate($date_format_time, $ord['checkin_ts']); ?></span>
                                         </div>
-                                        <div class="uk-width-1-6 uk-flex uk-flex-middle uk-flex-center">
+                                        <div class="uk-width-1-1 uk-width-1-6@m uk-flex uk-flex-middle uk-flex-center">
+                                            <span class="uk-text-small fnum font uk-hidden@m"><?php echo JText::sprintf('DURATION').'&ensp;:&ensp;'; ?></span>
                                             <span class="uk-text-secondary uk-text-small fnum font uk-position-relative bullet red vapcartitemboxoptionsdur"><?php echo floor($ord['duration'] / 60) ? floor($ord['duration'] / 60).' '.JText::_('VAPSHORTCUTHOURS') : floor($ord['duration'] % 60).' '.JText::_('VAPSHORTCUTMINUTE'); echo ' ('.JText::sprintf('FINISH').' '.ArasJoomlaVikApp::jdate($date_format_time, VikAppointments::getCheckout($ord['checkin_ts'], $ord['duration'])).')'; ?></span>
                                         </div>
-                                        <div class="uk-width-1-6 uk-flex uk-flex-middle uk-flex-center">
+                                        <div class="uk-width-1-1 uk-width-1-6@m uk-flex uk-flex-middle uk-flex-center">
                                             <?php
                                             // CANCELLATION
                                             if ($still_confirmed_orders > 1)
@@ -243,7 +251,9 @@ if (!count($orders))
 				<?php
 					$old_service = $ord['id_service'];
 				}
-			} ?>
+
+                $counter++;
+		} ?>
 
 
 
@@ -252,13 +262,13 @@ if (!count($orders))
     </div>
 
     <div>
-        <div class="uk-child-width-1-1 uk-child-width-1-3@m" data-uk-grid>
+        <div class="uk-child-width-1-1 uk-child-width-1-3@m uk-grid-small" data-uk-grid>
             <?php if (!JFactory::getUser()->guest) { ?>
                 <div>
                     <a href="<?php echo JRoute::_('index.php?option=com_vikappointments&view=allorders'); ?>" class="uk-button uk-button-large uk-button-primary uk-button-outline uk-width-1-1 font"><?php echo JText::_('VAPALLORDERSBUTTON'); ?></a>
                 </div>
             <?php } ?>
-            <div>&emsp;</div>
+            <div class="uk-visible@m">&emsp;</div>
             <?php if ($ok_canc_orders && $order['status'] == 'CONFIRMED') {
                 $canc_all_text = 'VAPORDERCANCALLBUTTON';
                 if (count($orders) == 1) {
