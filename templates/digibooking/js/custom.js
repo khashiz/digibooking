@@ -37,8 +37,12 @@ function plateSpliteInserter() {
     if (getCookie("plate_threeDigit") != "") {
         jQuery("#threeDigit").val(getCookie("plate_threeDigit"));
     }
-    jQuery("#alphabet").val(getCookie("plate_alphabetDigit"));
-    jQuery("#twoDigit").val(getCookie("plate_twoDigit"));
+    if (getCookie("plate_alphabetDigit") != "") {
+        jQuery("#alphabet").val(getCookie("plate_alphabetDigit"));
+    }
+    if (getCookie("plate_twoDigit") != "") {
+        jQuery("#twoDigit").val(getCookie("plate_twoDigit"));
+    }
 }
 
 jQuery(document).ready(function () {

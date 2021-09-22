@@ -293,7 +293,7 @@ $time_format = UIFactory::getConfig()->get('timeformat');
                         <div>
                             <div class="uk-grid-collapse" data-uk-grid>
                                 <div class="uk-width-auto">
-                                    <div class="uk-background-white uk-border-rounded sidePart">
+                                    <div class="uk-background-white uk-border-rounded uk-overflow-hidden sidePart">
                                         <div>
                                             <input type="tel" name="sideDigit" placeholder="_&ensp;_" maxlength="2" id="sideDigit" class="uk-width-1-1 ltr">
                                         </div>
@@ -307,8 +307,8 @@ $time_format = UIFactory::getConfig()->get('timeformat');
                                                     <input type="tel" name="threeDigit" placeholder="_&ensp;_&ensp;_" maxlength="3" id="threeDigit" class="uk-width-1-1 uk-margin-auto ltr">
                                                 </div>
                                                 <div>
-                                                    <select id="alphabet">
-                                                        <option value="الف">الف</option>
+                                                    <select class="uk-select uk-height-1-1 uk-width-1-1" id="alphabet">
+                                                        <option value="الف" selected="selected">الف</option>
                                                         <option value="ب">ب</option>
                                                         <option value="پ">پ</option>
                                                         <option value="ت">ت</option>
@@ -349,7 +349,7 @@ $time_format = UIFactory::getConfig()->get('timeformat');
                                         </div>
                                     </div>
                                 </div>
-                                <div class="uk-width-auto">
+                                <div class="uk-width-auto uk-visible@m">
                                     <div class="uk-border-rounded uk-height-1-1">
                                         <div class="uk-border-rounded uk-height-1-1 plateBlue">
                                             <div class="uk-flex uk-flex-column uk-flex-between uk-height-1-1">

@@ -275,6 +275,9 @@ div{
             color: #000;
             padding: 10px;
             font-family: Arial, Helvetica, sans-serif;
+            appearance: none;
+            -webkit-appearance: none;
+            background-color: #fff;
             &[name="sideDigit"],
             &[name="twoDigit"]{
               width: 80px;
@@ -282,10 +285,21 @@ div{
             &[name="threeDigit"]{
               width: 120px;
             }
+            @media(max-width: 959px){
+              font-size: 16px;
+              padding: 5px;
+              &[name="sideDigit"],
+              &[name="twoDigit"]{
+                width: 60px;
+              }
+              &[name="threeDigit"]{
+                width: 60px;
+              }
+            }
           }
         }
         select{
-          height: 70px;
+          height: 70px !important;
           border: none;
           outline: none;
           text-align: center;
@@ -293,17 +307,31 @@ div{
           font-weight: 500;
           color: #000;
           padding: 10px;
+          appearance: none;
+          -webkit-appearance: none;
+          background-color: #fff;
           .font;
+          @media(max-width: 959px){
+            padding: 5px;
+            font-size: 16px;
+          }
         }
         &.sidePart{
           background-color: #fff;
           padding: 4px;
           margin-left: 4px;
+          @media(max-width: 959px){
+            padding: 0;
+          }
         }
         &.mainPart{
           background-color: #fff;
           padding: 4px;
           margin-left: 4px;
+          @media(max-width: 959px){
+            padding: 0;
+            margin: 0;
+          }
         }
         &.plateBlue{
           background-color: #0043ae;

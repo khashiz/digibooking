@@ -105,33 +105,38 @@ $empDetails = $db->setQuery($empDetailsQuery)->loadObject();
 
 
 			<div class="vapcartinneritemdiv_" id="vapcartinneritemdiv<?php echo $k; ?>">
-                <hr class="uk-margin-remove">
+                <hr class="uk-margin-remove <?php if ($k == 0) {echo 'uk-visible@m';} ?>">
                 <div class="uk-padding-small">
-                    <div class="uk-padding-small">
+                    <div class="uk-padding-small removePaddingOnTouch">
                         <div class="uk-grid-small" data-uk-grid>
-                            <div class="uk-width-small uk-flex uk-flex-middle uk-flex-center">
+                            <div class="uk-width-small uk-flex uk-flex-middle uk-flex-center uk-visible@m">
                                 <div class="uk-width-1-2 uk-text-secondary"><img src="<?php echo JUri::base().'images/sprite.svg#'.$item->getName(); ?>" data-uk-svg></div>
                             </div>
-                            <div class="uk-width-expand uk-flex uk-flex-middle uk-flex-center">
+                            <div class="uk-width-1-1 uk-width-expand@m uk-flex uk-flex-middle uk-flex-center">
+                                <span class="uk-text-small fnum font uk-hidden@m"><?php echo JText::sprintf('NAME').'&ensp;:&ensp;'; ?></span>
                                 <span class="uk-text-secondary uk-text-small fnum font uk-position-relative"><?php echo $item->getName2(); ?></span>
                             </div>
-                            <div class="uk-width-1-6 uk-flex uk-flex-middle uk-flex-center">
+                            <div class="uk-width-1-1 uk-width-1-6@m uk-flex uk-flex-middle uk-flex-center">
+                                <span class="uk-text-small fnum font uk-hidden@m"><?php echo JText::sprintf('FLOOR').'&ensp;:&ensp;'; ?></span>
                                 <span class="uk-text-secondary uk-text-small fnum font uk-position-relative"><?php echo JText::sprintf('FLOOR'.$empDetails->nickname); ?></span>
                             </div>
-                            <div class="uk-width-1-6 uk-flex uk-flex-middle uk-flex-center">
+                            <div class="uk-width-1-1 uk-width-1-6@m uk-flex uk-flex-middle uk-flex-center">
+                                <span class="uk-text-small fnum font uk-hidden@m"><?php echo JText::sprintf('ENTRANCE_DATE').'&ensp;:&ensp;'; ?></span>
                                 <span class="uk-text-secondary uk-text-small fnum font uk-position-relative"><?php echo $item->getCheckinDate('l ، j F Y'); ?></span>
                             </div>
-                            <div class="uk-width-small uk-flex uk-flex-middle uk-flex-center">
+                            <div class="uk-width-1-1 uk-width-small@m uk-flex uk-flex-middle uk-flex-center">
+                                <span class="uk-text-small fnum font uk-hidden@m"><?php echo JText::sprintf('ENTRANCE_TIME').'&ensp;:&ensp;'; ?></span>
                                 <span class="uk-text-secondary uk-text-small fnum font uk-position-relative bullet green"><?php echo $item->getCheckinDate($config->get('timeformat')); ?></span>
                             </div>
-                            <div class="uk-width-1-6 uk-flex uk-flex-middle uk-flex-center">
-                            <span class="uk-text-secondary uk-text-small fnum font uk-position-relative bullet red vapcartitemboxoptionsdur">
-                                <?php
-                                echo VikAppointments::formatMinutesToTime($item->getDuration());
-                                $checkout = strtotime('+' . $item->getDuration() . ' minutes', $item->getCheckinTimeStamp());
-                                echo ' (' . JText::sprintf('VAPCHECKOUTAT', date($config->get('timeformat'), $checkout)) . ')';
-                                ?>
-                            </span>
+                            <div class="uk-width-1-1 uk-width-1-6@m uk-flex uk-flex-middle uk-flex-center">
+                                <span class="uk-text-small fnum font uk-hidden@m"><?php echo JText::sprintf('DURATION').'&ensp;:&ensp;'; ?></span>
+                                <span class="uk-text-secondary uk-text-small fnum font uk-position-relative bullet red vapcartitemboxoptionsdur">
+                                    <?php
+                                    echo VikAppointments::formatMinutesToTime($item->getDuration());
+                                    $checkout = strtotime('+' . $item->getDuration() . ' minutes', $item->getCheckinTimeStamp());
+                                    echo ' (' . JText::sprintf('VAPCHECKOUTAT', date($config->get('timeformat'), $checkout)) . ')';
+                                    ?>
+                                </span>
                             </div>
                             <div class="uk-width-1-1 uk-width-1-6@m">
                                 <div class="vapcartitemright">

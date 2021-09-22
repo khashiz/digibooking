@@ -113,7 +113,7 @@ echo $this->loadTemplate('coupon');
 
         </div>
         <div class="uk-grid-collapse" data-uk-grid>
-            <div class="uk-width-1-1 uk-width-3-4@m">&emsp;</div>
+            <div class="uk-width-1-1 uk-width-3-4@m uk-visible@m">&emsp;</div>
             <div class="uk-width-1-1 uk-width-1-4@m">
                 <button type="button" class="uk-button uk-button-primary uk-button-large uk-width-1-1" id="vapcontinuebutton" onClick="vapContinueButton();"><?php echo JText::_($skip_payments ? 'VAPCONFIRMRESBUTTON' : 'VAPCONTINUEBUTTON'); ?>&ensp;<img src="<?php echo JUri::base().'images/sprite.svg#arrow-left-short'; ?>" width="24" height="24" alt="" data-uk-svg></button>
             </div>

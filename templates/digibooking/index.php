@@ -44,7 +44,7 @@ JHtml::_('script', 'custom.js', array('version' => 'auto', 'relative' => true));
 </head>
 <body>
 <?php if ($pageclass == 'auth') { ?>
-    <main class="uk-height-viewport uk-flex uk-flex-middle uk-background-primary">
+    <main class="uk-flex uk-flex-middle uk-background-primary uk-padding uk-padding-remove-horizontal" data-uk-height-viewport="expand: true">
         <div class="uk-flex-1">
             <div class="uk-container uk-container-xsmall">
                 <div class="uk-width-1-1 uk-width-1-2@m uk-margin-auto">
@@ -61,9 +61,7 @@ JHtml::_('script', 'custom.js', array('version' => 'auto', 'relative' => true));
                         </div>
                     </div>
                     <div class="uk-text-center">
-                        <a href="https://uxdee.org" target="_blank" rel="nofollow" class="uk-display-inline-block">
-                            <img src="<?php echo JUri::base().'images/uxdee-logo.png'; ?>" alt="UXDee" width="66" height="16">
-                        </a>
+                        <a href="https://uxdee.org" rel="nofollow" class="uk-display-inline-block uxdee" target="_blank"><img src="<?php echo JUri::base().'images/uxdee.svg'; ?>" width="60"></a>
                     </div>
                 </div>
             </div>
