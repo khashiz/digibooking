@@ -2,7 +2,7 @@
 <extension type="package" version="3.10" method="upgrade">
 	<name>Persian Language Pack</name>
 	<packagename>fa-IR</packagename>
-	<version>3.10.2.1</version>
+	<version>3.10.2.2</version>
 	<creationDate>September 2021</creationDate>
 	<author>Farsi translation team, joomlafarsi.com</author>
 	<authorEmail>info@joomlafarsi.com</authorEmail>
@@ -14,7 +14,7 @@
 	<packagerurl>www.joomlafarsi.com</packagerurl>
 	<description>
 		<![CDATA[<h3>فارسی ساز جوملا 3.10 کاری از تیم برگزیده جوملا در ایران. جوملا فارسی دات کام</h3>
-		<h3>Joomla! 3.10 Full Farsi (fa-IR) Language Package version 3.10.2v1, JoomlaFarsi.com</h3>
+		<h3>Joomla! 3.10 Full Farsi (fa-IR) Language Package version 3.10.2v2, JoomlaFarsi.com</h3>
 		<br>]]></description>
 	<blockChildUninstall>true</blockChildUninstall>
 <files>

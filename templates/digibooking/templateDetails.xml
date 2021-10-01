@@ -21,7 +21,19 @@
 	<config>
 		<fields name="params">
 			<fieldset name="basic">
-				<field name="presetcolor" type="color" label="TPL_ORGB_PRESETCOLOR" />
+				<field name="limitparkings" type="number" default="15" label="TPL_DIGI_LIMITPARKING" />
+				<field name="limittables" type="number" default="40" label="TPL_DIGI_LIMITTABLES" />
+				<field name="sep1" type="spacer" label="" hr="true" />
+				<field name="showversion" type="radio" label="TPL_DIGI_SHOWVERSION" default="1" class="btn-group btn-group-yesno">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field name="verson" type="text" default="1.0" label="TPL_DIGI_VERSION" showon="showversion:1" />
+				<field name="showreportlink" type="radio" label="TPL_DIGI_SHOWREPORTLINK" default="1" class="btn-group btn-group-yesno">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field name="reportlink" type="text" label="TPL_DIGI_REPORTLINK" showon="showreportlink:1" />
 			</fieldset>
 		</fields>
 	</config>

@@ -69,8 +69,8 @@ JHtml::_('script', 'custom.js', array('version' => 'auto', 'relative' => true));
         <div>
             <div class="vap-allorders-void uk-flex uk-flex-center uk-flex-middle" data-uk-height-viewport="expand: true">
                 <div class="uk-text-center">
-                    <div class="uk-margin-medium-bottom"><img src="<?php echo JUri::base().'images/404-error.svg'; ?>" width="387" height="339" class="uk-width-medium"></div>
-                    <div class="font f500 uk-text-large"><?php echo JText::_('JERROR_LAYOUT_PAGE_NOT_FOUND'); ?></div>
+                    <div class="uk-margin-medium-bottom uk-width-1-2 uk-width-1-1@m uk-margin-auto"><img src="<?php echo JUri::base().'images/404-error.svg'; ?>" width="387" height="339" class="uk-width-medium"></div>
+                    <div class="font f500"><?php echo JText::_('JERROR_LAYOUT_PAGE_NOT_FOUND'); ?></div>
                 </div>
             </div>
             <div class="uk-padding-large uk-text-center">

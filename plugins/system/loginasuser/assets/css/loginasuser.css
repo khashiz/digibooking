@@ -1,0 +1,10 @@
+/* CSS Style for Login as User link. */
+table td.login_as_user:last-child {
+  margin-bottom: 0;
+}
+table td.login_as_user a {
+	display: inline-block;
+	padding: 5px;
+	margin: 0px !important;
+	border: 1px dotted #ccc;
+}

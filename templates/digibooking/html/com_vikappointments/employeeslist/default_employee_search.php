@@ -39,243 +39,129 @@ $url = JRoute::_($url);
 
 ?>
 
-<div class="vapempblock-search" id="vapempblock<?php echo $e['id']; ?>" data-employee="<?php echo $e['id']; ?>" data-service="<?php echo $id_service; ?>" data-day="">
+<?php if ($e['group_name'] == 'MEETING_ROOMS') { ?>
+    <div>
+        <div class="empItem" id="vapempblock<?php echo $e['id']; ?>" data-employee="<?php echo $e['id']; ?>" data-service="<?php echo $id_service; ?>" data-day="">
+            <a href="<?php echo '#modal-'. $e['id']; ?>" data-uk-toggle class="uk-display-block uk-display-block uk-border-rounded-large uk-overflow-hidden uk-link-toggle itemWrapper reservable">
+                <div class="uk-grid-collapse" data-uk-grid>
+                    <div class="uk-width-expand">
+                        <div class="uk-padding-small uk-text-zero">
+                            <div class="uk-padding-small uk-padding-remove-vertical uk-height-1-1">
+                                <div class="uk-child-width-1-3 uk-grid-small uk-text-center" data-uk-grid>
+                                    <div class="uk-text-secondary uk-flex uk-flex-middle uk-flex-center"><img src="<?php echo JUri::base().'images/sprite.svg#'.$e['group_name']; ?>" data-uk-svg></div>
+                                    <div class="uk-flex uk-flex-middle uk-flex-center">
+                                        <div>
+                                            <span class="uk-display-block uk-text-tiny uk-text-muted font itemTitle"><?php echo JText::sprintf($e['group_name'].'_NAME'); ?></span>
+                                            <span class="uk-display-block uk-text-large uk-text-secondary font f500 fnum"><?php echo $e['lastname']; ?></span>
+                                        </div>
+                                    </div>
+                                    <div class="uk-flex uk-flex-middle uk-flex-center">
+                                        <div>
+                                            <span class="uk-display-block uk-text-tiny uk-text-muted font itemTitle"><?php echo JText::sprintf('FLOOR'); ?></span>
+                                            <span class="uk-display-block uk-text-large uk-text-secondary font f500"><?php echo JText::sprintf('FLOOR'.$e['nickname']); ?></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <?php /* ?>
+                    <div class="uk-width-auto">
+                        <div class="uk-height-1-1 uk-position-relative statusWrapper reservable"><span class="uk-position-absolute uk-text-white uk-text-nowrap font status"><?php echo JText::sprintf('RESERVABLE'); ?></span>&emsp;&emsp;&emsp;</div>
+                    </div>
+                    <?php */ ?>
+                </div>
+            </a>
+        </div>
+    </div>
+    <!-- Meeting Rooms Modal -->
+    <?php $itemID = $e['id']; ?>
+    <div id="modal-<?php echo $e['id']; ?>" data-uk-modal="container: #modalContainer" class="uk-text-zero uk-flex-top uk-position-absolute uk-background-primary transparented">
+        <div class="uk-modal-dialog uk-modal-body uk-background-secondary uk-margin-auto-vertical uk-border-rounded uk-padding-large">
+            <div class="uk-padding-small uk-text-primary uk-position-top-right">
+                <a href="#" class="uk-link-reset uk-modal-close"><img src="<?php echo JUri::base().'images/sprite.svg#x-square'; ?>" width="24" height="24" data-uk-svg /></a>
+            </div>
+            <div>
+                <div data-uk-grid>
+                    <div class="uk-width-1-3 uk-visible@m">
+                        <div class="uk-text-white"><img src="<?php echo JUri::base().'images/sprite.svg#'.$e['group_name']; ?>" class="uk-width-2-3" data-uk-svg></div>
+                    </div>
+                    <div class="uk-width-1-2 uk-width-1-3@m uk-flex uk-flex-middle uk-flex-center">
+                        <div>
+                            <span class="uk-display-inline-block uk-text-tiny uk-text-muted uk-margin-small-left font itemTitle"><?php echo JText::sprintf($e['group_name'].'_NAME'); ?></span>
+                            <span class="uk-display-inline-block uk-text-large uk-text-white font f500 fnum"><?php echo $e['lastname']; ?></span>
+                        </div>
+                    </div>
+                    <div class="uk-width-1-2 uk-width-1-3@m uk-flex uk-flex-middle uk-flex-center">
+                        <div>
+                            <span class="uk-display-inline-block uk-text-tiny uk-text-muted uk-margin-small-left font itemTitle"><?php echo JText::sprintf('FLOOR'); ?></span>
+                            <span class="uk-display-inline-block uk-text-large uk-text-white font f500"><?php echo JText::sprintf('FLOOR'.$e['nickname']); ?></span>
+                        </div>
+                    </div>
+                    <div class="uk-width-1-1">
+                        <div class="uk-placeholder uk-border-rounded uk-padding-small">
+                            <div class="uk-grid-small" data-uk-grid>
+                                <div class="uk-width-auto uk-text-white">
+                                    <a href="javascript: void(0)" onclick="copyToClipboard('#email-<?php echo $itemID; ?>');UIkit.notification({message: '<?php echo JText::sprintf('EMAIL_COPIED'); ?>', status: 'success', pos: 'bottom-left'})" class="uk-link-reset" data-uk-tooltip="title: <?php echo JText::sprintf('COPY_EMAIL'); ?>; pos: left; offset: 10;"><img src="<?php echo JUri::base().'images/sprite.svg#clipboard-plus'; ?>" width="32" height="32" data-uk-svg /></a>
+                                </div>
+                                <div class="uk-width-expand uk-flex uk-flex-middle uk-flex-left">
+                                    <p class="uk-margin-remove uk-text-white uk-h5 font" id="email-<?php echo $e['id']; ?>"><?php echo $e['email']; ?></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="uk-width-1-1">
+                        <p class="uk-text-small uk-text-muted font uk-text-center"><?php echo JText::sprintf('ROOM_TEXT'); ?></p>
+                    </div>
+                    <div class="uk-width-1-1 uk-hidden@m uk-text-muted">
+                        <a href="mailto:<?php echo $e['email']; ?>" class="uk-text-small uk-link-reset font uk-text-center uk-display-block"><?php echo JText::sprintf('ROOM_TEXT_SEND_EMAIL'); ?></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php } else { ?>
+    <div data-floor="floor<?php echo $e['nickname']; ?>">
+        <div class="empItem" id="vapempblock<?php echo $e['id']; ?>" data-employee="<?php echo $e['id']; ?>" data-service="<?php echo $id_service; ?>" data-day="">
+            <div href="<?php echo $url; ?>" class="uk-display-block uk-display-block uk-border-rounded-large uk-overflow-hidden uk-link-toggle itemWrapper reservable">
+                <div class="uk-grid-collapse" data-uk-grid>
+                    <div class="uk-width-expand">
+                        <div class="uk-padding-small uk-text-zero">
+                            <div class="uk-padding-small uk-padding-remove-vertical uk-height-1-1">
+                                <div class="uk-child-width-1-3 uk-grid-small uk-text-center" data-uk-grid>
+                                    <div class="uk-text-secondary uk-flex uk-flex-middle uk-flex-center">
+                                        <img src="<?php echo JUri::base().'images/sprite.svg#'.$e['group_name']; ?>" class="uk-width-2-3" data-uk-svg>
+                                    </div>
+                                    <div class="uk-flex uk-flex-middle uk-flex-center">
+                                        <div>
+                                            <span class="uk-display-block uk-text-tiny uk-text-muted font itemTitle"><?php echo JText::sprintf($e['group_name'].'_NAME'); ?></span>
+                                            <span class="uk-display-block uk-text-large uk-text-secondary font f500 fnum"><?php echo $e['lastname']; ?></span>
+                                        </div>
+                                    </div>
+                                    <div class="uk-flex uk-flex-middle uk-flex-center">
+                                        <div>
+                                            <span class="uk-display-block uk-text-tiny uk-text-muted font itemTitle"><?php echo JText::sprintf('FLOOR'); ?></span>
+                                            <span class="uk-display-block uk-text-large uk-text-secondary font f500"><?php echo JText::sprintf('FLOOR'.$e['nickname']); ?></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- AVAILABILITY -->
+                <div class="emp-search-box-right uk-text-center uk-margin-remove">
+                    <div class="uk-padding-small uk-padding-remove-top">
+                        <div data-uk-spinner="ratio: .5"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php } ?>
 
-	<!-- DETAILS -->
 
-	<div class="emp-search-box-left">
 
-		<!-- PROFILE -->
-
-		<div class="emp-profile-box">
-
-			<?php if (strlen($e['image']) > 0 && file_exists(VAPMEDIA_SMALL . DIRECTORY_SEPARATOR . $e['image'])) { ?>
-
-				<!-- EMPLOYEE IMAGE -->
-
-				<div class="emp-logo-image">
-					<?php
-					if ($this->linkHref == 2)
-					{
-						// by clicking the image, the system should open a popup containing the original image
-						?>
-						<a href="javascript: void(0);" class="vapmodal" onClick="vapOpenModalImage('<?php echo VAPMEDIA_URI . $e['image']; ?>');">
-							<img src="<?php echo VAPMEDIA_SMALL_URI . $e['image']; ?>" alt="<?php echo $e['nickname']; ?>" />
-						</a>
-						<?php
-					}
-					else
-					{
-						// by clicking the image, the users are redirected to the details of the employee
-						?>
-						<a href="<?php echo $url; ?>">
-							<img src="<?php echo VAPMEDIA_SMALL_URI . $e['image']; ?>" alt="<?php echo $e['nickname']; ?>" />
-						</a>
-						<?php
-					}
-					?>
-				</div>
-
-			<?php } ?>
-
-			<!-- EMPLOYEE HEAD -->
-
-			<div class="emp-title-box">
-
-				<!-- EMPLOYEE NAME -->
-
-				<div class="emp-name-box">
-					<a href="<?php echo $url; ?>"><?php echo $e['nickname']; ?></a>
-				</div>
-
-				<?php if (!empty($e['group_name'])) { ?>
-
-					<!-- EMPLOYEE GROUP NAME -->
-
-					<div class="emp-group-box">
-						<?php echo $e['group_name']; ?>
-					</div>
-
-				<?php } ?>
-
-			</div>
-
-		</div>
-
-		<?php if ($reviews_enabled) { ?>
-
-			<!-- REVIEWS -->
-
-			<div class="emp-reviews-box">
-
-				<!-- RATING -->
-
-				<div class="emp-stars-box">
-					<?php
-					if ($real_rating > 0)
-					{
-						for ($i = 1; $i <= $real_rating; $i++)
-						{
-							// keep displaying a filled star
-							?>
-							<img src="<?php echo VAPASSETS_URI . 'css/images/rating-star.png'; ?>" class="emp-rating-star" />
-							<?php
-						}
-						if (round($real_rating) != $real_rating)
-						{
-							// we got an half rating, display a middle star
-							?>
-							<img src="<?php echo VAPASSETS_URI . 'css/images/rating-star-middle.png'; ?>" class="emp-rating-star" />
-							<?php
-						}
-						for ($i = round($real_rating); $i < 5; $i++)
-						{
-							// if haven't reached the limit (5 stars), keep displaying an empty star
-							?>
-							<img src="<?php echo VAPASSETS_URI . 'css/images/rating-star-no.png'; ?>" class="emp-rating-star" />
-							<?php
-						}
-					}
-					?>
-				</div>
-
-				<?php if (!empty($rev_sub_title)) { ?>
-
-					<!-- REVIEWS SUBTITLE -->
-
-					<div class="emp-rating-subtitle">
-						<?php echo $rev_sub_title; ?>
-					</div>
-
-				<?php } ?>
-			</div>
-
-		<?php } ?>
-
-		<?php if (count($e['locations_list'])) { ?>
-
-			<!-- LOCATIONS -->
-
-			<div class="emp-locations-box">
-				
-				<?php
-				foreach ($e['locations_list'] as $loc)
-				{
-					$loc_str = $loc['city_name'];
-					
-					if (empty($loc_str))
-					{
-						$loc_str = $loc['state_name'];
-
-						if (empty($loc_str))
-						{
-							$loc_str = $loc['country_name'];
-						}
-					}
-
-					if (!empty($loc['address']))
-					{
-						$loc_str .= ", " . $loc['address'];
-					}
-
-					if (!empty($loc['zip']))
-					{
-						$loc_str .= " " . $loc['zip'];
-					}
-
-					?>
-
-					<div class="emp-location-row">
-						<div class="address"><?php echo $loc_str; ?></div>
-						
-						<?php
-						if ($base_coord !== null && strlen($loc['latitude']) && strlen($loc['longitude']))
-						{ 
-							$distance = VikAppointments::getGeodeticaDistance(
-								$loc['latitude'],
-								$loc['longitude'],
-								$base_coord['latitude'],
-								$base_coord['longitude']
-							);
-
-							?>
-							<div class="distance"><?php echo JText::sprintf("VAPDISTANCEFROMYOU", VikAppointments::formatDistance($distance)); ?></div>
-							<?php
-						}
-						?>
-					</div>
-
-				<?php } ?>
-
-			</div>
-
-		<?php } ?>
-
-		<?php if (!empty($e['rate'])) { ?>
-
-			<!-- QUICK CONTACT -->
-
-			<div class="emp-rate-box">
-				<strong><?php echo VikAppointments::printPriceCurrencySymb($e['rate']); ?></strong>
-			</div>
-
-		<?php } ?>
-
-		<!-- DETAILS BUTTON -->
-
-		<div class="emp-viewdetails-box">
-			<a href="<?php echo $url; ?>" class="vap-btn blue">
-				<?php echo JText::_('VAPVIEWDETAILS'); ?>
-			</a>
-		</div>
-
-		<?php if ($e['quick_contact']) { ?>
-
-			<!-- QUICK CONTACT -->
-
-			<div class="emp-quickcontact-box">
-				<a class="vap-btn blue" href="javascript: void(0);" onClick="vapGoToMail('#vapempblock<?php echo $e['id']; ?>', <?php echo $e['id']; ?>, '<?php echo addslashes(JText::sprintf('VAPEMPTALKINGTO', $e['nickname'])); ?>');">
-					<?php echo JText::_('VAPEMPQUICKCONTACT'); ?>
-				</a>
-			</div>
-
-		<?php } ?>
-
-		<?php if ($e['showphone']) { ?>
-
-			<!-- PHONE NUMBER -->
-
-			<div class="emp-phone-box">
-				<span>
-					<?php
-					/**
-					 * The phone number is now clickable to start a call on mobile devices.
-					 *
-					 * @since 1.6.2
-					 */
-					?>
-					<a href="tel:<?php echo $e['phone']; ?>">
-						<i class="fa fa-phone"></i>
-						<?php echo $e['phone']; ?>
-					</a>
-				</span>
-			</div>
-
-		<?php } ?>
-
-	</div>
-
-	<!-- AVAILABILITY -->
-
-	<div class="emp-search-box-right">
-
-		<div class="emp-search-loading">
-			<img src="<?php echo VAPASSETS_URI; ?>css/images/loading.gif" />
-		</div>
-
-	</div>
-
-</div>
 
 <script>
 

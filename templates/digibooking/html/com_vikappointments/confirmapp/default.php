@@ -48,7 +48,7 @@ if ($login_req > 0 && !VikAppointments::isUserLogged())
 echo $this->loadTemplate('coupon');
 ?>
 <div class="vapseparatordiv"></div>
-<div class="uk-background-green uk-padding-large uk-flex uk-flex-middle uk-flex-center">
+<div class="uk-background-green uk-padding-large uk-flex uk-flex-middle uk-flex-center uk-hidden">
     <div class="page-header uk-flex-1 uk-text-zero">
         <div class="uk-grid-small" data-uk-grid>
             <div class="uk-width-expand uk-flex uk-flex-middle">
@@ -59,7 +59,7 @@ echo $this->loadTemplate('coupon');
         </div>
     </div>
 </div>
-<form action="<?php echo JRoute::_('index.php?option=com_vikappointments&task=saveorder'); ?>" id="vappayform" name="vappayform" method="POST" enctype="multipart/form-data">
+<form class="uk-hidden" action="<?php echo JRoute::_('index.php?option=com_vikappointments&task=saveorder'); ?>" id="vappayform" name="vappayform" method="POST" enctype="multipart/form-data">
     <div class="uk-padding-large">
         <?php
         // load summary cart
@@ -122,6 +122,9 @@ echo $this->loadTemplate('coupon');
         <input type="hidden" name="task" value="saveorder" />
     </div>
 </form>
+<div class="uk-width-1-1 uk-height-viewport uk-flex uk-flex-middle uk-flex-center">
+    <div data-uk-spinner="ratio: 2"></div>
+</div>
 
 
 <script>
@@ -134,6 +137,7 @@ echo $this->loadTemplate('coupon');
 		if (_ZIP_FIELD_ID_ > 0 && jQuery('#vapcfinput'+_ZIP_FIELD_ID_).val().length > 0) {
 			vapValidateZipCode();
 		}
+		jQuery('#vapcontinuebutton').click();
 	});
 		
 	function vapContinueButton() {

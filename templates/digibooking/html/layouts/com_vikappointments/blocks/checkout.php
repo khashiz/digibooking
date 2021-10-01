@@ -118,10 +118,10 @@ if ($recurrence_enabled)
 <div class="vapbookbuttondiv">
 	<div class="uk-grid-collapse uk-child-width-1-1 uk-child-width-1-2@m uk-margin-medium-top" data-uk-grid>
         <div>
-            <div class="bookerrordiv" style="display: none;">
+            <div class="bookerrordiv uk-hidden">
                 <span id="bookerror-msg"><?php echo JText::_('VAPBOOKNOTIMESELECTED'); ?></span>
             </div>
-            <div class="booksuccessdiv" style="display: none;">
+            <div class="booksuccessdiv uk-hidden">
                 <span id="booksuccess-msg"><?php echo JText::_('VAPCARTITEMADDOK'); ?></span>
             </div>
         </div>
@@ -196,60 +196,121 @@ JText::script('VAPCARTMULTIITEMSADDOK');
 	 * Used to book the selected details by submitting the form.
 	 */
 	function vapBookNow() {
-		if (isTimeChoosen || vapCheckoutProceed) {
+	    if (jQuery('.plateWrapper').length === 1) {
+            if (jQuery('#sideDigit').val().length === 0 || jQuery('#threeDigit').val().length === 0 || jQuery('#twoDigit').val().length === 0 || jQuery('#alphabet').val() === "") {
+                UIkit.notification({message: '<?php echo JText::sprintf('PLEASE_FILL_PLATE'); ?>', status: 'warning', pos: 'bottom-left'});
+            } else {
+                if (isTimeChoosen || vapCheckoutProceed) {
 
-			try
-			{
-				var options = vapGetSelectedOptions();
-			}
-			catch (error)
-			{
-				if (error == 'MissingRequiredOptionException')
-				{
-					// do not proceed as the customer forgot to fill
-					// one or more required fields
-					return;
-				}
+                    try
+                    {
+                        var options = vapGetSelectedOptions();
+                    }
+                    catch (error)
+                    {
+                        if (error == 'MissingRequiredOptionException')
+                        {
+                            // do not proceed as the customer forgot to fill
+                            // one or more required fields
+                            return;
+                        }
 
-				// Proceed because the service doesn't own any option 
-				// and the function vapGetSelectedOptions() hasn't been declared.
-				// Define an empty options array to avoid breaking the flow.
-				var options = [];
-			}
-			
-			var opt_ids 	= '';
-			var opt_quant 	= '';
-			var opt_vars 	= '';
-			
-			for (var i = 0; i < options.length; i++) {
-				if (opt_ids.length > 0) {
-					opt_ids 	+= ',';
-					opt_quant 	+= ',';
-					opt_vars 	+= ',';
-				}
+                        // Proceed because the service doesn't own any option
+                        // and the function vapGetSelectedOptions() hasn't been declared.
+                        // Define an empty options array to avoid breaking the flow.
+                        var options = [];
+                    }
 
-				opt_ids 	+= options[i]['id'];
-				opt_quant 	+= options[i]['quant'];
-				opt_vars 	+= options[i]['variation'];
-			}
-			
-			jQuery('#vapempconfirmapp').append(
-				'<input type="hidden" name="opt_ids" value="' + opt_ids + '" />'+
-				'<input type="hidden" name="opt_quant" value="' + opt_quant + '" />'+
-				'<input type="hidden" name="opt_vars" value="' + opt_vars + '" />'
-			);
+                    var opt_ids 	= '';
+                    var opt_quant 	= '';
+                    var opt_vars 	= '';
 
-			var recurrence = vapGetSelectedRecurrence();
-			
-			if (recurrence) {
-				jQuery('#vapempconfirmapp').append('<input type="hidden" name="recurrence" value="' + recurrence + '" />');
-			}
-			
-			document.confirmapp.submit();
-			
-		} else {
-			vapDisplayWrongMessage(2500, Joomla.JText._('VAPBOOKNOTIMESELECTED'));
-		}
+                    for (var i = 0; i < options.length; i++) {
+                        if (opt_ids.length > 0) {
+                            opt_ids 	+= ',';
+                            opt_quant 	+= ',';
+                            opt_vars 	+= ',';
+                        }
+
+                        opt_ids 	+= options[i]['id'];
+                        opt_quant 	+= options[i]['quant'];
+                        opt_vars 	+= options[i]['variation'];
+                    }
+
+                    jQuery('#vapempconfirmapp').append(
+                        '<input type="hidden" name="opt_ids" value="' + opt_ids + '" />'+
+                        '<input type="hidden" name="opt_quant" value="' + opt_quant + '" />'+
+                        '<input type="hidden" name="opt_vars" value="' + opt_vars + '" />'
+                    );
+
+                    var recurrence = vapGetSelectedRecurrence();
+
+                    if (recurrence) {
+                        jQuery('#vapempconfirmapp').append('<input type="hidden" name="recurrence" value="' + recurrence + '" />');
+                    }
+
+                    document.confirmapp.submit();
+
+                } else {
+                    vapDisplayWrongMessage(2500, Joomla.JText._('VAPBOOKNOTIMESELECTED'));
+                }
+            }
+        } else {
+            if (isTimeChoosen || vapCheckoutProceed) {
+
+                try
+                {
+                    var options = vapGetSelectedOptions();
+                }
+                catch (error)
+                {
+                    if (error == 'MissingRequiredOptionException')
+                    {
+                        // do not proceed as the customer forgot to fill
+                        // one or more required fields
+                        return;
+                    }
+
+                    // Proceed because the service doesn't own any option
+                    // and the function vapGetSelectedOptions() hasn't been declared.
+                    // Define an empty options array to avoid breaking the flow.
+                    var options = [];
+                }
+
+                var opt_ids 	= '';
+                var opt_quant 	= '';
+                var opt_vars 	= '';
+
+                for (var i = 0; i < options.length; i++) {
+                    if (opt_ids.length > 0) {
+                        opt_ids 	+= ',';
+                        opt_quant 	+= ',';
+                        opt_vars 	+= ',';
+                    }
+
+                    opt_ids 	+= options[i]['id'];
+                    opt_quant 	+= options[i]['quant'];
+                    opt_vars 	+= options[i]['variation'];
+                }
+
+                jQuery('#vapempconfirmapp').append(
+                    '<input type="hidden" name="opt_ids" value="' + opt_ids + '" />'+
+                    '<input type="hidden" name="opt_quant" value="' + opt_quant + '" />'+
+                    '<input type="hidden" name="opt_vars" value="' + opt_vars + '" />'
+                );
+
+                var recurrence = vapGetSelectedRecurrence();
+
+                if (recurrence) {
+                    jQuery('#vapempconfirmapp').append('<input type="hidden" name="recurrence" value="' + recurrence + '" />');
+                }
+
+                document.confirmapp.submit();
+
+            } else {
+                vapDisplayWrongMessage(2500, Joomla.JText._('VAPBOOKNOTIMESELECTED'));
+            }
+        }
 	}
 
 	var _items_add_count 	= 0;
@@ -442,14 +503,15 @@ JText::script('VAPCARTMULTIITEMSADDOK');
 		}
 
 		if (html) {
-			jQuery('.bookerrordiv #bookerror-msg').html(html);
+			// jQuery('.bookerrordiv #bookerror-msg').html(html);
 		}
 		
-		jQuery('.bookerrordiv').stop(true, true).fadeIn();
+		// jQuery('.bookerrordiv').stop(true, true).fadeIn();
+        UIkit.notification({message: html, status: 'warning', pos: 'bottom-left'});
 
-		_items_bad_timeout = setTimeout(function() {
-			jQuery('.bookerrordiv').fadeOut();
-		}, ms);
+		// _items_bad_timeout = setTimeout(function() {
+		// 	jQuery('.bookerrordiv').fadeOut();
+		// }, ms);
 	}
 
 	function vapRecurrenceSelectChanged() {

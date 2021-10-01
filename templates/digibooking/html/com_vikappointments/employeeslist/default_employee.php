@@ -30,9 +30,6 @@ $vik = UIApplication::getInstance();
 ?>
 <div>
     <div class="empItem" id="vapempblock<?php echo $e['id']; ?>">
-        <?php
-        /* echo JUri::base().'parking/'.strtolower($e['lastname']).'?id_service=1&day='.strtotime (new JDate('now')).'&hour=9&min=0'; */
-        ?>
         <a href="<?php echo $e['group_name'] == 'MEETING_ROOMS' ? '#modal-'. $e['id'] : $url; ?>" <?php if ($e['group_name'] == 'MEETING_ROOMS') echo 'data-uk-toggle'; ?> class="uk-display-block uk-display-block uk-border-rounded-large uk-overflow-hidden uk-link-toggle itemWrapper reservable">
             <div class="uk-grid-collapse" data-uk-grid>
                 <div class="uk-width-expand">

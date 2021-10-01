@@ -31,21 +31,33 @@ function plateInserter() {
 
 // Set Split Plate Value
 function plateSpliteInserter() {
-    if (getCookie("plate_sideDigit") != "") {
+    if (getCookie("plate_sideDigit") != "undefined") {
         jQuery("#sideDigit").val(getCookie("plate_sideDigit"));
     }
-    if (getCookie("plate_threeDigit") != "") {
+    if (getCookie("plate_threeDigit") != "undefined") {
         jQuery("#threeDigit").val(getCookie("plate_threeDigit"));
     }
-    if (getCookie("plate_alphabetDigit") != "") {
+    if (getCookie("plate_alphabetDigit") != "undefined") {
         jQuery("#alphabet").val(getCookie("plate_alphabetDigit"));
     }
-    if (getCookie("plate_twoDigit") != "") {
+    if (getCookie("plate_twoDigit") != "undefined") {
         jQuery("#twoDigit").val(getCookie("plate_twoDigit"));
     }
 }
 
 jQuery(document).ready(function () {
+    // Negahban Data Tables
+    jQuery('#dataTables').fancyTable({
+        sortable: false,
+        pagination:true,
+        perPage:10,
+        searchable:true,
+        globalSearch:true,
+        paginationClass:"uk-button uk-button-default",
+        paginationClassActive:"uk-button-success active",
+        inputPlaceholder: 'جستجوی موقعیت ، تاریخ ، پلاک ...'
+    });
+
     // Avatar Image
     function readURL(input) {
         if (input.files && input.files[0]) {

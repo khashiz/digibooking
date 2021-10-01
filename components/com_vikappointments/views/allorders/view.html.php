@@ -51,7 +51,7 @@ class VikAppointmentsViewallorders extends JViewUI
 
 			$q->select('SQL_CALC_FOUND_ROWS ' . $dbo->qn('r.id'));
 			$q->select($dbo->qn(array(
-				'r.sid', 'r.checkin_ts', 'r.status', 'r.total_cost', 'r.createdon', 'r.view_emp', 'r.id_parent',
+				'r.sid', 'r.checkin_ts', 'r.status', 'r.total_cost', 'r.createdon', 'r.view_emp', 'r.id_parent', 'r.duration',
 			)));
 			$q->select(array(
 				$dbo->qn('e.id', 'empid'),

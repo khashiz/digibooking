@@ -2041,7 +2041,7 @@ class VikAppointmentsController extends JControllerUI
 		VikAppointments::sendCustomerEmail($order_details);
 
 		$order_details_original = VikAppointments::fetchOrderDetails($oid, $sid, VikAppointments::getDefaultLanguage('site'));
-		VikAppointments::sendCancellationAdminEmail($order_details_original);
+//		VikAppointments::sendCancellationAdminEmail($order_details_original);
 
 		// check for customers in waiting list
 		VikAppointments::notifyCustomersInWaitingList($order_details);

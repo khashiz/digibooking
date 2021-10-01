@@ -279,22 +279,14 @@ div{
             -webkit-appearance: none;
             background-color: #fff;
             &[name="sideDigit"],
-            &[name="twoDigit"]{
-              width: 80px;
-            }
-            &[name="threeDigit"]{
-              width: 120px;
-            }
+            &[name="twoDigit"]{}
+            &[name="threeDigit"]{}
             @media(max-width: 959px){
               font-size: 16px;
               padding: 5px;
               &[name="sideDigit"],
-              &[name="twoDigit"]{
-                width: 60px;
-              }
-              &[name="threeDigit"]{
-                width: 60px;
-              }
+              &[name="twoDigit"]{}
+              &[name="threeDigit"]{}
             }
           }
         }
@@ -392,6 +384,69 @@ div{
       background-color: rgba(0, 0, 0, .7);
     }
   }
+  &.limitsWrapper{
+    progress{
+      margin-bottom: 10px;
+      height: 6px;
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      &::progress-bar{background-color: #a5a5a5;}
+      &::-moz-progress-bar{background-color: #a5a5a5;}
+      &::-webkit-progress-bar{background-color: #a5a5a5;}
+      &.success{
+        &::progress-value{background-color: @success;}
+        &::-moz-progress-value{background-color: @success;}
+        &::-webkit-progress-value{background-color: @success;}
+      }
+      &.danger{
+        &::progress-value{background-color: @danger;}
+        &::-moz-progress-value{background-color: @danger;}
+        &::-webkit-progress-value{background-color: @danger;}
+      }
+    }
+  }
+  &.wizardWrapper{
+    min-height: 100px;
+    div{
+      &.stepWrapper{
+        &:not(.uk-first-column){
+          background-image: linear-gradient(to bottom, #707070 10px, rgba(255, 255, 255, 0) 0%);
+          background-position: right;
+          background-size: 1px 20px;
+          background-repeat: repeat-y;
+        }
+        div{
+          &.step{
+            background-image: linear-gradient(to right, #707070 10px, rgba(255, 255, 255, 0) 0%);
+            background-position: bottom;
+            background-size: 20px 1px;
+            background-repeat: repeat-x;
+            color: #707070;
+            &.done,
+            &.current{
+              background-color: rgba(237, 255, 226, 0.3);
+            }
+            &.done{
+              color: #4e4d57;
+            }
+            &.current{
+              background-image: linear-gradient(to right, @primary 10px, rgba(255, 255, 255, 0) 0%);
+              background-position: bottom;
+              background-size: 10px 3px;
+              background-repeat: repeat-x;
+              color: #000;
+            }
+            span{
+              &.steDone{
+                top: -20px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
 span{
   &.vap-cal-box{
@@ -438,35 +493,35 @@ span{
     }
   }
 }
-a{
-  &.itemWrapper{
-    .transition();
-    &.reservable{
-      .box-shadow(inset 0 0 0 2px @success);
-      &:hover{
-        background-color: #e3ffd9;
-      }
+.itemWrapper{
+  .transition();
+  &.reservable{
+    .box-shadow(0 0 0 2px @success);
+    &:hover{
+      background-color: #e3ffd9;
     }
-    span{
-      &.itemTitle{
-        margin-bottom: 5px;
-      }
-      &.status{
-        .transform(rotate(90deg));
-      }
+  }
+  span{
+    &.itemTitle{
+      margin-bottom: 5px;
     }
-    div{
-      &.statusWrapper{
-        &.reservable{
-          background-color: @success;
-          span{
-            top: 33px;
-            right: -5px;
-          }
+    &.status{
+      .transform(rotate(90deg));
+    }
+  }
+  div{
+    &.statusWrapper{
+      &.reservable{
+        background-color: @success;
+        span{
+          top: 33px;
+          right: -5px;
         }
       }
     }
   }
+}
+a{
   &.countActiveUsers{
     span{
       &.count{
@@ -483,6 +538,16 @@ a{
     width: 40px;
   }
 }
+.slutButtonText{
+  line-height: .5;
+  margin-top: 10px;
+}
+.slutButtonTime{
+  line-height: 1;
+  margin-top: 10px;
+  text-align: center;
+  padding: 8px 0 5px;
+}
 ul{
   list-style: none;
   &.breadcrumb{
@@ -492,6 +557,27 @@ ul{
         color: #fff;
         .font;
       }
+    }
+  }
+}
+.fancySearchRow{
+  padding: 0 !important;
+  margin: 0;
+  font-size: 0;
+  th{
+    padding: 0 !important;
+    margin: 0;
+    input{
+      text-align: center;
+      font-size: 16px;
+      padding: 15px;
+      width: 100%;
+      box-sizing: border-box;
+      background-color: #f9f9f9;
+      color: #000;
+      border: 0;
+      outline: 0;
+      .font;
     }
   }
 }
@@ -531,7 +617,7 @@ table{
             display: block;
             font-size: 14px;
             font-weight: 400;
-            padding: 10px 10px 8px;
+            padding: 8px 10px 6px;
             div{
               font-size: 18px;
               font-weight: 400;
@@ -562,6 +648,11 @@ table{
   }
 }
 //UIKit Overrides
+.uk-table{
+  td{
+    padding: 15px;
+  }
+}
 .uk-text-tiny{
   font-size: 12px;
 }
@@ -604,6 +695,16 @@ table{
 .uk-background-blue{
   background-color: @blue;
 }
+.uk-background-canceled{
+  background-color: #fff4f4;
+}
+.uk-subnav-pill{
+  >.uk-active{
+    >a{
+      background-color: @primary;
+    }
+  }
+}
 .uk-tooltip{
   font-size: 12px;
   .font;
@@ -615,6 +716,12 @@ table{
       &.uk-notification-message-success{
         background-color: @success;
       }
+      &.uk-notification-message-danger{
+        background-color: @danger;
+      }
+      &.uk-notification-message-warning{
+        background-color: @warning;
+      }
     }
     a{
       display: none !important;
@@ -625,6 +732,11 @@ table{
       text-align: center;
       .font;
     }
+  }
+}
+.uk-select{
+  &.timeSelect{
+    border-color: #000;
   }
 }
 .uk-input{

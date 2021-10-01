@@ -61,6 +61,10 @@ $no_day_char = JText::_('VAPRESNODAYCHAR');
 
 $time_format = UIFactory::getConfig()->get('timeformat');
 ?>
+<div class="uk-background-primary">
+    <h2 class="uk-text-center uk-text-white uk-padding-small uk-margin-remove uk-h4 font"><?php echo JTEXT::_('COMPLETE_RESERVE_INFO'); ?></h2>
+    <span class="mobSpacer uk-hidden@m uk-margin-bottom uk-display-block"></span>
+</div>
 <div class="empSearchWrapper">
     <div class="uk-grid-collapse uk-child-width-1-1 uk-child-width-1-2@m" data-uk-grid>
         <div>
@@ -70,10 +74,10 @@ $time_format = UIFactory::getConfig()->get('timeformat');
                         <h3 class="uk-margin-bottom font f500 uk-h4 uk-text-secondary uk-text-center"><?php echo JText::sprintf('SELECT_YOUR_DATE'); ?></h3>
                         <div data-uk-slider="finite: true;">
                             <div class="uk-grid-small" data-uk-grid>
-                                <div class="uk-width-1-6 uk-flex uk-flex-middle uk-text-muted uk-visible@m">
+                                <div class="uk-width-auto uk-width-1-6@xl uk-flex uk-flex-middle uk-text-muted uk-visible@m">
                                     <a href="#" class="uk-flex uk-flex-middle uk-flex-center uk-link-reset" data-uk-slider-item="previous">
                                         <span><img src="<?php echo JUri::base().'images/sprite.svg#chevron-right'; ?>" width="18" height="18" data-uk-svg></span>
-                                        <span class="font uk-text-small uk-margin-small-right"><?php echo JText::sprintf('PREV_MONTH'); ?></span>
+                                        <span class="font uk-text-small uk-margin-small-right uk-visible@xl"><?php echo JText::sprintf('PREV_MONTH'); ?></span>
                                     </a>
                                 </div>
                                 <div class="uk-width-expand">
@@ -229,9 +233,9 @@ $time_format = UIFactory::getConfig()->get('timeformat');
                                         </div>
                                     </div>
                                 </div>
-                                <div class="uk-width-1-6 uk-flex uk-flex-middle uk-flex-left uk-text-muted uk-visible@m">
+                                <div class="uk-width-auto uk-width-1-6@xl uk-flex uk-flex-middle uk-flex-left uk-text-muted uk-visible@m">
                                     <a href="#" class="uk-flex uk-flex-middle uk-flex-center uk-link-reset" data-uk-slider-item="next">
-                                        <span class="font uk-text-small uk-margin-small-left"><?php echo JText::sprintf('NEXT_MONTH'); ?></span>
+                                        <span class="font uk-text-small uk-margin-small-left uk-visible@xl"><?php echo JText::sprintf('NEXT_MONTH'); ?></span>
                                         <span><img src="<?php echo JUri::base().'images/sprite.svg#chevron-left'; ?>" width="18" height="18" data-uk-svg></span>
                                     </a>
                                 </div>
@@ -257,27 +261,19 @@ $time_format = UIFactory::getConfig()->get('timeformat');
             </div>
         </div>
         <div>
-            <div class="uk-padding-large uk-padding-remove-vertical bottomBordered uk-visible@m">
-                <div class="uk-padding uk-padding-remove-horizontal">
-                    <div class="uk-grid-large" data-uk-grid>
-                        <div class="uk-width-auto uk-flex uk-flex-middle">
-                            <div><img src="<?php echo JUri::base().'images/sprite.svg#MEETING_ROOMS'; ?>" data-uk-svg></div>
-                        </div>
-                        <div class="uk-width-expand uk-flex uk-flex-middle">
-                            <div>
-                                <div class="uk-child-width-auto" data-uk-grid>
-                                    <div>
-                                        <span class="uk-display-block uk-h4 uk-margin-small-bottom uk-text-muted font"><?php echo JText::sprintf('SERVICE_NAME'); ?></span>
-                                        <span class="uk-display-block uk-h4 uk-margin-remove uk-text-muted font"><?php echo JText::sprintf('FLOOR'); ?></span>
-                                    </div>
-                                    <div>
-                                        <span class="uk-display-block uk-h4 uk-margin-small-bottom uk-text-secondary font fnum"><?php echo JText::sprintf('GROUP_'.$employee['id_group'].'_SINLE_PAGE_MAIN_TITLE', $employee['lastname']); ?></span>
-                                        <span class="uk-display-block uk-h4 uk-margin-remove uk-text-secondary font"><?php echo JText::sprintf('FLOOR'.$employee['nickname']); ?></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            <div class="bottomBordered uk-background-muted uk-visible@m">
+                <div class="uk-padding">
+                    <h3 class="uk-margin-bottom font f500 uk-h4 uk-text-secondary uk-text-center"><?php echo JTEXT::_('SELECT_POSITION'); ?></h3>
+                    <ul class="uk-child-width-auto uk-flex-center font uk-text-small" data-uk-grid>
+                        <li>
+                            <span class="uk-text-muted"><?php echo JText::sprintf('POSITION_NAME').' : '; ?></span>
+                            <span class="uk-text-secondary"><?php echo $employee['firstname'].' '.$employee['lastname']; ?></span>
+                        </li>
+                        <li>
+                            <span class="uk-text-muted"><?php echo JText::sprintf('FLOOR').' : '; ?></span>
+                            <span class="uk-text-secondary"><?php echo JText::sprintf('FLOOR'.$employee['nickname']); ?></span>
+                        </li>
+                    </ul>
                 </div>
             </div>
             <div class="uk-padding">
@@ -288,62 +284,67 @@ $time_format = UIFactory::getConfig()->get('timeformat');
                             plateSpliteInserter();
                         });
                     </script>
-                    <div>
+                    <div class="uk-margin-auto uk-width-1-1 uk-width-2-3@xl">
                     <div class="uk-text-zero uk-border-rounded plateWrapper">
                         <div>
                             <div class="uk-grid-collapse" data-uk-grid>
-                                <div class="uk-width-auto">
+                                <div class="uk-width-1-5">
                                     <div class="uk-background-white uk-border-rounded uk-overflow-hidden sidePart">
                                         <div>
-                                            <input type="tel" name="sideDigit" placeholder="_&ensp;_" maxlength="2" id="sideDigit" class="uk-width-1-1 ltr">
+                                            <input type="tel" name="sideDigit" placeholder="_&ensp;_" maxlength="2" id="sideDigit" class="uk-width-1-1 ltr" required>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="uk-width-expand">
-                                    <div class="uk-background-white uk-border-rounded mainPart">
-                                        <div class="uk-padding-small uk-padding-remove-vertical">
+                                    <div class="uk-background-white uk-border-rounded uk-overflow-hidden mainPart">
+                                        <div>
                                             <div class="uk-grid-collapse uk-flex-around" data-uk-grid>
-                                                <div>
+                                                <div class="uk-width-2-5">
                                                     <input type="tel" name="threeDigit" placeholder="_&ensp;_&ensp;_" maxlength="3" id="threeDigit" class="uk-width-1-1 uk-margin-auto ltr">
                                                 </div>
-                                                <div>
-                                                    <select class="uk-select uk-height-1-1 uk-width-1-1" id="alphabet">
-                                                        <option value="الف" selected="selected">الف</option>
-                                                        <option value="ب">ب</option>
-                                                        <option value="پ">پ</option>
-                                                        <option value="ت">ت</option>
-                                                        <option value="ث">ث</option>
-                                                        <option value="ج">ج</option>
-                                                        <option value="چ">چ</option>
-                                                        <option value="ح">ح</option>
-                                                        <option value="خ">خ</option>
-                                                        <option value="د">د</option>
-                                                        <option value="ذ">ذ</option>
-                                                        <option value="ر">ر</option>
-                                                        <option value="ز">ز</option>
-                                                        <option value="ژ">ژ</option>
-                                                        <option value="س">س</option>
-                                                        <option value="ش">ش</option>
-                                                        <option value="ص">ص</option>
-                                                        <option value="ض">ض</option>
-                                                        <option value="ط">ط</option>
-                                                        <option value="ظ">ظ</option>
-                                                        <option value="ع">ع</option>
-                                                        <option value="غ">غ</option>
-                                                        <option value="ف">ف</option>
-                                                        <option value="ق">ق</option>
-                                                        <option value="ک">ک</option>
-                                                        <option value="گ">گ</option>
-                                                        <option value="ل">ل</option>
-                                                        <option value="م">م</option>
-                                                        <option value="ن">ن</option>
-                                                        <option value="و">و</option>
-                                                        <option value="ه">ه</option>
-                                                        <option value="ی">ی</option>
-                                                    </select>
-                                                </div>
-                                                <div>
-                                                    <input type="tel" name="twoDigit" placeholder="_&ensp;_" maxlength="2" id="twoDigit" class="uk-width-1-1 ltr">
+                                                <div class="uk-width-expand">
+                                                    <div class="uk-grid-collapse uk-flex-around" data-uk-grid>
+                                                        <div class="uk-width-expand">
+                                                            <select class="uk-select uk-height-1-1 uk-width-1-1" id="alphabet">
+                                                                <option value="" selected="selected"></option>
+                                                                <option value="الف">الف</option>
+                                                                <option value="ب">ب</option>
+                                                                <option value="پ">پ</option>
+                                                                <option value="ت">ت</option>
+                                                                <option value="ث">ث</option>
+                                                                <option value="ج">ج</option>
+                                                                <option value="چ">چ</option>
+                                                                <option value="ح">ح</option>
+                                                                <option value="خ">خ</option>
+                                                                <option value="د">د</option>
+                                                                <option value="ذ">ذ</option>
+                                                                <option value="ر">ر</option>
+                                                                <option value="ز">ز</option>
+                                                                <option value="ژ">ژ</option>
+                                                                <option value="س">س</option>
+                                                                <option value="ش">ش</option>
+                                                                <option value="ص">ص</option>
+                                                                <option value="ض">ض</option>
+                                                                <option value="ط">ط</option>
+                                                                <option value="ظ">ظ</option>
+                                                                <option value="ع">ع</option>
+                                                                <option value="غ">غ</option>
+                                                                <option value="ف">ف</option>
+                                                                <option value="ق">ق</option>
+                                                                <option value="ک">ک</option>
+                                                                <option value="گ">گ</option>
+                                                                <option value="ل">ل</option>
+                                                                <option value="م">م</option>
+                                                                <option value="ن">ن</option>
+                                                                <option value="و">و</option>
+                                                                <option value="ه">ه</option>
+                                                                <option value="ی">ی</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="uk-width-1-2">
+                                                            <input type="tel" name="twoDigit" placeholder="_&ensp;_" maxlength="2" id="twoDigit" class="uk-width-1-1 ltr">
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -368,8 +369,8 @@ $time_format = UIFactory::getConfig()->get('timeformat');
                     </div>
                 </div>
                 <?php } ?>
-                <div class="<?php if ($service['name'] == 'PARKINGS') {echo 'uk-hidde';} ?>">
-                    <div class="vaptimeline" id="vaptimeline"></div>
+                <div class="<?php if ($service['name'] == 'PARKINGS') {echo 'uk-hidden';} ?>">
+                    <div class="vaptimeline uk-text-center" id="vaptimeline"></div>
                 </div>
             </div>
         </div>
@@ -494,7 +495,7 @@ $time_format = UIFactory::getConfig()->get('timeformat');
 				jQuery('#vapdayselected').val('');
 
 				// show error message
-				jQuery('.vaptimeline').html(obj[1]);
+                UIkit.notification({message: obj[1], status: 'warning', pos: 'bottom-left'});
 				
 				if (vapDoAnimation) {
 					var px_to_scroll = isTimelineOutOfMonitor();

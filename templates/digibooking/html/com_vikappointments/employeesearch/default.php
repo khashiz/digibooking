@@ -97,7 +97,7 @@ if ($employee['quick_contact'])
 ?>
 
 <!-- SEARCH FORM -->
-<div class="uk-padding-large">
+<div class="uk-padding">
     <form id="plateForm" name="empsearchform" action="<?php echo JRoute::_('index.php?option=com_vikappointments&view=employeesearch&id_employee=' . $employee['id']  . ($this->itemid ? '&Itemid=' . $this->itemid : '')); ?>" method="post" id="vapempsearchform">
 
         <!-- FILTER BAR -->

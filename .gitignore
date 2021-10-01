@@ -383,7 +383,6 @@
 /administrator/modules/mod_unread/*
 /administrator/modules/mod_version/*
 /administrator/templates/hathor/*
-/administrator/templates/isis/*
 /administrator/templates/system/*
 /bin/*
 /cache/*
